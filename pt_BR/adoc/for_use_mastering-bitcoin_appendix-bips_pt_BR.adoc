@@ -1,0 +1,116 @@
+[[appdxbitcoinimpproposals]]
+[appendix]
+== Propostas de Melhoria ao Bitcoin
+
+((("propostas de melhoria ao bitcoin", "tipos de")))As Propostas de Melhoria ao Bitcoin (em inglês, _Bitcoin Improvement Proposals_ ou BIPs) são documentos de design que fornecem informações para a comunidade do bitcoin, ou que são usados para descrever um novo recurso para o bitcoin, ou para descrever seus processos ou ambiente.
+
+De acordo com a BIP-01 _Propósito e Diretrizes das BIPs_, existem três tipos de BIPs:
+
+BIP _Padrão_ (Standard):: Descreve qualquer mudança que afete a maioria ou a totalidade das implementações do bitcoin, tais como uma mudança no protocolo da rede, uma mudança nas regras de validação de transações e blocos ou qualquer mudança ou adição que afete a interoperabilidade de aplicativos usando bitcoin.
+BIP _Informativa_:: Descreve uma questão relacionada ao design do bitcoin ou fornece orientações gerais/informações para a comunidade do bitcoin, mas não propõe uma nova funcionalidade. As BIPs informativas não necessariamente representam um consenso ou uma recomendação da comunidade do bitcoin, de forma que usuários e implementadores podem ignorar ou seguir as orientações dessas BIPs.
+_Process_ BIP:: Describes a bitcoin process, or proposes a change to (or an event in) a process. Process BIPs are like standard BIPs but apply to areas other than the Bitcoin protocol itself. They might propose an implementation, but not to bitcoin's codebase; they often require community consensus; and unlike informational BIPs, they are more than recommendations, and users are typically not free to ignore them. Examples include procedures, guidelines, changes to the decision-making process, and changes to the tools or environment used in bitcoin development. Any meta-BIP is also considered a process BIP.
+
+((("propostas de melhoria ao bitcoin", "repositório das")))As BIPs são registradas em um repositório versionado do GitHub: https://github.com/bitcoin/bips[https://github.com/bitcoin/bips] . A <<table_d-1>> mostra uma listagem do estado das BIPs em abril de 2017. Consulte o repositório oficial para obter informações atualizadas sobre as BIPs existentes e seus conteúdos.((("propostas de melhoria ao bitcoin", "listagem das", id="BIPsnap15")))
+
+[[table_d-1]]
+.Lista das BIPs
+[options="header"]
+|=======================================================================
+|Número | Título |Autor |Tipo |Status
+|[[bip-1]]https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki[BIP-1] |BIP Purpose and Guidelines |Amir Taaki |Processo |Substituída
+|[[bip-2]]https://github.com/bitcoin/bips/blob/master/bip-0002.mediawiki[BIP-2] |BIP process, revised |Luke Dashjr |Processo |Ativa
+|[[bip-8]]https://github.com/bitcoin/bips/blob/master/bip-0008.mediawiki[BIP-8] |Version bits with guaranteed lock-in |Shaolin Fry |Informativa |Rascunho
+|[[bip-9]]https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki[BIP-9] |Version bits with timeout and delay |Pieter Wuille, Peter Todd, Greg Maxwell, Rusty Russell |Informativa |Concluída
+|[[bip-10]]https://github.com/bitcoin/bips/blob/master/bip-0010.mediawiki[BIP-10] |Multi-Sig Transaction Distribution |Alan Reiner |Informativa |Removida
+|[[bip-11]]https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki[BIP-11] |M-of-N Standard Transactions |Gavin Andresen |Padrão |Concluída
+|[[bip-12]]https://github.com/bitcoin/bips/blob/master/bip-0012.mediawiki[BIP-12] |OP_EVAL |Gavin Andresen |Padrão |Removida
+|[[bip-13]]https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki[BIP-13] |Address Format for pay-to-script-hash |Gavin Andresen |Padrão |Concluída
+|[[bip-14]]https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki[BIP-14] |Protocol Version and User Agent |Amir Taaki, Patrick Strateman |Padrão |Concluída
+|[[bip-15]]https://github.com/bitcoin/bips/blob/master/bip-0015.mediawiki[BIP-15] |Aliases |Amir Taaki |Padrão |Adiada
+|[[bip-16]]https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki[BIP-16] |Pay to Script Hash |Gavin Andresen |Padrão |Concluída
+|[[bip-17]]https://github.com/bitcoin/bips/blob/master/bip-0017.mediawiki[BIP-17] |OP_CHECKHASHVERIFY (CHV) |Luke Dashjr |Padrão |Removida
+|[[bip-18]]https://github.com/bitcoin/bips/blob/master/bip-0018.mediawiki[BIP-18] |hashScriptCheck |Luke Dashjr |Padrão |Proposta
+|[[bip-19]]https://github.com/bitcoin/bips/blob/master/bip-0019.mediawiki[BIP-19] |M-of-N Standard Transactions (Low SigOp) |Luke Dashjr |Padrão |Rascunho
+|[[bip-20]]https://github.com/bitcoin/bips/blob/master/bip-0020.mediawiki[BIP-20] |URI Scheme |Luke Dashjr |Padrão |Substituída
+|[[bip-21]]https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki[BIP-21] |URI Scheme |Nils Schneider, Matt Corallo |Padrão |Concluída
+|[[bip-22]]https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki[BIP-22] |getblocktemplate - Fundamentals |Luke Dashjr |Padrão |Concluída
+|[[bip-23]]https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki[BIP-23] |getblocktemplate - Pooled Mining |Luke Dashjr |Padrão |Concluída
+|[[bip-30]]https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki[BIP-30] |Duplicate transactions |Pieter Wuille |Padrão |Concluída
+|[[bip-31]]https://github.com/bitcoin/bips/blob/master/bip-0031.mediawiki[BIP-31] |Pong message |Mike Hearn |Padrão |Concluída
+|[[bip-32]]https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki[BIP-32] |Hierarchical Deterministic Wallets |Pieter Wuille |Informativa |Concluída
+|[[bip-33]]https://github.com/bitcoin/bips/blob/master/bip-0033.mediawiki[BIP-33] |Stratized Nodes |Amir Taaki |Padrão |Rascunho
+|[[bip-34]]https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki[BIP-34] |Block v2, Height in Coinbase |Gavin Andresen |Padrão |Concluída
+|[[bip-35]]https://github.com/bitcoin/bips/blob/master/bip-0035.mediawiki[BIP-35] |mempool message |Jeff Garzik |Padrão |Concluída
+|[[bip-36]]https://github.com/bitcoin/bips/blob/master/bip-0036.mediawiki[BIP-36] |Custom Services |Stefan Thomas |Padrão |Rascunho
+|[[bip-37]]https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki[BIP-37] |Connection Bloom filtering |Mike Hearn, Matt Corallo |Padrão |Concluída
+|[[bip-39]]https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki[BIP-39] |Mnemonic code for generating deterministic keys |Marek Palatinus, Pavol Rusnak, Aaron Voisine, Sean Bowe |Padrão |Proposta
+|[[bip-40]]https://github.com/bitcoin/bips/blob/master/bip-0040.mediawiki[BIP-40] |Stratum wire protocol |Marek Palatinus |Padrão |Nº BIP alocado
+|[[bip-41]]https://github.com/bitcoin/bips/blob/master/bip-0041.mediawiki[BIP-41] |Stratum mining protocol |Marek Palatinus |Padrão |Nº BIP alocado
+|[[bip-42]]https://github.com/bitcoin/bips/blob/master/bip-0042.mediawiki[BIP-42] |A finite monetary supply for Bitcoin |Pieter Wuille |Padrão |Rascunho
+|[[bip-43]]https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki[BIP-43] |Purpose Field for Deterministic Wallets |Marek Palatinus, Pavol Rusnak |Informativa |Rascunho
+|[[bip-44]]https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki[BIP-44] |Multi-Account Hierarchy for Deterministic Wallets |Marek Palatinus, Pavol Rusnak |Padrão |Proposta
+|[[bip-45]]https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki[BIP-45] |Structure for Deterministic P2SH Multisignature Wallets |Manuel Araoz, Ryan X. Charles, Matias Alejo Garcia |Padrão |Proposta
+|[[bip-47]]https://github.com/bitcoin/bips/blob/master/bip-0047.mediawiki[BIP-47] |Reusable Payment Codes for Hierarchical Deterministic Wallets |Justus Ranvier |Informativa |Rascunho
+|[[bip-49]]https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki[BIP-49] |Derivation scheme for P2WPKH-nested-in-P2SH based accounts |Daniel Weigl |Informativa |Rascunho
+|[[bip-50]]https://github.com/bitcoin/bips/blob/master/bip-0050.mediawiki[BIP-50] |March 2013 Chain Fork Post-Mortem |Gavin Andresen |Informativa |Concluída
+|[[bip-60]]https://github.com/bitcoin/bips/blob/master/bip-0060.mediawiki[BIP-60] |Fixed Length "version" Message (Relay-Transactions Field) |Amir Taaki |Padrão |Rascunho
+|[[bip-61]]https://github.com/bitcoin/bips/blob/master/bip-0061.mediawiki[BIP-61] |Reject P2P message |Gavin Andresen |Padrão |Concluída
+|[[bip-62]]https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki[BIP-62] |Dealing with malleability |Pieter Wuille |Padrão |Removida
+|[[bip-63]]https://github.com/bitcoin/bips/blob/master/bip-0063.mediawiki[BIP-63] |Stealth Addresses |Peter Todd |Padrão |Nº BIP alocado
+|[[bip-64]]https://github.com/bitcoin/bips/blob/master/bip-0064.mediawiki[BIP-64] |getutxo message |Mike Hearn |Padrão |Rascunho
+|[[bip-65]]https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki[BIP-65] |OP_CHECKLOCKTIMEVERIFY |Peter Todd |Padrão |Concluída
+|[[bip-66]]https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki[BIP-66] |Strict DER signatures |Pieter Wuille |Padrão |Concluída
+|[[bip-67]]https://github.com/bitcoin/bips/blob/master/bip-0067.mediawiki[BIP-67] |Deterministic Pay-to-script-hash multi-signature addresses through public key sorting |Thomas Kerin, Jean-Pierre Rupp, Ruben de Vries |Padrão |Proposta
+|[[bip-68]]https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki[BIP-68] |Relative lock-time using consensus-enforced sequence numbers |Mark Friedenbach, BtcDrak, Nicolas Dorier, kinoshitajona |Padrão |Concluída
+|[[bip-69]]https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki[BIP-69] |Lexicographical Indexing of Transaction Inputs and Outputs |Kristov Atlas |Informativa |Proposta
+|[[bip-70]]https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki[BIP-70] |Payment Protocol |Gavin Andresen, Mike Hearn |Padrão |Concluída
+|[[bip-71]]https://github.com/bitcoin/bips/blob/master/bip-0071.mediawiki[BIP-71] |Payment Protocol MIME types |Gavin Andresen |Padrão |Concluída
+|[[bip-72]]https://github.com/bitcoin/bips/blob/master/bip-0072.mediawiki[BIP-72] |bitcoin: uri extensions for Payment Protocol |Gavin Andresen |Padrão |Concluída
+|[[bip-73]]https://github.com/bitcoin/bips/blob/master/bip-0073.mediawiki[BIP-73] |Use "Accept" header for response type negotiation with Payment Request URLs |Stephen Pair |Padrão |Concluída
+|[[bip-74]]https://github.com/bitcoin/bips/blob/master/bip-0074.mediawiki[BIP-74] |Allow zero value OP_RETURN in Payment Protocol |Toby Padilla |Padrão |Rascunho
+|[[bip-75]]https://github.com/bitcoin/bips/blob/master/bip-0075.mediawiki[BIP-75] |Out of Band Address Exchange using Payment Protocol Encryption |Justin Newton, Matt David, Aaron Voisine, James MacWhyte |Padrão |Rascunho
+|[[bip-80]]https://github.com/bitcoin/bips/blob/master/bip-0080.mediawiki[BIP-80] |Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets |Justus Ranvier, Jimmy Song |Informativa |Adiada
+|[[bip-81]]https://github.com/bitcoin/bips/blob/master/bip-0081.mediawiki[BIP-81] |Hierarchy for Colored Voting Pool Deterministic Multisig Wallets |Justus Ranvier, Jimmy Song |Informativa |Adiada
+|[[bip-83]]https://github.com/bitcoin/bips/blob/master/bip-0083.mediawiki[BIP-83] |Dynamic Hierarchical Deterministic Key Trees |Eric Lombrozo |Padrão |Rascunho
+|[[bip-90]]https://github.com/bitcoin/bips/blob/master/bip-0090.mediawiki[BIP-90] |Buried Deployments |Suhas Daftuar |Informativa |Rascunho
+|[[bip-99]]https://github.com/bitcoin/bips/blob/master/bip-0099.mediawiki[BIP-99] |Motivation and deployment of consensus rule changes ([soft/hard]forks) |Jorge Timón |Informativa |Rascunho
+|[[bip-101]]https://github.com/bitcoin/bips/blob/master/bip-0101.mediawiki[BIP-101] |Increase maximum block size |Gavin Andresen |Padrão |Removida
+|[[bip-102]]https://github.com/bitcoin/bips/blob/master/bip-0102.mediawiki[BIP-102] |Block size increase to 2MB |Jeff Garzik |Padrão |Rascunho
+|[[bip-103]]https://github.com/bitcoin/bips/blob/master/bip-0103.mediawiki[BIP-103] |Block size following technological growth |Pieter Wuille |Padrão |Rascunho
+|[[bip-104]]https://github.com/bitcoin/bips/blob/master/bip-0104.mediawiki[BIP-104] |'Block75' - Max block size like difficulty |t.khan |Padrão |Rascunho
+|[[bip-105]]https://github.com/bitcoin/bips/blob/master/bip-0105.mediawiki[BIP-105] |Consensus based block size retargeting algorithm |BtcDrak |Padrão |Rascunho
+|[[bip-106]]https://github.com/bitcoin/bips/blob/master/bip-0106.mediawiki[BIP-106] |Dynamically Controlled Bitcoin Block Size Max Cap |Upal Chakraborty |Padrão |Rascunho
+|[[bip-107]]https://github.com/bitcoin/bips/blob/master/bip-0107.mediawiki[BIP-107] |Dynamic limit on the block size |Washington Y. Sanchez |Padrão |Rascunho
+|[[bip-109]]https://github.com/bitcoin/bips/blob/master/bip-0109.mediawiki[BIP-109] |Two million byte size limit with sigop and sighash limits |Gavin Andresen |Padrão |Rejeitada
+|[[bip-111]]https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki[BIP-111] |NODE_BLOOM service bit |Matt Corallo, Peter Todd |Padrão |Proposta
+|[[bip-112]]https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki[BIP-112] |CHECKSEQUENCEVERIFY |BtcDrak, Mark Friedenbach, Eric Lombrozo |Padrão |Concluída
+|[[bip-113]]https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki[BIP-113] |Median time-past as endpoint for lock-time calculations |Thomas Kerin, Mark Friedenbach |Padrão |Concluída
+|[[bip-114]]https://github.com/bitcoin/bips/blob/master/bip-0114.mediawiki[BIP-114] |Merkelized Abstract Syntax Tree |Johnson Lau |Padrão |Rascunho
+|[[bip-120]]https://github.com/bitcoin/bips/blob/master/bip-0120.mediawiki[BIP-120] |Proof of Payment |Kalle Rosenbaum |Padrão |Rascunho
+|[[bip-121]]https://github.com/bitcoin/bips/blob/master/bip-0121.mediawiki[BIP-121] |Proof of Payment URI scheme |Kalle Rosenbaum |Padrão |Rascunho
+|[[bip-122]]https://github.com/bitcoin/bips/blob/master/bip-0122.mediawiki[BIP-122] |URI scheme for Blockchain references / exploration |Marco Pontello |Padrão |Rascunho
+|[[bip-123]]https://github.com/bitcoin/bips/blob/master/bip-0123.mediawiki[BIP-123] |BIP Classification |Eric Lombrozo |Processo |Ativa
+|[[bip-124]]https://github.com/bitcoin/bips/blob/master/bip-0124.mediawiki[BIP-124] |Hierarchical Deterministic Script Templates |Eric Lombrozo, William Swanson |Informativa |Rascunho
+|[[bip-125]]https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki[BIP-125] |Opt-in Full Replace-by-Fee Signaling |David A. Harding, Peter Todd |Padrão |Proposta
+|[[bip-126]]https://github.com/bitcoin/bips/blob/master/bip-0126.mediawiki[BIP-126] |Best Practices for Heterogeneous Input Script Transactions |Kristov Atlas |Informativa |Rascunho
+|[[bip-130]]https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki[BIP-130] |sendheaders message |Suhas Daftuar |Padrão |Proposta
+|[[bip-131]]https://github.com/bitcoin/bips/blob/master/bip-0131.mediawiki[BIP-131] |"Coalescing Transaction" Specification (wildcard inputs) |Chris Priest |Padrão |Rascunho
+|[[bip-132]]https://github.com/bitcoin/bips/blob/master/bip-0132.mediawiki[BIP-132] |Committee-based BIP Acceptance Process |Andy Chase |Processo |Removida
+|[[bip-133]]https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki[BIP-133] |feefilter message |Alex Morcos |Padrão |Rascunho
+|[[bip-134]]https://github.com/bitcoin/bips/blob/master/bip-0134.mediawiki[BIP-134] |Flexible Transactions |Tom Zander |Padrão |Rascunho
+|[[bip-140]]https://github.com/bitcoin/bips/blob/master/bip-0140.mediawiki[BIP-140] |Normalized TXID |Christian Decker |Padrão |Rascunho
+|[[bip-141]]https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki[BIP-141] |Segregated Witness (Consensus layer) |Eric Lombrozo, Johnson Lau, Pieter Wuille |Padrão |Rascunho
+|[[bip-142]]https://github.com/bitcoin/bips/blob/master/bip-0142.mediawiki[BIP-142] |Address Format for Segregated Witness |Johnson Lau |Padrão |Adiada
+|[[bip-143]]https://github.com/bitcoin/bips/blob/master/bip-0143.mediawiki[BIP-143] |Transaction Signature Verification for Version 0 Witness Program |Johnson Lau, Pieter Wuille |Padrão |Rascunho
+|[[bip-144]]https://github.com/bitcoin/bips/blob/master/bip-0144.mediawiki[BIP-144] |Segregated Witness (Peer Services) |Eric Lombrozo, Pieter Wuille |Padrão |Rascunho
+|[[bip-145]]https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki[BIP-145] |getblocktemplate Updates for Segregated Witness |Luke Dashjr |Padrão |Rascunho
+|[[bip-146]]https://github.com/bitcoin/bips/blob/master/bip-0146.mediawiki[BIP-146] |Dealing with signature encoding malleability |Johnson Lau, Pieter Wuille |Padrão |Rascunho
+|[[bip-147]]https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki[BIP-147] |Dealing with dummy stack element malleability |Johnson Lau |Padrão |Rascunho
+|[[bip-148]]https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki[BIP-148] |Mandatory activation of segwit deployment |Shaolin Fry |Padrão |Rascunho
+|[[bip-150]]https://github.com/bitcoin/bips/blob/master/bip-0150.mediawiki[BIP-150] |Peer Authentication |Jonas Schnelli |Padrão |Rascunho
+|[[bip-151]]https://github.com/bitcoin/bips/blob/master/bip-0151.mediawiki[BIP-151] |Peer-to-Peer Communication Encryption |Jonas Schnelli |Padrão |Rascunho
+|[[bip-152]]https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki[BIP-152] |Compact Block Relay |Matt Corallo |Padrão |Rascunho
+|[[bip-171]]https://github.com/bitcoin/bips/blob/master/bip-0171.mediawiki[BIP-171] |Currency/exchange rate information API |Luke Dashjr |Padrão |Rascunho
+|[[bip-180]]https://github.com/bitcoin/bips/blob/master/bip-0180.mediawiki[BIP-180] |Block size/weight fraud proof |Luke Dashjr |Padrão |Rascunho
+|[[bip-199]]https://github.com/bitcoin/bips/blob/master/bip-0199.mediawiki[BIP-199] |Hashed Time-Locked Contract transactions |Sean Bowe, Daira Hopwood |Padrão |Rascunho((("", startref="BIPsnap15"))) 
+|=======================================================================

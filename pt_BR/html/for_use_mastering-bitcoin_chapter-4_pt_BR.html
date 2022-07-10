@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Chaves, Endereços</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article data-line-1">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1 data-line-2">
+<h2 id="ch04_keys_addresses">Chaves, Endereços</h2>
+<div class="sectionbody">
+<div class="paragraph data-line-4">
+<p>Você já deve ter ouvido falar que o bitcoin é baseado em <em>criptografia</em>, um ramo da matemática usado extensivamente na segurança de computadores. A palavra criptografia significa "escrita secreta" em grego, mas a ciência da criptografia abrange mais do que apenas a escrita secreta, conhecida como encriptação. A criptografia também pode ser usada para provar o conhecimento de um segredo sem revelar esse segredo (assinatura digital) ou para provar a autenticidade de dados (impressão digital eletrônica). Esses tipos de provas criptográficas são ferramentas matemáticas essenciais para o bitcoin, sendo amplamente utilizadas em aplicações de bitcoin. Ironicamente, a encriptação não é uma parte importante do bitcoin, pois suas comunicações e dados de transação não são encriptados e não precisam ser encriptados para proteger os fundos. Neste capítulo, apresentaremos algumas das criptografias usadas no bitcoin para controlar a propriedade de fundos, na forma de chaves, endereços e carteiras.</p>
+</div>
+<div class="sect2 data-line-6">
+<h3 id="_introdução">Introdução</h3>
+<div class="paragraph data-line-8">
+<p>Ownership of bitcoin is established through <em>digital keys</em>, <em>Bitcoin addresses</em>, and <em>digital signatures</em>. The digital keys are not actually stored in the network, but are instead created and stored by users in a file, or simple database, called a <em>wallet</em>. The digital keys in a user&#8217;s wallet are completely independent of the Bitcoin protocol and can be generated and managed by the user&#8217;s wallet software without reference to the blockchain or access to the internet. Keys enable many of the interesting properties of bitcoin, including decentralized trust and control, ownership attestation, and the cryptographic-proof security model.</p>
+</div>
+<div class="paragraph data-line-10">
+<p>A maioria das transações de bitcoin necessita de uma assinatura digital válida para ser incluída na <em>blockchain</em> (na cadeia de blocos), que só pode ser gerada com uma chave secreta; portanto, qualquer um com um cópia dessa chave tem o controle dos bitcoins. A assinatura digital usada para gastar os fundos também é chamada de <em>testemunha</em>, um termo utilizado na criptografia. Os dados de testemunha em uma transação de bitcoin atestam a verdadeira posse dos fundos que estão sendo gastos.</p>
+</div>
+<div class="paragraph data-line-12">
+<p> As chaves vêm em pares que consistem em uma chave privada (secreta) e uma chave pública. Imagine que a chave pública é similar ao número de uma conta bancária e que a chave privada é similar a um PIN secreto ou uma assinatura em um cheque, que fornece controle sobre a conta. Estas chaves digitais são raramente vistas pelos usuários do bitcoin. Para a maioria dos usuários, elas ficam armazenadas dentro do arquivo de carteira e são gerenciadas por um software de carteira de bitcoin.</p>
+</div>
+<div class="paragraph data-line-14">
+<p>In the payment portion of a bitcoin transaction, the recipient&#8217;s public key is represented by its digital fingerprint, called a <em>Bitcoin address</em>, which is used in the same way as the beneficiary name on a check (i.e., "Pay to the order of"). In most cases, a Bitcoin address is generated from and corresponds to a public key. However, not all Bitcoin addresses represent public keys; they can also represent other beneficiaries such as scripts, as we will see later in this chapter. This way, Bitcoin addresses abstract the recipient of funds, making transaction destinations flexible, similar to paper checks: a single payment instrument that can be used to pay into people&#8217;s accounts, pay into company accounts, pay for bills, or pay to cash. The Bitcoin address is the only representation of the keys that users will routinely see, because this is the part they need to share with the world.</p>
+</div>
+<div class="paragraph data-line-16">
+<p>Primeiro, apresentaremos a criptografia e explicaremos a matemática usada no bitcoin. A seguir, veremos como as chaves são geradas, armazenadas e gerenciadas. Analisaremos os vários formatos de codificação usados para representar chaves privadas e públicas, endereços e endereços de script. Por fim, veremos o uso avançado de chaves e endereços: endereços personalizados, endereços multiassinatura, endereços de script e carteiras de papel.</p>
+</div>
+<div class="sect3 data-line-18">
+<h4 id="_criptografia_de_chave_pública_e_criptomoeda">Criptografia de Chave Pública e Criptomoeda</h4>
+<div class="paragraph data-line-20">
+<p>A criptografia de chave pública foi inventada nos anos 1970s e é uma base matemática fundamental para a segurança da computação e para a segurança da informação.</p>
+</div>
+<div class="paragraph data-line-22">
+<p>Desde a invenção da criptografia de chave pública, muitas funções matemáticas úteis foram descobertas, como a exponenciação de números primos e a multiplicação de curva elíptica. Essas funções matemáticas são praticamente irreversíveis, o que significa que elas são fáceis de serem calculadas em uma direção e inviáveis de serem calculadas na direção oposta. Baseando-se nessas funções matemáticas, a criptografia permite a criação de segredos digitais e assinaturas digitais que não podem ser falsificadas. O bitcoin usa a multiplicação de curva elíptica como a base para sua criptografia.</p>
+</div>
+<div class="paragraph data-line-24">
+<p>No bitcoin, usamos a criptografia de chave pública para criar um par de chaves que controla o acesso aos bitcoins. O par de chaves consiste em uma chave privada e uma chave pública única, que é derivada da chave privada. A chave pública é usada para receber os fundos, e a chave privada é usada para assinar transações que gastam os fundos.</p>
+</div>
+<div class="paragraph data-line-26">
+<p>Existe uma relação matemática entre as chaves pública e privada que permite que a chave privada seja usada para gerar assinaturas em mensagens. Essas assinaturas podem ser validadas em relação à chave pública, sem a necessidade de se revelar a chave privada.</p>
+</div>
+<div class="paragraph data-line-28">
+<p>When spending bitcoin, the current bitcoin owner presents her public key and a signature (different each time, but created from the same private key) in a transaction to spend those bitcoin. Through the presentation of the public key and signature, everyone in the Bitcoin network can verify and accept the transaction as valid, confirming that the person transferring the bitcoin owned them at the time of the transfer.</p>
+</div>
+<div class="admonitionblock tip data-line-31">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-32">
+<p>Na maioria das implementações de carteira, as chaves privada e pública são armazenadas juntas, por conveniência, como um <em>par de chaves</em>. No entanto, a chave pública pode ser calculada a partir da chave privada, então também é possível se armazenar apenas a chave privada.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3 data-line-36">
+<h4 id="private_public_keys">Chaves Privada e Pública</h4>
+<div class="paragraph data-line-38">
+<p>A bitcoin wallet contains a collection of key pairs, each consisting of a private key and a public key. The private key (k) is a number, usually picked at random. From the private key, we use elliptic curve multiplication, a one-way cryptographic function, to generate a public key (K). From the public key (K), we use a one-way cryptographic hash function to generate a Bitcoin address (A). In this section, we will start with generating the private key, look at the elliptic curve math that is used to turn that into a public key, and finally, generate a Bitcoin address from the public key. The relationship between private key, public key, and Bitcoin address is shown in <a href="#k_to_K_to_A">Private key, public key, and Bitcoin address</a>.</p>
+</div>
+<div id="k_to_K_to_A" class="imageblock data-line-42">
+<div class="content">
+<img src="images/mbc2_0401.png" alt="privk_to_pubK_to_addressA">
+</div>
+<div class="title">Figure 1. Private key, public key, and Bitcoin address</div>
+</div>
+<div class="sidebarblock data-line-45">
+<div class="content">
+<div class="title">Por que usar Criptografia Assimétrica (Chaves Públicas/Privadas)?</div>
+<div class="paragraph data-line-46">
+<p>Por que a criptografia assimétrica é usada no bitcoin? Ela não é usada para "encriptar" (tornar secretas) as transações. Em vez disso, a utilidade da criptografia assimétrica é a capacidade de gerar <em>assinaturas digitais</em>. Uma chave privada pode ser aplicada à impressão digital de uma transação para produzir uma assinatura numérica. Essa assinatura só pode ser produzida por alguém que saiba a chave privada. No entanto, qualquer pessoa com acesso à chave pública e à impressão digital da transação pode usá-las para <em>verificar</em> a assinatura. Esta propriedade útil da criptografia assimétrica permite que qualquer pessoa possa verificar a assinatura de qualquer transação, enquanto garante que apenas os donos das chaves privadas possam produzir assinaturas válidas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3 data-line-50">
+<h4 id="private_keys">Chaves Privadas</h4>
+<div class="paragraph data-line-52">
+<p>A private key is simply a number, picked at random. Ownership and control over the private key is the root of user control over all funds associated with the corresponding Bitcoin address. The private key is used to create signatures that are required to spend bitcoin by proving ownership of funds used in a transaction. The private key must remain secret at all times, because revealing it to third parties is equivalent to giving them control over the bitcoin secured by that key. The private key must also be backed up and protected from accidental loss, because if it&#8217;s lost it cannot be recovered and the funds secured by it are forever lost, too.</p>
+</div>
+<div class="admonitionblock tip data-line-55">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-56">
+<p>A chave privada do bitcoin é apenas um número. Você pode escolher suas chaves privadas aleatoriamente usando apenas uma moeda, um lápis e um papel: jogue a moeda 256 vezes e você terá os dígitos binários de uma chave privada aleatória que você pode usar em uma carteira de bitcoin. Em seguida, a chave pública pode ser gerada a partir dessa chave privada.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4 data-line-59">
+<h5 id="_gerando_uma_chave_privada_a_partir_de_um_número_aleatório">Gerando uma chave privada a partir de um número aleatório</h5>
+<div class="paragraph data-line-61">
+<p>O primeiro e mais importante passo na geração de chaves é encontrar uma fonte segura de entropia, ou aleatoriedade. Criar uma chave de bitcoin é essencialmente a mesma coisa que pedir para que alguém "Escolha um número entre 1 e 2<sup>256</sup>". O método exato que você usa para escolher esse número não importa, contanto que não seja previsível ou repetível. O software do bitcoin baseia-se em geradores de número aleatório do sistema operacional para produzir 256 bits de entropia (aleatoriedade). Normalmente, o gerador de número aleatório do sistema operacional é inicializado por uma fonte humana de aleatoriedade, razão pela qual você pode ser solicitado a mexer o ponteiro do mouse aleatoriamente por alguns segundos.</p>
+</div>
+<div class="paragraph data-line-63">
+<p>Mais precisamente, a chave privada pode ser qualquer número entre 0 e n - 1, onde n é uma constante (n = 1,158 * 10<sup>77</sup>, ligeiramente menor do que 2<sup>256</sup>) definida como a ordem da curva elíptica usada no bitcoin (ver <a href="#elliptic_curve">Explicando a Criptografia de Curva Elíptica</a>). Para criar tal chave, escolhemos aleatoriamente um número de 256 bits e verificamos se ele é menor do que n. Em termos de programação, isto é geralmente obtido fornecendo-se uma <em>string</em> maior de bits aleatórios, coletados a partir de uma fonte de aleatoriedade criptograficamente segura, ao algoritmo de hash SHA256, o qual produzirá convenientemente um número de 256 bits. Se o resultado for menor do que n, temos uma chave privada satisfatória. Caso contrário, simplesmente tentamos novamente com outro número aleatório.</p>
+</div>
+<div class="admonitionblock warning data-line-66">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-67">
+<p>Não escreva o seu próprio código para criar um número aleatório, nem utilize um gerador de número aleatório "simples" oferecido pela sua linguagem de programação. Use um gerador de número pseudo-aleatório criptograficamente seguro (CSPRNG, na sigla em inglês) com uma semente derivada de uma fonte com entropia suficiente. Estude a documentação da biblioteca geradora de número aleatório que você escolher para se certificar de que ela é criptograficamente segura. A correta implementação do CSPRNG é crucial para a segurança das chaves.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-70">
+<p>Abaixo vemos uma chave privada (k) gerada aleatoriamente, exibida em formato hexadecimal (256 bits exibidos como 64 dígitos hexadecimais, cada um com 4 bits):</p>
+</div>
+<div class="listingblock data-line-72">
+<div class="content">
+<pre>1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD</pre>
+</div>
+</div>
+<div class="admonitionblock tip data-line-78">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-79">
+<p>O tamanho do número de chaves privadas que podem existir no bitcoin é tão grande (2^256), que chega a ser incompreensível. Isso é aproximadamente 10^77 na escala decimal. Para fins comparativos, estima-se que o universo visível contenha 10^80 átomos.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-82">
+<p> Para gerar uma nova chave com o cliente Bitcoin Core (veja <a href="#ch03_bitcoin_client">[ch03_bitcoin_client]</a>), use o comando getnewaddress. Por motivos de segurança, ele exibe apenas o endereço, e não a chave privada. Para pedir ao bitcoind para expor a chave privada, use o comando dumpprivkey. O comando dumpprivkey mostra a chave privada em um formato codificado por checksum Base58 chamado <em>Wallet Import Format</em> (WIF), que examinaremos com mais detalhes em <a href="#priv_formats">Formatos de chave privada</a>. Aqui está um exemplo de geração e exibição de uma chave privada usando estes dois comandos:</p>
+</div>
+<div class="listingblock data-line-84">
+<div class="content">
+<pre>$ bitcoin-cli getnewaddress
+1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
+$ bitcoin-cli dumpprivkey 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy
+KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
+</div>
+</div>
+<div class="paragraph data-line-91">
+<p>O comando dumpprivkey abre a carteira e extrai a chave privada que foi gerada pelo comando getnewaddress. Não é possível para o bitcoind saber a chave privada a partir do endereço, a menos que ambos estejam armazenados na carteira.</p>
+</div>
+<div class="admonitionblock tip data-line-94">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-95">
+<p>O comando dumpprivkey não gera uma chave privada a partir de um endereço, pois isso é impossível. O comando simplesmente revela a chave privada que já é conhecida pela carteira e que foi gerada pelo comando getnewaddress.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph pagebreak-before data-line-99">
+<p>Você também pode usar a ferramenta de linha de comando Bitcoin Explorer (ver o <a href="#appdx_bx">[appdx_bx]</a>) para gerar e exibir chaves privadas com os comandos seed, ec-new e ec-to-wif:</p>
+</div>
+<div class="listingblock data-line-101">
+<div class="content">
+<pre>$ bx seed | bx ec-new | bx ec-to-wif
+5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3 data-line-107">
+<h4 id="pubkey">Chaves Públicas</h4>
+<div class="paragraph data-line-109">
+<p>A chave pública é calculada a partir da chave privada usando multiplicação de curva elíptica, que é irreversível: <em>K</em> = <em>k</em> * <em>G</em>, onde <em>k</em> é a chave privada, <em>G</em> é um ponto constante chamado de <em>ponto gerador</em> e <em>K</em> é a chave pública resultante. A operação inversa, também conhecida como "encontrar o logaritmo discreto"—calcular a chave privada <em>k</em>, se você conhece a chave pública <em>K</em>—é tão difícil quanto tentar todos os possíveis valores de <em>k</em>, ou seja, é uma busca de força bruta. Antes de demonstrarmos como gerar uma chave pública a partir de uma chave privada, vamos analisar a criptografia de curva elíptica em um pouco mais de detalhes.</p>
+</div>
+<div class="admonitionblock tip data-line-112">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-113">
+<p>A multiplicação de curva elíptica é um tipo de função que os profissionais de criptografia chamam de função de "sentido único": ela é fácil de ser feita em uma direção (multiplicação) e impossível de ser feita na direção inversa ("divisão" ou encontrar o logaritmo discreto). O proprietário da chave privada pode facilmente criar a chave pública e depois compartilhá-la com outras pessoas, sabendo que ninguém conseguirá inverter a função e calcular a chave privada a partir da chave pública. Esse truque matemático é a base para as assinaturas digitais infalsificáveis e seguras que comprovam a posse de fundos no bitcoin.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3 data-line-117">
+<h4 id="elliptic_curve">Explicando a Criptografia de Curva Elíptica</h4>
+<div class="paragraph data-line-119">
+<p>A criptografia de curva elíptica é um tipo de criptografia assimétrica ou criptografia de chave pública baseada em um problema logarítmico discreto que é expressado por adição e multiplicação nos pontos de uma curva elíptica.</p>
+</div>
+<div class="paragraph data-line-121">
+<p>A <a href="#ecc-curve">Uma curva elíptica</a> é um exemplo de uma curva elíptica, similar à utilizada pelo bitcoin.</p>
+</div>
+<div id="ecc-curve" class="imageblock smallerthirty data-line-126">
+<div class="content">
+<img src="images/mbc2_0402.png" alt="ecc-curve">
+</div>
+<div class="title">Figure 2. Uma curva elíptica</div>
+</div>
+<div class="paragraph data-line-128">
+<p>O bitcoin usa uma curva elíptica específica e um conjunto específico de constantes matemáticas, conforme definidos em um padrão chamado secp256k1, estabelecido pelo Instituto Nacional de Padronização e Tecnologia (<em>Institute of Standards and Technology</em> ou NIST). A curva secp256k1 é definida pela seguinte função, que produz uma curva elíptica:</p>
+</div>
+<div class="stemblock data-line-131">
+<div class="content">
+\[\begin{equation}
+{y^2 = (x^3 + 7)}~\text{over}~(\mathbb{F}_p)
+\end{equation}\]
+</div>
+</div>
+<div class="paragraph data-line-137">
+<p>ou</p>
+</div>
+<div class="stemblock data-line-140">
+<div class="content">
+\[\begin{equation}
+{y^2 \mod p = (x^3 + 7) \mod p}
+\end{equation}\]
+</div>
+</div>
+<div class="paragraph data-line-146">
+<p>O <em>mod p</em> (módulo de número primo p) indica que essa curva está sobre um corpo finito de ordem prima <em>p</em>, também escrito como \(\( \mathbb{F}_p \)\), onde p = 2<sup>256</sup> – 2<sup>32</sup> – 2<sup>9</sup> – 2<sup>8</sup> – 2<sup>7</sup> – 2<sup>6</sup> – 2<sup>4</sup> – 1, um número primo muito grande.</p>
+</div>
+<div class="paragraph data-line-148">
+<p>Como a curva é definida sobre um corpo finito de ordem prima ao invés de números reais, ela parece um padrão de pontos espalhados em duas dimensões, o que a torna difícil de ser visualizada. Contudo, a matemática é idêntica à matemática de uma curva elíptica sobre números reais. Como um exemplo, a <a href="#ecc-over-F17-math">Criptografia de curva elíptica: visualizando uma curva elíptica sobre F(p), com p=17</a> mostra a mesma curva elíptica sobre um corpo finito muito menor, de ordem prima 17, mostrando um padrão de pontos em uma grade. A curva elíptica secp256k1 do bitcoin pode ser imaginada como um padrão muito mais complexo de pontos em uma grade absurdamente grande.</p>
+</div>
+<div id="ecc-over-F17-math" class="imageblock smallersixty data-line-153">
+<div class="content">
+<img src="images/mbc2_0403.png" alt="ecc-over-F17-math">
+</div>
+<div class="title">Figure 3. Criptografia de curva elíptica: visualizando uma curva elíptica sobre F(p), com p=17</div>
+</div>
+<div class="paragraph data-line-155">
+<p>Então, por exemplo, a seguir está um ponto P com coordenadas (x,y) que é um ponto na curva secp256k1:</p>
+</div>
+<div class="listingblock data-line-157">
+<div class="content">
+<pre>P = (55066263022277343669578718895168534326250603453777594175500187360389116729240, 32670510020758816978083085130507043184471273380659243275938904335757337482424)</pre>
+</div>
+</div>
+<div class="paragraph data-line-161">
+<p>O <a href="#example_4_1">Usando Python para confirmar que este ponto está na curva elíptica</a> mostra como você pode verificar isso por conta própria usando Python:</p>
+</div>
+<div id="example_4_1" class="exampleblock data-line-165">
+<div class="title">Example 1. Usando Python para confirmar que este ponto está na curva elíptica</div>
+<div class="content">
+<div class="listingblock data-line-167">
+<div class="content">
+<pre class="highlight"><code class="language-pycon" data-lang="pycon">Python 3.4.0 (padrão, Mar 30 2014, 19:23:13)
+[GCC 4.2.1 Compatível com Apple LLVM 5.1 (clang-503.0.38)] no darwin
+Digite "help", "copyright", "credits" ou "license" para maiores informações.
+&gt;&gt;&gt; p = 115792089237316195423570985008687907853269984665640564039457584007908834671663
+&gt;&gt;&gt; x = 55066263022277343669578718895168534326250603453777594175500187360389116729240
+&gt;&gt;&gt; y = 32670510020758816978083085130507043184471273380659243275938904335757337482424
+&gt;&gt;&gt; (x ** 3 + 7 - y**2) % p
+0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-179">
+<p>Na matemática de curva elíptica, existe um ponto chamado "ponto no infinito", que de certo modo corresponde ao papel do zero em uma adição. Em computadores, ele às vezes é representado por x = y = 0 (o que não satisfaz a equação da curva elíptica, mas é um caso isolado fácil, que pode ser verificado).</p>
+</div>
+<div class="paragraph data-line-181">
+<p>Há também um operador +, chamado de "adição", que possui algumas propriedades similares à adição tradicional dos números reais que as crianças aprendem no ensino fundamental. Dados dois pontos P<sub>1</sub> e P<sub>2</sub> na curva elíptica, há um terceiro ponto P<sub>3</sub>= P<sub>1</sub> + P<sub>2</sub>, também na curva elíptica.</p>
+</div>
+<div class="paragraph data-line-183">
+<p>Geometricamente, esse terceiro ponto P<sub>3</sub> é calculado ao desenhar-se uma linha entre os pontos P<sub>1</sub> e P<sub>2</sub>. Essa linha fará a intersecção com a curva elíptica exatamente em um lugar adicional. Chamaremos esse ponto de P<sub>3</sub>' = (x,y). Em seguida, faz-se uma reflexão no eixo x para obter-se o P<sub>3</sub> = (x, -y).</p>
+</div>
+<div class="paragraph data-line-185">
+<p>Existem alguns casos especiais que explicam a necessidade de se ter um "ponto no infinito."</p>
+</div>
+<div class="paragraph data-line-187">
+<p>Se P<sub>1</sub> e P<sub>2</sub> são o mesmo ponto, a linha "entre" P<sub>1</sub> e P<sub>2</sub> deveria estender para ser a tangente na curva no ponto P<sub>1</sub>. Essa tangente fará a intersecção com a curva em um novo ponto exato. Você pode usar técnicas de cálculo para determinar a inclinação da linha tangente. Essas técnicas curiosamente funcionam, mesmo que agora estejamos restringindo nosso interesse para pontos na curva com duas coordenadas de números inteiros!</p>
+</div>
+<div class="paragraph data-line-189">
+<p>Em alguns casos (por exemplo, se P<sub>1</sub> e P<sub>2</sub> têm os mesmos valores x, mas diferentes valores y), a linha entre P<sub>1</sub> e P<sub>2</sub> será exatamente vertical, o que, neste caso, significa que P<sub>3</sub> = "ponto no infinito".</p>
+</div>
+<div class="paragraph data-line-191">
+<p>Se P<sub>1</sub> é o "ponto no infinito", então P<sub>1</sub> + P<sub>2</sub> = P<sub>2</sub>. De modo similar, se P<sub>2</sub> é o ponto no infinito, então P<sub>1</sub> + P<sub>2</sub> = P<sub>1</sub>. Isso mostra como o ponto no infinito faz o papel do zero.</p>
+</div>
+<div class="paragraph data-line-193">
+<p>Além disso, o operador + é associativo, o que significa que (A + B) + C = A + (B + C). Portanto, podemos escrever A + B + C sem parênteses e sem ambiguidade.</p>
+</div>
+<div class="paragraph data-line-195">
+<p>Agora que definimos a adição, podemos definir a multiplicação no modo padrão que estende a adição. Para um ponto P na curva elíptica, se k é um número inteiro, então kP = P + P + P + &#8230;&#8203; + P (k vezes). Note que o k às vezes é confundido como um "expoente" nesse caso.</p>
+</div>
+</div>
+<div class="sect3 data-line-198">
+<h4 id="public_key_derivation">Gerando uma Chave Pública</h4>
+<div class="paragraph data-line-200">
+<p>Começando com uma chave privada na forma de um número <em>k</em> gerado aleatoriamente, o multiplicamos por um ponto predeterminado na curva, chamado de <em>ponto gerador</em> <em>G</em>, para produzir outro ponto em outro lugar na curva, que será a chave pública <em>K</em> correspondente. O ponto gerador é especificado como parte do padrão secp256k1 e é sempre o mesmo para todas as chaves no bitcoin:</p>
+</div>
+<div class="stemblock data-line-203">
+<div class="content">
+\[\begin{equation}
+{K = k * G}
+\end{equation}\]
+</div>
+</div>
+<div class="paragraph data-line-209">
+<p>where <em>k</em> is the private key, <em>G</em> is the generator point, and <em>K</em> is the resulting public key, a point on the curve. Because the generator point is always the same for all bitcoin users, a private key <em>k</em> multiplied with <em>G</em> will always result in the same public key <em>K</em>. The relationship between <em>k</em> and <em>K</em> is fixed, but can only be calculated in one direction, from <em>k</em> to <em>K</em>. That&#8217;s why a Bitcoin address (derived from <em>K</em>) can be shared with anyone and does not reveal the user&#8217;s private key (<em>k</em>).</p>
+</div>
+<div class="admonitionblock tip data-line-212">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-213">
+<p>Uma chave privada pode ser convertida em uma chave pública, mas uma chave pública não pode ser convertida de volta em uma chave privada, pois a matemática só funciona em um único sentido.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-216">
+<p>Implementando a multiplicação de curva elíptica, podemos usar a chave privada <em>k</em> que foi gerada anteriormente e multiplicá-la pelo ponto gerador G para encontrarmos a chave pública <em>K</em>:</p>
+</div>
+<div class="listingblock data-line-218">
+<div class="content">
+<pre>K = 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD * G</pre>
+</div>
+</div>
+<div class="paragraph data-line-222">
+<p>A chave pública <em>K</em> é definida como um ponto K = (x,y):</p>
+</div>
+<div class="listingblock data-line-224">
+<div class="content">
+<pre>K = (x, y)
+
+onde,
+
+x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
+y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
+</div>
+</div>
+<div class="paragraph data-line-233">
+<p>Para visualizar a multiplicação de um ponto por um número inteiro, usaremos uma curva elíptica mais simples sobre números reais&#x2014;lembre-se, a matemática é a mesma. Nosso objetivo é encontrar o múltiplo <em>kG</em> de um ponto gerador <em>G</em>. Isso é o mesmo que adicionar <em>G</em> a si mesmo, <em>k</em> vezes seguidas. Nas curvas elípticas, adicionar um ponto a si mesmo é o equivalente a desenhar uma linha tangente no ponto, encontrar onde ela intersecciona novamente a curva, e, em seguida, refletir o ponto no eixo x.</p>
+</div>
+<div class="paragraph data-line-235">
+<p>A <a href="#ecc_illustrated">Criptografia de curva elíptica: visualizando a multiplicação de um ponto G por um número inteiro k em uma curva elíptica</a> mostra o processo usado para se derivar <em>G</em>, <em>2G</em>, <em>4G</em> e <em>8G</em> como uma operação geométrica na curva.</p>
+</div>
+<div class="admonitionblock tip data-line-238">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-239">
+<p>O bitcoin usa a <a href="https://github.com/bitcoin-core/secp256k1" data-href="https://github.com/bitcoin-core/secp256k1">biblioteca C otimizada do secp256k1</a> para fazer a matemática de curva elíptica.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="ecc_illustrated" class="imageblock data-line-244">
+<div class="content">
+<img src="images/mbc2_0404.png" alt="ecc_illustrated">
+</div>
+<div class="title">Figure 4. Criptografia de curva elíptica: visualizando a multiplicação de um ponto G por um número inteiro k em uma curva elíptica</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-246">
+<h3 id="_endereços_de_bitcoin">Endereços de Bitcoin</h3>
+<div class="paragraph data-line-248">
+<p>A Bitcoin address is a string of digits and characters that can be shared with anyone who wants to send you money. Addresses produced from public keys consist of a string of numbers and letters, beginning with the digit "1". Here&#8217;s an example of a Bitcoin address:</p>
+</div>
+<div class="listingblock data-line-250">
+<div class="content">
+<pre>1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</pre>
+</div>
+</div>
+<div class="paragraph data-line-255">
+<p>The Bitcoin address is what appears most commonly in a transaction as the "recipient" of the funds. If we compare a bitcoin transaction to a paper check, the Bitcoin address is the beneficiary, which is what we write on the line after "Pay to the order of." On a paper check, that beneficiary can sometimes be the name of a bank account holder, but can also include corporations, institutions, or even cash. Because paper checks do not need to specify an account, but rather use an abstract name as the recipient of funds, they are very flexible payment instruments. Bitcoin transactions use a similar abstraction, the Bitcoin address, to make them very flexible. A Bitcoin address can represent the owner of a private/public key pair, or it can represent something else, such as a payment script, as we will see in <a href="#p2sh">[p2sh]</a>. For now, let&#8217;s examine the simple case, a Bitcoin address that represents, and is derived from, a public key.</p>
+</div>
+<div class="paragraph data-line-257">
+<p>The Bitcoin address is derived from the public key through the use of one-way cryptographic hashing. A "hashing algorithm" or simply "hash algorithm" is a one-way function that produces a fingerprint or "hash" of an arbitrary-sized input. Cryptographic hash functions are used extensively in bitcoin: in Bitcoin addresses, in script addresses, and in the mining Proof-of-Work algorithm. The algorithms used to make a Bitcoin address from a public key are the Secure Hash Algorithm (SHA) and the RACE Integrity Primitives Evaluation Message Digest (RIPEMD), specifically SHA256 and RIPEMD160.</p>
+</div>
+<div class="paragraph data-line-259">
+<p>Iniciando com a chave pública <em>K</em>, computamos o hash SHA256, e depois computamos o hash RIPEMD160 do resultado, produzindo um número de 160 bits (20 bytes):</p>
+</div>
+<div class="stemblock data-line-262">
+<div class="content">
+\[\begin{equation}
+{A = RIPEMD160(SHA256(K))}
+\end{equation}\]
+</div>
+</div>
+<div class="paragraph data-line-268">
+<p>where <em>K</em> is the public key and <em>A</em> is the resulting Bitcoin address.</p>
+</div>
+<div class="admonitionblock tip data-line-272">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-273">
+<p>A Bitcoin address is <em>not</em> the same as a public key. Bitcoin addresses are derived from a public key using a one-way function.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-276">
+<p>Bitcoin addresses are almost always encoded as "Base58Check" (see <a href="#base58">Codificação Base58 e Base58Check</a>), which uses 58 characters (a Base58 number system) and a checksum to help human readability, avoid ambiguity, and protect against errors in address transcription and entry. Base58Check is also used in many other ways in bitcoin, whenever there is a need for a user to read and correctly transcribe a number, such as a Bitcoin address, a private key, an encrypted key, or a script hash. In the next section we will examine the mechanics of Base58Check encoding and decoding and the resulting representations. <a href="#pubkey_to_address">Public key to Bitcoin address: conversion of a public key into a Bitcoin address</a> illustrates the conversion of a public key into a Bitcoin address.</p>
+</div>
+<div id="pubkey_to_address" class="imageblock data-line-280">
+<div class="content">
+<img src="images/mbc2_0405.png" alt="pubkey_to_address">
+</div>
+<div class="title">Figure 5. Public key to Bitcoin address: conversion of a public key into a Bitcoin address</div>
+</div>
+<div class="sect3 data-line-283">
+<h4 id="base58">Codificação Base58 e Base58Check</h4>
+<div class="paragraph data-line-285">
+<p>In order to represent long numbers in a compact way, using fewer symbols, many computer systems use mixed-alphanumeric representations with a base (or radix) higher than 10. For example, whereas the traditional decimal system uses the 10 numerals 0 through 9, the hexadecimal system uses 16, with the letters A through F as the six additional symbols. A number represented in hexadecimal format is shorter than the equivalent decimal representation. Even more compact, Base64 representation uses 26 lowercase letters, 26 capital letters, 10 numerals, and 2 more characters such as &#x201c;``&amp;#x201d; and "/" to transmit binary data over text-based media such as email. Base64 is most commonly used to add binary attachments to email. Base58 is a text-based binary-encoding format developed for use in bitcoin and used in many other cryptocurrencies. It offers a balance between compact representation, readability, and error detection and prevention. Base58 is a subset of Base64, using upper- and lowercase letters and numbers, but omitting some characters that are frequently mistaken for one another and can appear identical when displayed in certain fonts. Specifically, Base58 is Base64 without the 0 (number zero), O (capital o), l (lower L), I (capital i), and the symbols &amp;#x201c;``&#x201d; and "/". Or, more simply, it is a set of lowercase and capital letters and numbers without the four (0, O, l, I) just mentioned. <a href="#base58alphabet">Alfabeto Base58 do Bitcoin</a> shows the full Base58 alphabet.</p>
+</div>
+<div id="base58alphabet" class="exampleblock data-line-289">
+<div class="title">Example 2. Alfabeto Base58 do Bitcoin</div>
+<div class="content">
+<div class="listingblock data-line-290">
+<div class="content">
+<pre>123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-296">
+<p>To add extra security against typos or transcription errors, Base58Check is a Base58 encoding format, frequently used in bitcoin, which has a built-in error-checking code. The checksum is an additional four bytes added to the end of the data that is being encoded. The checksum is derived from the hash of the encoded data and can therefore be used to detect and prevent transcription and typing errors. When presented with Base58Check code, the decoding software will calculate the checksum of the data and compare it to the checksum included in the code. If the two do not match, an error has been introduced and the Base58Check data is invalid. This prevents a mistyped Bitcoin address from being accepted by the wallet software as a valid destination, an error that would otherwise result in loss of funds.</p>
+</div>
+<div class="paragraph data-line-298">
+<p>To convert data (a number) into a Base58Check format, we first add a prefix to the data, called the "version byte," which serves to easily identify the type of data that is encoded. For example, in the case of a Bitcoin address the prefix is zero (0x00 in hex), whereas the prefix used when encoding a private key is 128 (0x80 in hex). A list of common version prefixes is shown in <a href="#base58check_versions">Prefixos de versão da Base58Check e exemplos de resultados codificados</a>.</p>
+</div>
+<div class="paragraph data-line-300">
+<p>A seguir, computamos o <em>checksum</em> do "duplo-SHA", o que significa que aplicamos o algoritmo de hash SHA256 duas vezes no resultado anterior (prefixo e dados):</p>
+</div>
+<div class="listingblock data-line-302">
+<div class="content">
+<pre>checksum = SHA256(SHA256(prefixo+dados))</pre>
+</div>
+</div>
+<div class="paragraph data-line-306">
+<p>Pegamos apenas os primeiros quatro bytes do hash de 32 bytes resultante (hash do hash). Esses quatro bytes iniciais servem como código de verificação de erro, ou <em>checksum</em>. O <em>checksum</em> é concatenado (acrescentado) ao final.</p>
+</div>
+<div class="paragraph data-line-308">
+<p>O resultado é composto de três itens: um prefixo, os dados e um <em>checksum</em>. Esse resultado é codificado usando o alfabeto Base58 descrito previamente. A <a href="#base58check_encoding">Codificação em Base58Check: um formato para codificar dados do bitcoin de maneira inequívoca, versionada e verificada.</a> ilustra o processo de codificação em Base58Check.</p>
+</div>
+<div id="base58check_encoding" class="imageblock data-line-312">
+<div class="content">
+<img src="images/mbc2_0406.png" alt="Base58CheckEncoding">
+</div>
+<div class="title">Figure 6. Codificação em Base58Check: um formato para codificar dados do bitcoin de maneira inequívoca, versionada e verificada.</div>
+</div>
+<div class="paragraph data-line-314">
+<p>In bitcoin, most of the data presented to the user is Base58Check-encoded to make it compact, easy to read, and easy to detect errors. The version prefix in Base58Check encoding is used to create easily distinguishable formats, which when encoded in Base58 contain specific characters at the beginning of the Base58Check-encoded payload. These characters make it easy for humans to identify the type of data that is encoded and how to use it. This is what differentiates, for example, a Base58Check-encoded Bitcoin address that starts with a 1 from a Base58Check-encoded private key WIF that starts with a 5. Some example version prefixes and the resulting Base58 characters are shown in <a href="#base58check_versions">Prefixos de versão da Base58Check e exemplos de resultados codificados</a>.</p>
+</div>
+<table id="base58check_versions" class="tableblock frame-all grid-all stretch data-line-319">
+<caption class="title">Table 1. Prefixos de versão da Base58Check e exemplos de resultados codificados</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tipo</th>
+<th class="tableblock halign-left valign-top">Prefixo de versão (hex)</th>
+<th class="tableblock halign-left valign-top">Prefixo em Base58 (resultado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endereço de Bitcoin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endereço Pay-to-Script-Hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Endereço da Testnet do Bitcoin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">m ou n</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chave Privada WIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5, K ou L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chave Privada Criptografada da BIP-38</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x0142</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6P</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chave Pública Estendida da BIP-32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x0488B21E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xpub</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3 data-line-329">
+<h4 id="_formatos_de_chave">Formatos de Chave</h4>
+<div class="paragraph data-line-331">
+<p>Both private and public keys can be represented in a number of different formats. These representations all encode the same number, even though they look different. These formats are primarily used to make it easy for people to read and transcribe keys without introducing errors.</p>
+</div>
+<div class="sect4 data-line-334">
+<h5 id="priv_formats">Formatos de chave privada</h5>
+<div class="paragraph data-line-336">
+<p>A chave privada pode ser representada em vários formatos diferentes, todos correspondendo ao mesmo número de 256 bits. A <a href="#table_4-2">Representações de chave privada (formatos de codificação)</a> mostra três formatos comumente usados para representar chaves privadas. Diferentes formatos são usados em diferentes circunstâncias. Os formatos hexadecimal e binário bruto são usados internamente no software e raramente são exibidos aos usuários. O formato WIF é usado para importar/exportar chaves entre carteiras e é frequentemente usado em representações de chaves privadas em código QR (código de barras).</p>
+</div>
+<table id="table_4-2" class="tableblock frame-all grid-all stretch data-line-341">
+<caption class="title">Table 2. Representações de chave privada (formatos de codificação)</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Tipo</th>
+<th class="tableblock halign-left valign-top">Prefixo</th>
+<th class="tableblock halign-left valign-top">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bruto (<em>raw</em>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nenhum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nenhum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">64 dígitos hexadecimais</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Codificação em Base58Check: Base58 com prefixo de versão 0x80 e <em>checksum</em> de 4 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF-comprimida</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">K ou L</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Como acima, com a adição do sufixo 0x01 antes da codificação</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-349">
+<p>A <a href="#table_4-3">Exemplo: A mesma chave, em diferentes formatos de codificação</a> demonstra a chave privada gerada nesses três formatos de codificação.</p>
+</div>
+<table id="table_4-3" class="tableblock frame-all grid-all stretch data-line-354">
+<caption class="title">Table 3. Exemplo: A mesma chave, em diferentes formatos de codificação</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formato</th>
+<th class="tableblock halign-left valign-top">Chave privada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF-comprimida</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-361">
+<p>Todas essas representações são diferentes maneiras de se exibir o mesmo número, a mesma chave privada. Elas aparentam ser diferentes, mas qualquer um desses formatos pode ser facilmente convertido para qualquer outro formato. Observe que o "binário bruto" não é mostrado na <a href="#table_4-3">Exemplo: A mesma chave, em diferentes formatos de codificação</a>, pois qualquer codificação para exibição aqui não seria considerada, por definição, um dado binário bruto.</p>
+</div>
+<div class="paragraph data-line-363">
+<p>Usamos o comando wif-to-ec do Bitcoin Explorer (ver o <a href="#appdx_bx">[appdx_bx]</a>) para demonstrar que ambas as chaves WIF representam a mesma chave privada:</p>
+</div>
+<div class="listingblock data-line-365">
+<div class="content">
+<pre>$ bx wif-to-ec 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
+1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd
+
+$ bx wif-to-ec KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
+1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd</pre>
+</div>
+</div>
+</div>
+<div class="sect4 data-line-373">
+<h5 id="_decodificando_do_base58check">Decodificando do Base58Check</h5>
+<div class="paragraph data-line-375">
+<p>Os comandos do Bitcoin Explorer (ver o <a href="#appdx_bx">[appdx_bx]</a>) tornam fácil a escrita de scripts em shell e <em>pipes</em> de linha de comando que manipulam chaves, endereços e transações de bitcoin. Você pode usar o Bitcoin Explorer para decodificar o formato Base58Check na linha de comando.</p>
+</div>
+<div class="paragraph data-line-377">
+<p>Usamos o comando base58check-decode para decodificar a chave não comprimida:</p>
+</div>
+<div class="listingblock data-line-379">
+<div class="content">
+<pre>$ bx base58check-decode 5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn
+wrapper
+{
+    checksum 4286807748
+    payload 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd
+    version 128
+}</pre>
+</div>
+</div>
+<div class="paragraph data-line-389">
+<p>O resultado contém a chave como corpo de dados (<em>payload</em>), o prefixo de versão 128 da WIF e um <em>checksum</em>.</p>
+</div>
+<div class="paragraph data-line-391">
+<p>Note que o corpo de dados (<em>payload</em>) da chave privada comprimida é acrescido com o sufixo 01, sinalizando que a chave pública derivada deve ser comprimida:</p>
+</div>
+<div class="listingblock data-line-393">
+<div class="content">
+<pre>$ bx base58check-decode KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ
+wrapper
+{
+    checksum 2339607926
+    payload 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd01
+    version 128
+}</pre>
+</div>
+</div>
+<div class="sect5 data-line-403">
+<h6 id="_codificando_de_hex_para_base58check">Codificando de hex para Base58Check</h6>
+<div class="paragraph data-line-405">
+<p>Para codificar em Base58Check (o oposto do comando anterior), usamos o comando base58check-encode do Bitcoin Explorer (ver <a href="#appdx_bx">[appdx_bx]</a>) e fornecemos a chave privada em hexadecimal, seguida pelo prefixo de versão 128 do WIF:</p>
+</div>
+<div class="listingblock data-line-407">
+<div class="content">
+<pre>bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd --version 128
+5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4 data-line-412">
+<h5 id="_codificando_de_hex_chave_comprimida_para_base58check">Codificando de hex (chave comprimida) para Base58Check</h5>
+<div class="paragraph data-line-414">
+<p>Para codificar em Base58Check como uma chave privada "comprimida" (ver <a href="#comp_priv">Chaves privadas comprimidas</a>), concatenamos o sufixo 01 à chave hexadecimal e em seguida codificamos conforme descrito na seção anterior:</p>
+</div>
+<div class="listingblock data-line-416">
+<div class="content">
+<pre>$ bx base58check-encode 1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd01 --version 128
+KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</pre>
+</div>
+</div>
+<div class="paragraph data-line-421">
+<p>O formato WIF-comprimida resultante começa com um "K". Isso denota que a chave privada contida tem um sufixo "01" e será usada para produzir apenas chaves públicas comprimidas (ver <a href="#comp_pub">Chaves públicas comprimidas</a>).</p>
+</div>
+</div>
+<div class="sect4 data-line-423">
+<h5 id="_formatos_de_chave_pública">Formatos de chave pública</h5>
+<div class="paragraph data-line-425">
+<p>As chaves públicas também são apresentadas de diferentes maneiras, geralmente como chaves públicas <em>comprimidas</em> ou <em>não comprimidas</em>.</p>
+</div>
+<div class="paragraph data-line-427">
+<p>Conforme vimos anteriormente, a chave pública é um ponto na curva elíptica que consiste em um par de coordenadas (x,y). Ela geralmente é apresentada com o prefixo 04 seguido por dois números de 256 bits, um para a coordenada <em>x</em> do ponto, e o outro para a coordenada <em>y</em>. O prefixo 04 é usado para distinguir as chaves públicas não comprimidas das chaves públicas comprimidas que começam com 02 ou 03.</p>
+</div>
+<div class="paragraph data-line-429">
+<p>Aqui está a chave pública gerada pela chave privada que criamos anteriormente, mostrada como as coordenadas x e y:</p>
+</div>
+<div class="listingblock data-line-431">
+<div class="content">
+<pre>x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A
+y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</pre>
+</div>
+</div>
+<div class="paragraph data-line-436">
+<p>Aqui está a mesma chave pública mostrada como um número de 520 bits (130 dígitos hexadecimais) com o prefixo 04 seguido pelas coordenadas x e y, como 04 x y:</p>
+</div>
+<pre data-type="programlisting">
+K = 04F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A&#x21b5;
+07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB
+</pre>
+</div>
+<div class="sect4 data-line-446">
+<h5 id="comp_pub">Chaves públicas comprimidas</h5>
+<div class="paragraph data-line-448">
+<p>Compressed public keys were introduced to bitcoin to reduce the size of transactions and conserve disk space on nodes that store the Bitcoin blockchain database. Most transactions include the public key, which is required to validate the owner&#8217;s credentials and spend the bitcoin. Each public key requires 520 bits (prefix + x + y), which when multiplied by several hundred transactions per block, or tens of thousands of transactions per day, adds a significant amount of data to the blockchain.</p>
+</div>
+<div class="paragraph data-line-450">
+<p>Conforme vimos na seção <a href="#pubkey">Chaves Públicas</a>, uma chave pública é um ponto (x,y) em uma curva elíptica. Como a curva expressa uma função matemática, um ponto na curva representa uma solução para a equação e, portanto, se soubermos a coordenada <em>x</em>, podemos calcular a coordenada <em>y</em> ao resolver a equação y<sup>2</sup> mod p = (x<sup>3</sup> + 7) mod p. Isso nos permite armazenar somente a coordenada <em>x</em> do ponto da chave pública, omitindo a coordenada <em>y</em> e reduzindo o tamanho da chave e o espaço necessário para armazená-la em 256 bits. Uma redução de quase 50% no tamanho de cada transação economiza a utilização de muito espaço ao longo do tempo!</p>
+</div>
+<div class="paragraph data-line-452">
+<p>Enquanto as chaves públicas não comprimidas tem o prefixo 04, as chaves públicas comprimidas começam com os prefixos 02 ou 03. Existe um motivo pelo qual só existem dois prefixos possíveis: como o lado esquerdo da equação é <em>y</em><sup>2</sup>, a solução para <em>y</em> é uma raiz quadrada, que pode ter um valor positivo ou negativo. Visualmente, isso significa que a coordenada <em>y</em> resultante pode estar acima ou abaixo do eixo x. Como você pode ver no gráfico da curva elíptica na <a href="#ecc-curve">Uma curva elíptica</a>, a curva é simétrica, sendo refletida pelo eixo x, como se fosse um espelho. Então, embora podemos omitir a coordenada <em>y</em>, temos que armazenar o <em>sinal</em> do <em>y</em> (positivo ou negativo); ou, em outras palavras, temos que nos lembrar se ela estava acima ou abaixo do eixo x, pois cada uma dessas opções representa um ponto diferente e uma chave pública diferente. Quando se calcula a curva elíptica em aritmética binária no corpo finito de ordem prima p, a coordenada <em>y</em> ou é par ou é ímpar, o que corresponde ao sinal positivo/negativo como explicado anteriormente. Portanto, para distinguir entre os dois valores possíveis de <em>y</em>, armazenamos a chave pública comprimida com o prefixo 02 se o <em>y</em> for par, e 03 se ele for ímpar, permitindo que o software deduza corretamente a coordenada <em>y</em> a partir da coordenada <em>x</em> e descomprima a chave pública para as coordenadas completas do ponto. A compressão de chave pública é ilustrada na <a href="#pubkey_compression">Compressão de chave pública</a>.</p>
+</div>
+<div class="paragraph data-line-454">
+<p>Aqui está a mesma chave pública gerada anteriormente, exibida como uma chave pública comprimida armazenada em 264 bits (66 dígitos hexadecimais) com o prefixo 03 indicando que a coordenada <em>y</em> é ímpar:</p>
+</div>
+<div class="listingblock data-line-456">
+<div class="content">
+<pre>K = 03F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A</pre>
+</div>
+</div>
+<div class="paragraph data-line-460">
+<p>This compressed public key corresponds to the same private key, meaning it is generated from the same private key. However, it looks different from the uncompressed public key. More importantly, if we convert this compressed public key to a Bitcoin address using the double-hash function (RIPEMD160(SHA256(K))) it will produce a <em>different</em> Bitcoin address. This can be confusing, because it means that a single private key can produce a public key expressed in two different formats (compressed and uncompressed) that produce two different Bitcoin addresses. However, the private key is identical for both Bitcoin addresses.</p>
+</div>
+<div id="pubkey_compression" class="imageblock smallerseventy data-line-465">
+<div class="content">
+<img src="images/mbc2_0407.png" alt="pubkey_compression">
+</div>
+<div class="title">Figure 7. Compressão de chave pública</div>
+</div>
+<div class="paragraph data-line-467">
+<p>Compressed public keys are gradually becoming the default across Bitcoin clients, which is having a significant impact on reducing the size of transactions and therefore the blockchain. However, not all clients support compressed public keys yet. Newer clients that support compressed public keys have to account for transactions from older clients that do not support compressed public keys. This is especially important when a wallet application is importing private keys from another bitcoin wallet application, because the new wallet needs to scan the blockchain to find transactions corresponding to these imported keys. Which Bitcoin addresses should the bitcoin wallet scan for? The Bitcoin addresses produced by uncompressed public keys, or the Bitcoin addresses produced by compressed public keys? Both are valid Bitcoin addresses, and can be signed for by the private key, but they are different addresses!</p>
+</div>
+<div class="paragraph data-line-469">
+<p>To resolve this issue, when private keys are exported from a wallet, the WIF that is used to represent them is implemented differently in newer bitcoin wallets, to indicate that these private keys have been used to produce <em>compressed</em> public keys and therefore <em>compressed</em> Bitcoin addresses. This allows the importing wallet to distinguish between private keys originating from older or newer wallets and search the blockchain for transactions with Bitcoin addresses corresponding to the uncompressed, or the compressed, public keys, respectively. Let&#8217;s look at how this works in more detail, in the next section.</p>
+</div>
+</div>
+<div class="sect4 data-line-472">
+<h5 id="comp_priv">Chaves privadas comprimidas</h5>
+<div class="paragraph data-line-474">
+<p>Ironicamente, o termo "chave privada comprimida" não é um nome muito preciso, pois quando uma chave privada é exportada como WIF-comprimida, ela é na verdade um byte <em>maior</em> do que uma chave privada "não comprimida". Isso acontece porque a chave privada tem um sufixo adicional de um byte (mostrado como 01 no hexadecimal na <a href="#table_4-4">Exemplo: A mesma chave, em diferentes formatos de codificação</a>), o que significa que a chave privada é de uma carteira moderna e só deve ser usada para produzir chaves públicas comprimidas. As chaves privadas em si não são comprimidas e não há como comprimi-las. O que o termo "chave privada comprimida" realmente significa é "chave privada a partir da qual somente chaves públicas comprimidas devem ser derivadas", enquanto o que o termo "chave privada não comprimida" realmente significa é "chave privada a partir da qual somente chaves públicas não comprimidas devem ser derivadas". É recomendado que você se refira ao formato de exportação apenas como "WIF-comprimida" ou "WIF" e, para evitar maiores confusões, que você evite se referir à chave privada em si como "comprimida".</p>
+</div>
+<div class="paragraph data-line-476">
+<p>A <a href="#table_4-4">Exemplo: A mesma chave, em diferentes formatos de codificação</a> mostra a mesma chave, codificada nos formatos WIF e WIF-comprimida.</p>
+</div>
+<table id="table_4-4" class="tableblock frame-all grid-all stretch data-line-481">
+<caption class="title">Table 4. Exemplo: A mesma chave, em diferentes formatos de codificação</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formato</th>
+<th class="tableblock halign-left valign-top">Chave privada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hex-comprimida</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD01</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIF-comprimida</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-489">
+<p>Observe que a chave privada hex-comprimida tem um byte extra no final (01 em hexadecimal). Embora o prefixo de versão da Base58Check seja o mesmo (0x80) para os formatos WIF e WIF-comprimida, a adição de um byte no final do número faz com que o primeiro caractere da codificação Base58 mude de 5 para <em>K</em> ou <em>L</em>. Pense nisso como sendo o equivalente Base58 da diferença de codificação decimal entre o número 100 e o número 99. Embora 100 seja um dígito mais longo que 99, ele também tem um prefixo 1 ao invés de um prefixo 9. À medida que o comprimento muda, isso afeta o prefixo. Na Base58, o prefixo 5 muda para <em>K</em> ou <em>L</em> conforme o comprimento do número aumenta em um byte.</p>
+</div>
+<div class="paragraph data-line-491">
+<p>Lembre-se de que esses formatos <em>não são</em> intercambiáveis. Em uma carteira moderna que implementa chaves públicas comprimidas, as chaves privadas só serão exportadas como WIF-comprimidas (com um prefixo <em>K</em> ou <em>L</em>). Se a carteira tiver uma implementação mais antiga e não usar chaves públicas comprimidas, as chaves privadas só serão exportadas como WIF (com um prefixo 5). O objetivo disso é sinalizar para a carteira que está importando essas chaves privadas se ela precisa pesquisar na blockchain por chaves públicas e endereços comprimidos ou não comprimidos.</p>
+</div>
+<div class="paragraph data-line-493">
+<p>If a bitcoin wallet is able to implement compressed public keys, it will use those in all transactions. The private keys in the wallet will be used to derive the public key points on the curve, which will be compressed. The compressed public keys will be used to produce Bitcoin addresses and those will be used in transactions. When exporting private keys from a new wallet that implements compressed public keys, the WIF is modified, with the addition of a one-byte suffix 01 to the private key. The resulting Base58Check-encoded private key is called a "compressed WIF" and starts with the letter <em>K</em> or <em>L</em>, instead of starting with "5" as is the case with WIF-encoded (noncompressed) keys from older wallets.</p>
+</div>
+<div class="admonitionblock tip data-line-497">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-498">
+<p>"Compressed private keys" is a misnomer! They are not compressed; rather, WIF-compressed signifies that the keys should only be used to derive compressed public keys and their corresponding Bitcoin addresses. Ironically, a "WIF-compressed" encoded private key is one byte longer because it has the added 01 suffix to distinguish it from an "uncompressed" one.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-501">
+<h3 id="_implementando_chaves_e_endereços_em_c">Implementando Chaves e Endereços em C++</h3>
+<div class="paragraph data-line-503">
+<p>Let&#8217;s look at the complete process of creating a Bitcoin address, from a private key, to a public key (a point on the elliptic curve), to a double-hashed address, and finally, the Base58Check encoding. The C++ code in <a href="#addr_example">Creating a Base58Check-encoded Bitcoin address from a private key</a> shows the complete step-by-step process, from private key to Base58Check-encoded Bitcoin address. The code example uses the libbitcoin library introduced in <a href="#alt_libraries">[alt_libraries]</a> for some helper functions.</p>
+</div>
+<div id="addr_example" class="exampleblock data-line-507">
+<div class="title">Example 3. Creating a Base58Check-encoded Bitcoin address from a private key</div>
+<div class="content">
+<div class="listingblock c_less_space data-line-510">
+<div class="content">
+<pre class="highlight"><code class="language-cpp" data-lang="cpp">Unresolved directive in &lt;stdin&gt; - include::code/addr.cpp[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-515">
+<p>The code uses a predefined private key to produce the same Bitcoin address every time it is run, as shown in <a href="#addr_example_run">Compilando e executando o código addr.cpp</a>.</p>
+</div>
+<div id="addr_example_run" class="exampleblock data-line-519">
+<div class="title">Example 4. Compilando e executando o código addr.cpp</div>
+<div class="content">
+<div class="listingblock data-line-521">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Compila o código addr.cpp
+$ g++ -o addr addr.cpp -std=c++11 $(pkg-config --cflags --libs libbitcoin)
+# Roda o executável addr
+$ ./addr
+Chave pública: 0202a406624211f2abbdc68da3df929f938c3399dd79fac1b51b0e4ad1d26a47aa
+Endereço: 1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip data-line-532">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-533">
+<p>The code in <a href="#addr_example_run">Compilando e executando o código addr.cpp</a> produces a Bitcoin address (1PRTT...) from a <em>compressed</em> public key (see <a href="#comp_pub">Chaves públicas comprimidas</a>). If you used the uncompressed public key instead, it would produce a different Bitcoin address (14K1y...).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2 data-line-536">
+<h3 id="_implementando_chaves_e_endereços_em_python">Implementando Chaves e Endereços em Python</h3>
+<div class="paragraph data-line-538">
+<p>A biblioteca de bitcoin mais completa em Python é a <a href="https://github.com/vbuterin/pybitcointools" data-href="https://github.com/vbuterin/pybitcointools">pybitcointools</a> feita por Vitalik Buterin. No <a href="#key-to-address_script">Geração e formatação de chaves e endereços com a biblioteca pybitcointools</a>, usamos a biblioteca pybitcointools (importada como "bitcoin") para gerar e exibir chaves e endereços em vários formatos.</p>
+</div>
+<div id="key-to-address_script" class="exampleblock data-line-542">
+<div class="title">Example 5. Geração e formatação de chaves e endereços com a biblioteca pybitcointools</div>
+<div class="content">
+<div class="listingblock data-line-544">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">Unresolved directive in &lt;stdin&gt; - include::code/key-to-address-ecc-example.py[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-549">
+<p>O <a href="#key-to-address_script_run">Executando key-to-address-ecc-example.py</a> mostra o output após executar esse código.</p>
+</div>
+<div id="key-to-address_script_run" class="exampleblock data-line-553">
+<div class="title">Example 6. Executando key-to-address-ecc-example.py</div>
+<div class="content">
+<pre data-type="programlisting">
+$ python key-to-address-ecc-example.py
+A Chave Privada (hex) é:
+ 3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa6
+A Chave Privada (decimal) é:
+ 26563230048437957592232553826663696440606756685920117476832299673293013768870
+A Chave Privada (WIF) é:
+ 5JG9hT3beGTJuUAmCQEmNaxAuMacCTfXuw1R3FCXig23RQHMr4K
+A Chave Privada Comprimida (hex) é:
+ 3aba4162c7251c891207b747840551a71939b0de081f85c4e44cf7c13e41daa601
+A Chave Privada (WIF-Comprimida) é:
+ KyBsPXxTuVD82av65KZkrGrWi5qLMah5SdNq6uftawDbgKa2wv6S
+A Chave Pública em coordenadas (x,y) é:
+ (41637322786646325214887832269588396900663353932545912953362782457239403430124L,
+ 16388935128781238405526710466724741593761085120864331449066658622400339362166L)
+A Chave Pública (hex) é:
+ 045c0de3b9c8ab18dd04e3511243ec2952002dbfadc864b9628910169d9b9b00ec&#x21b5;
+243bcefdd4347074d44bd7356d6a53c495737dd96295e2a9374bf5f02ebfc176
+A Chave Pública Comprimida (hex) é:
+ 025c0de3b9c8ab18dd04e3511243ec2952002dbfadc864b9628910169d9b9b00ec
+O Endereço de Bitcoin (b58check) é:
+ 1thMirt546nngXqyPEz532S8fLwbozud8
+O Endereço de Bitcoin Comprimido (b58check) é:
+ 14cxpo3MBCYYWCgF74SWTdcmxipnGUsPw3
+</pre>
+</div>
+</div>
+<div class="paragraph data-line-584">
+<p>O <a href="#ec_math">Um script demonstrado a matemática de curva elíptica usada para as chaves do bitcoin</a> é outro exemplo, que usa a biblioteca Python de ECDSA para a matemática de curva elíptica e não usa nenhuma biblioteca especializada de bitcoin.</p>
+</div>
+<div id="ec_math" class="exampleblock data-line-588">
+<div class="title">Example 7. Um script demonstrado a matemática de curva elíptica usada para as chaves do bitcoin</div>
+<div class="content">
+<div class="listingblock data-line-590">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">Unresolved directive in &lt;stdin&gt; - include::code/ec-math.py[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-595">
+<p>O <a href="#ec_math_run">Instalando a biblioteca Python de ECDSA e executando o script ec_math.py</a> mostra a saída produzida ao executar-se esse script.</p>
+</div>
+<div class="admonitionblock warning data-line-598">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-599">
+<p>O <a href="#ec_math">Um script demonstrado a matemática de curva elíptica usada para as chaves do bitcoin</a> usa o os.urandom, que reflete um gerador de número aleatório criptograficamente seguro (CSRNG) fornecido pelo sistema operacional subjacente. Cuidado: dependendo do sistema operacional, é possível que o os.urandom <em>não</em> seja implementado com segurança suficiente ou que ele não use uma semente aleatória adequada e, em função disso, pode ser que ele <em>não</em> seja apropriado para gerar chaves de bitcoin com qualidade suficiente para serem usadas em produção.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="ec_math_run" class="exampleblock data-line-604">
+<div class="title">Example 8. Instalando a biblioteca Python de ECDSA e executando o script ec_math.py</div>
+<div class="content">
+<div class="listingblock data-line-605">
+<div class="content">
+<pre># Instala o administrador de pacotes Python PIP
+$ sudo apt-get install python-pip
+# Instala a biblioteca Python de ECDSA
+$ sudo pip install ecdsa
+# Executa o script
+$ python ec-math.py
+Segredo: 38090835015954358862481132628887443905906204995912378278060168703580660294000
+Ponto na CE: (70048853531867179489857750497606966272382583471322935454624595540007269312627, 105262206478686743191060800263479589329920209527285803935736021686045542353380)
+Chave pública do BTC: 029ade3effb0a67d5c8609850d797366af428f4a0d5194cb221d807770a1522873</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-618">
+<h3 id="_chaves_e_endereços_avançados">Chaves e Endereços Avançados</h3>
+<div class="paragraph data-line-620">
+<p>Nas próximas seções, veremos as formas avançadas de chaves e endereços, como chaves privadas criptografadas, scripts e endereços multiassinatura, endereços personalizados e carteiras de papel.</p>
+</div>
+<div class="sect3 data-line-623">
+<h4 id="p2sh_addresses">Endereços Pay-to-Script Hash (P2SH) e Multiassinatura</h4>
+<div class="paragraph data-line-625">
+<p>As we know, traditional Bitcoin addresses begin with the number “1” and are derived from the public key, which is derived from the private key.  Although anyone can send bitcoin to a “1” address, that bitcoin can only be spent by presenting the corresponding private key signature and public key.</p>
+</div>
+<div class="paragraph data-line-627">
+<p>Bitcoin addresses that begin with the number “3” are pay-to-script hash (P2SH) addresses, sometimes erroneously called multisignature or multisig addresses. They designate the beneficiary of a bitcoin transaction as the hash of a script, instead of the owner of a public key. The feature was introduced in January 2012 with BIP-16 (see <a href="#appdxbitcoinimpproposals">[appdxbitcoinimpproposals]</a>), and is being widely adopted because it provides the opportunity to add functionality to the address itself. Unlike transactions that "send" funds to traditional “1” Bitcoin addresses, also known as a pay-to-public-key-hash (P2PKH), funds sent to “3” addresses require something more than the presentation of one public key and one private key signature as proof of ownership. The requirements are designated at the time the address is created, within the script, and all inputs to this address will be encumbered with the same requirements.</p>
+</div>
+<div class="paragraph data-line-629">
+<p>A P2SH address is created from a transaction script, which defines who can spend a transaction output (for more details, see <a href="#p2sh">[p2sh]</a>). Encoding a P2SH address involves using the same double-hash function as used during creation of a Bitcoin address, only applied on the script instead of the public key:</p>
+</div>
+<div class="listingblock data-line-631">
+<div class="content">
+<pre>hash do script = RIPEMD160(SHA256(script))</pre>
+</div>
+</div>
+<div class="paragraph data-line-635">
+<p>O "hash de script" resultante é codificado em Base58Check com um prefixo de versão 5, que resulta em um endereço codificado que inicia com um 3. Um exemplo de endereço P2SH é 3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM, que pode ser derivado usando-se os comandos script-encode, sha256, ripemd160 e base58check-encode do Bitcoin Explorer (ver o <a href="#appdx_bx">[appdx_bx]</a>), como demonstrado a seguir:</p>
+</div>
+<div class="listingblock data-line-637">
+<div class="content">
+<pre>$ echo \
+'DUP HASH160 [89abcdefabbaabbaabbaabbaabbaabbaabbaabba] EQUALVERIFY CHECKSIG' &gt; script
+$ bx script-encode &lt; script | bx sha256 | bx ripemd160 \
+| bx base58check-encode --version 5
+3F6i6kwkevjR7AsAd4te2YB2zZyASEm1HM</pre>
+</div>
+</div>
+<div class="admonitionblock tip data-line-646">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-647">
+<p>P2SH não necessariamente é o mesmo que uma transação multiassinatura padrão. Um endereço P2SH <em>geralmente</em> representa um script multiassinatura, mas ele também pode representar um script codificando outros tipos de transações.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4 data-line-650">
+<h5 id="_endereços_multiassinatura_e_p2sh">Endereços multiassinatura e P2SH</h5>
+<div class="paragraph data-line-652">
+<p>Atualmente, a implementação mais comum da função P2SH é o script de endereço multiassinatura. Como o nome sugere, o script subjacente exige um número mínimo de assinaturas para provar a posse e, portanto, gastar os fundos. A funcionalidade de multiassinatura do bitcoin é projetada para exigir M assinaturas (também conhecidas como o "limiar", em inglês, <em>threshold</em>) de um total de N chaves, o que é conhecido como uma multiassinatura M-de-N, onde M é igual ou menor do que N. Por exemplo, Bob, o dono da cafeteria do <a href="#ch01_intro_what_is_bitcoin">[ch01_intro_what_is_bitcoin]</a> poderia usar um endereço multiassinatura exigindo 1-de-2 assinaturas geradas a partir da chave que o pertence e de uma chave que pertence à sua esposa, garantindo que qualquer um deles poderia fazer uma assinatura para gastar uma saída de transação travada nesse endereço. Isso seria semelhante a uma "conta conjunta" em um banco tradicional, onde qualquer um dos cônjuges pode gastar sozinho com a sua própria assinatura. Ou o Gopesh, o web designer que o Bob contratou para criar um site, poderia ter um endereço multiassinatura 2-de-3 para o seu negócio, para garantir que nenhum fundo possa ser gasto a menos que dois de seus sócios assinem uma transação.</p>
+</div>
+<div class="paragraph data-line-654">
+<p>Exploraremos como criar transações que gastam fundos de endereços P2SH (e multiassinatura) no <a href="#transactions">[transactions]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect3 data-line-656">
+<h4 id="_endereços_personalizados">Endereços Personalizados</h4>
+<div class="paragraph data-line-658">
+<p>Vanity addresses are valid Bitcoin addresses that contain human-readable messages. For example, 1LoveBPzzD72PUXLzCkYAtGFYmK5vYNR33 is a valid address that contains the letters forming the word "Love" as the first four Base58 letters. Vanity addresses require generating and testing billions of candidate private keys, until a Bitcoin address with the desired pattern is found. Although there are some optimizations in the vanity generation algorithm, the process essentially involves picking a private key at random, deriving the public key, deriving the Bitcoin address, and checking to see if it matches the desired vanity pattern, repeating billions of times until a match is found.</p>
+</div>
+<div class="paragraph data-line-660">
+<p>Assim que um endereço personalizado correspondendo ao padrão desejado for encontrado, a chave privada da qual ele foi derivado pode ser usada pelo dono para gastar os bitcoins da mesma maneira como se fosse qualquer outro endereço. Os endereços personalizados não são mais ou menos seguros do que qualquer outro endereço. Eles dependem da mesma Criptografia de Curva Elíptica (ECC) e do mesmo Algoritmo de Hash Seguro (SHA) como qualquer outro endereço. Não é mais fácil descobrir a chave privada de um endereço que começa com um padrão personalizado, em comparação com qualquer outro endereço.</p>
+</div>
+<div class="paragraph data-line-662">
+<p>In <a href="#ch01_intro_what_is_bitcoin">[ch01_intro_what_is_bitcoin]</a>, we introduced Eugenia, a children&#8217;s charity director operating in the Philippines. Let&#8217;s say that Eugenia is organizing a bitcoin fundraising drive and wants to use a vanity Bitcoin address to publicize the fundraising. Eugenia will create a vanity address that starts with "1Kids" to promote the children&#8217;s charity fundraiser. Let&#8217;s see how this vanity address will be created and what it means for the security of Eugenia&#8217;s charity.</p>
+</div>
+<div class="sect4 data-line-664">
+<h5 id="_gerando_endereços_personalizados">Gerando endereços personalizados</h5>
+<div class="paragraph data-line-666">
+<p>It&#8217;s important to realize that a Bitcoin address is simply a number represented by symbols in the Base58 alphabet. The search for a pattern like "1Kids" can be seen as searching for an address in the range from 1Kids11111111111111111111111111111 to 1Kidszzzzzzzzzzzzzzzzzzzzzzzzzzzzz. There are approximately 58<sup>29</sup> (approximately 1.4 * 10<sup>51</sup>) addresses in that range, all starting with "1Kids." <a href="#table_4-11">O intervalo de endereços personalizados iniciando com "1Kids"</a> shows the range of addresses that have the prefix 1Kids.</p>
+</div>
+<table id="table_4-11" class="tableblock frame-all grid-all stretch data-line-670">
+<caption class="title">Table 5. O intervalo de endereços personalizados iniciando com "1Kids"</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>De</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kids11111111111111111111111111111</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kids11111111111111111111111111112</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kids11111111111111111111111111113</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">...</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Até</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kidszzzzzzzzzzzzzzzzzzzzzzzzzzzzz</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-678">
+<p>Let&#8217;s look at the pattern "1Kids" as a number and see how frequently we might find this pattern in a Bitcoin address (see <a href="#table_4-12">A frequência de um padrão personalizado (1KidsCharity) e o tempo médio de busca em um computador desktop</a>). An average desktop computer PC, without any specialized hardware, can search approximately 100,000 keys per second.</p>
+</div>
+<table id="table_4-12" class="tableblock frame-all grid-all stretch data-line-683">
+<caption class="title">Table 6. A frequência de um padrão personalizado (1KidsCharity) e o tempo médio de busca em um computador desktop</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Comprimento</th>
+<th class="tableblock halign-left valign-top">Padrão</th>
+<th class="tableblock halign-left valign-top">Frequência</th>
+<th class="tableblock halign-left valign-top">Tempo médio de busca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1K</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 58 chaves</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt; 1 milissegundo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Ki</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 3.364</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50 milissegundos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 195.000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt; 2 segundos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1Kids</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 11 milhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 minuto</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 656 milhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 hora</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsCh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 38 bilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 dias</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsCha</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 2,2 trilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3–4 meses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsChar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 128 trilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13–18 anos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsChari</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 7 quadrilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">800 anos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsCharit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 400 quadrilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">46.000 anos</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1KidsCharity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 em 23 quintilhões</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2,5 milhões de anos</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-699">
+<p>Como você pode ver, a Eugênia não conseguirá criar o endereço personalizado "1KidsCharity" tão cedo, mesmo que ela tivesse acesso a milhares de computadores. Cada caractere adicional aumenta a dificuldade em um fator de 58. Os padrões de sete ou mais caracteres geralmente são encontrados utilizando-se hardware especializado, como desktops montados de maneira customizada com múltiplas placas de vídeo (GPUs). Esses hardwares frequentemente são equipamentos antigos que já foram usados para a mineração do bitcoin e que não são mais lucrativos para esse propósito, mas que ainda podem ser usados para buscar endereços personalizados. As buscas por endereços personalizados em sistemas usando placas de vídeo (GPUs) são várias ordens de magnitude mais rápidas do que as realizadas em sistemas usando processadores de propósito geral (CPUs).</p>
+</div>
+<div class="paragraph data-line-701">
+<p>Outra maneira de encontrar um endereço personalizado é terceirizar o trabalho para uma pool vanity de mineradores, como a <a href="https://vanitypool.appspot.com" data-href="https://vanitypool.appspot.com">Vanity Pool</a>. Uma pool desse tipo é um serviço que permite que aqueles com hardware de GPU ganhem bitcoin procurando endereços personalizados para os outros. Por um pequeno pagamento (0,01 bitcoin ou aproximadamente USD $5 no momento da redação deste artigo), a Eugenia pode terceirizar a pesquisa por um endereço personalizado com padrão de sete caracteres e obter resultados em algumas horas, em vez que executar uma pesquisa usando uma CPU levaria meses.</p>
+</div>
+<div class="paragraph data-line-703">
+<p>A geração de um endereço personalizado é um exercício de força bruta: crie uma chave aleatória, verifique se o endereço resultante corresponde ao padrão desejado e repita o processo até encontrar um endereço que corresponda. O <a href="#vanity_miner_code">Minerador de endereço personalizado</a> mostra um exemplo de um "minerador de endereço personalizado" (em inglês, <em>vanity miner</em>), um programa projetado para buscar endereços personalizados, escrito em C++. O exemplo usa a biblioteca libbitcoin, que apresentamos em <a href="#alt_libraries">[alt_libraries]</a>.</p>
+</div>
+<div id="vanity_miner_code" class="exampleblock data-line-707">
+<div class="title">Example 9. Minerador de endereço personalizado</div>
+<div class="content">
+<div class="listingblock data-line-709">
+<div class="content">
+<pre class="highlight"><code class="language-cpp" data-lang="cpp">Unresolved directive in &lt;stdin&gt; - include::code/vanity-miner.cpp[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note data-line-715">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-716">
+<p>O <a href="#vanity_miner_code">Minerador de endereço personalizado</a> usa o std::random_device. Dependendo da implementação, ele pode refletir um gerador de número aleatório criptograficamente seguro fornecido pelo sistema operacional subjacente. No caso de um sistema operacional do tipo Unix, como o Linux, ele é obtido a partir do /dev/urandom. O gerador de número aleatório utilizado aqui é usado apenas para fins de demonstração e <em>não</em> é apropriado para gerar chaves de bitcoin com qualidade para serem usadas em produção, pois ele não é implementado com segurança suficiente.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-719">
+<p>O código de exemplo deve ser compilado usando um compilador C++ e vinculado à biblioteca libbitcoin (que deve ser previamente instalada no sistema). Para executar o exemplo, rode o executável vanity-miner sem nenhum parâmetro (ver o <a href="#vanity_miner_run">Compilando e executando o exemplo <em>vanity-miner</em></a>) e ele tentará encontrar um endereço personalizado que inicie com "1kid".</p>
+</div>
+<div id="vanity_miner_run" class="exampleblock data-line-723">
+<div class="title">Example 10. Compilando e executando o exemplo <em>vanity-miner</em></div>
+<div class="content">
+<div class="listingblock data-line-725">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Compila o código com g++
+$ g++ -o vanity-miner vanity-miner.cpp $(pkg-config --cflags --libs libbitcoin)
+# Executa o exemplo
+$ ./vanity-miner
+Endereço personalizado encontrado! 1KiDzkG4MxmovZryZRj8tK81oQRhbZ46YT
+Segredo: 57cc268a05f83a23ac9d930bc8565bac4e277055f4794cbd1a39e5e71c038f3f
+# Executa o exemplo novamente para se obter um resultado diferente
+$ ./vanity-miner
+Endereço personalizado encontrado! 1Kidxr3wsmMzzouwXibKfwTYs5Pau8TUFn
+Segredo: 7f65bbbbe6d8caae74a0c6a0d2d7b5c6663d71b60337299a1a2cf34c04b2a623
+# Usa "time" para ver quanto tempo demora para se encontrar um resultado
+$ time ./vanity-miner
+Endereço personalizado encontrado! 1KidPWhKgGRQWD5PP5TAnGfDyfWp5yceXM
+Segredo: 2a802e7a53d8aa237cd059377b616d2bfcfa4b0140bc85fa008f2d3d4b225349
+
+real	0m8.868s
+user	0m8.828s
+sys	0m0.035s</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph data-line-747">
+<p>O código de exemplo levará alguns segundos para encontrar uma correspondência ao padrão de três caracteres "kid", como podemos ver quando usamos o comando time do Unix para medir o tempo de execução. Mude o padrão desejado alterando a <em>string</em> search no código-fonte e veja o quão demorado é para se conseguir encontrar padrões de quatro ou cinco caracteres!</p>
+</div>
+</div>
+<div class="sect4 data-line-749">
+<h5 id="_segurança_do_endereço_personalizado">Segurança do endereço personalizado</h5>
+<div class="paragraph data-line-751">
+<p>Os endereços personalizados podem ser usados tanto para melhorar <em>quanto</em> para burlar medidas de segurança; eles são uma verdadeira faca de dois gumes. Quando usado para melhorar a segurança, um endereço diferenciado torna mais difícil para que hackers substituam o seu endereço pelo endereço deles, o que faria com que seus clientes pagassem para os hackers, ao invés de pagarem para você. Infelizmente, os endereços personalizados também permitem que qualquer pessoa crie um endereço que se <em>pareça</em> com qualquer endereço aleatório, ou mesmo outro endereço personalizado, e com isso enganando seus clientes.</p>
+</div>
+<div class="paragraph data-line-753">
+<p>A Eugênia poderia divulgar um endereço gerado aleatoriamente (por exemplo, 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy) para que as pessoas enviem suas doações. Ou ela poderia gerar um endereço personalizado que começa com 1Kids, para torná-lo mais atraente.</p>
+</div>
+<div class="paragraph data-line-755">
+<p>Em ambos os casos, um dos riscos de se usar um endereço fixo único (em vez de usar um endereço dinâmico separado para cada doador) é que um ladrão pode conseguir invadir o seu site e substituir o seu endereço pelo endereço dele, desviando as doações que você receberia. Se você divulgou seu endereço de doação em vários lugares diferentes, seus usuários podem inspecionar visualmente o endereço antes de fazer um pagamento, para se assegurarem que ele é o mesmo que eles viram em seu site, e-mail ou flyer. No caso de um endereço aleatório como 1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy, o usuário comum talvez inspecionará apenas os primeiros caracteres "1J7mdg" e ficará satisfeito se eles forem iguais. Usando um gerador de endereços personalizados, uma pessoa mal-intencionada pode criar rapidamente endereços que se pareçam com o verdadeiro, com apenas os primeiros caracteres iguais, como demonstrado na <a href="#table_4-13">Gerando endereços personalizados para corresponder a um endereço aleatório</a>.</p>
+</div>
+<table id="table_4-13" class="tableblock frame-all grid-all stretch data-line-759">
+<caption class="title">Table 7. Gerando endereços personalizados para corresponder a um endereço aleatório</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endereço Aleatório Original</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endereço Personalizado (4 caracteres)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1J7md1QqU4LpctBetHS2ZoyLV5d6dShhEy</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endereço Personalizado (5 caracteres)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1J7mdgYqyNd4ya3UEcq31Q7sqRMXw2XZ6n</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Endereço Personalizado (6 caracteres)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1J7mdg5WxGENmwyJP9xuGhG5KRzu99BBCX</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-766">
+<p>Então um endereço personalizado aumenta a segurança? Se a Eugênia gerar o endereço personalizado 1Kids33q44erFfpeXrmDSz7zEqG2FesZEN, os usuários provavelmente olharão para a palavra com o padrão personalizado <em>e alguns caracteres além</em>, por exemplo, percebendo a parte "1Kids33" do endereço. Isso forçaria um hacker a gerar um endereço personalizado que tenha pelo menos seis caracteres iguais (dois a mais), tendo que se esforçar 3.364 vezes mais (58 &#x00D7; 58) do que a Eugênia teve que se esforçar para conseguir gerar o seu endereço personalizado de quatro caracteres. Essencialmente, o esforço que a Eugênia teve que fazer (ou pagar para uma pool de mineração fazer) acaba exigindo que o hacker produza um padrão personalizado mais longo. Se a Eugênia pagar para uma pool gerar um endereço personalizado de 8 caracteres, o hacker teria que fazer um esforço para produzir um endereço de 10 caracteres, algo que é inviável de ser feito em um computador pessoal e muito caro para ser obtido, até mesmo em equipamentos de mineração de endereços personalizados ou em uma pool de mineração. O que tem um preço acessível para a Eugênia acaba se tornando muito caro para o hacker, especialmente se a recompensa potencial pela fraude não é alta o suficiente para cobrir o custo da geração do endereço personalizado.</p>
+</div>
+</div>
+</div>
+<div class="sect3 data-line-769">
+<h4 id="paper_wallets">Carteiras de Papel</h4>
+<div class="paragraph data-line-771">
+<p>Paper wallets are bitcoin private keys printed on paper. Often the paper wallet also includes the corresponding Bitcoin address for convenience, but this is not necessary because it can be derived from the private key.</p>
+</div>
+<div class="admonitionblock warning data-line-774">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-775">
+<p>As carteiras de papel são uma tecnologia OBSOLETA e, portanto, são consideradas perigosas para a maioria dos usuários. Existem muitas armadilhas sutis que podem ser exploradas durante o processo de geração das carteiras, incluindo a possibilidade de que o código gerador seja comprometido por um "<em>back door</em>". Centenas de bitcoins já foram roubados dessa forma. As carteiras de papel são mostradas nesta seção apenas para fins informativos e não devem ser usadas para armazenar bitcoins. Use uma frase mnemônica do padrão BIP-39 para fazer backup de suas chaves. Use uma carteira de hardware para armazenar chaves e assinar transações. NÃO USE CARTEIRAS DE PAPEL.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-778">
+<p>As carteiras de papel possuem muitos formatos, tamanhos e designs, mas basicamente elas são apenas uma chave privada e um endereço impressos em um papel. A <a href="#table_4-14">Simplest form of a paper wallet—a printout of the Bitcoin address and private key</a> mostra a forma mais simples de uma carteira de papel.</p>
+</div>
+<table id="table_4-14" class="tableblock frame-all grid-all stretch data-line-783">
+<caption class="title">Table 8. Simplest form of a paper wallet—a printout of the Bitcoin address and private key</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Endereço público</th>
+<th class="tableblock halign-left valign-top">Chave privada (WIF)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1424C2F4bC9JidNjjTUZCbUxv6Sa1Mt62x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph data-line-788">
+<p>As carteiras de papel possuem muitos designs e tamanhos, com muitos recursos diferentes. A &lt;paper_wallet_simple&gt; mostra um exemplo de uma carteira de papel.</p>
+</div>
+<div id="paper_wallet_simple" class="imageblock data-line-792">
+<div class="content">
+<img src="images/mbc2_0408.png" alt="mbc2 0408">
+</div>
+<div class="title">Figure 8. Um exemplo de uma carteira de papel simples</div>
+</div>
+<div class="paragraph data-line-795">
+<p>Algumas são feitas para serem dadas de presente e tem temas sazonais, como as de Natal e Ano Novo. Outras são projetadas para serem armazenadas em um cofre de banco com a chave privada escondida de alguma maneira, seja através de adesivos opacos com raspadinhas, ou dobradas e seladas com um lacre de fita adesiva inviolável.</p>
+</div>
+<div class="paragraph data-line-797">
+<p>Outros designs apresentam cópias adicionais das chaves e dos endereços, na forma de canhotos destacáveis semelhantes a canhotos de ingressos, permitindo que você armazene múltiplas cópias para protegê-las de incêndios, enchentes e outros desastres naturais.</p>
+</div>
+<div id="paper_wallet_spw" class="imageblock data-line-801">
+<div class="content">
+<img src="images/mbc2_0412.png" alt="mbc2 0412">
+</div>
+<div class="title">Figure 9. Um exemplo de uma carteira de papel com um canhoto de backup contendo cópias adicionais das chaves</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-07-10 05:52:28 -0400
+</div>
+</div>
+</body>
+</html>

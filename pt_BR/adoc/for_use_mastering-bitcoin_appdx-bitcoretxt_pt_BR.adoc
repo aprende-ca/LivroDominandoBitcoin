@@ -1,0 +1,116 @@
+[[appdx_bitcore]]
+[appendix]
+
+== Bitcore
+
+
+((("Bitcore", id="bitcore16")))O Bitcore é um conjunto de ferramentas fornecido pela BitPay. Seu objetivo é fornecer ferramentas fáceis de usar para os desenvolvedores do Bitcoin. Quase todo o código do Bitcore é escrito em JavaScript. Existem alguns módulos escritos especificamente para o NodeJS. Além disso, o módulo "bitcore-node" do Bitcore inclui o código C++ do Bitcoin Core. Para maiores informações, visite o site https://bitcore.io.
+
+=== Lista de Recursos do Bitcore
+
+* Nó completo de bitcoin (bitcore-node)
+* Explorador de blocos (insight)
+* Utilitários de bloco, transação e carteira (bitcore-lib)
+* Comunicação direta com a rede P2P do bitcoin (bitcore-p2p)
+* Geração de semente mnemônica (bitcore-mnemonic)
+* Protocolo de pagamento (bitcore-payment-protocol)
+* Verificação e assinatura de mensagens (bitcore-message)
+* Esquema Integrado de Criptografia de Curva Elíptica (ECIES) (bitcore-ecies)
+* Serviço de carteira (bitcore-wallet-service)
+* Cliente de carteira (bitcore-wallet-client)
+* Integração de serviços diretamente com o Bitcoin Core (bitcore-node)
+
+=== Exemplos de Bibliotecas do Bitcore
+
+==== Pré-requisitos
+
+* NodeJS >= 4.x
+
+Se estiver usando o NodeJS e o nó REPL:
+
+[source,bash]
+----
+$ npm install -g bitcore-lib bitcore-p2p
+----
+
+==== Exemplos de Carteiras usando a bitcore-lib
+
+Criando um novo endereço Bitcoin com uma chave privada associada:
+
+----
+> bitcore = require('bitcore-lib')
+> privateKey = new bitcore.PrivateKey()
+> address = privateKey.toAddress().toString()
+----
+
+Criando uma chave privada e um endereço determinístico hierárquico:
+
+----
+> hdPrivateKey = bitcore.HDPrivateKey()
+> hdPublicKey = bitcore.HDPublicKey(hdPrivateKey)
+> hdAddress = new bitcore.Address(hdPublicKey.publicKey).toString()
+----
+
+Criando e assinando uma transação a partir de uma UTXO:
+
+----
+> utxo = {
+txId: txId, // ID da transação que contém uma saída não gasta
+outputIndex: outputIndex, // índice da saída (ex: 0)
+  address: addressOfUtxo, // endereço da UTXO
+  script: bitcore.Script.buildPublicKeyHashOut(addressOfUtxo).toString(),
+satoshis: satoshis // quantia enviada para o endereço
+}
+> fee = 3000 // taxa definida adequadamente para as condições na rede
+> tx = new bitcore.Transaction()
+        .from(utxo)
+        .to(address, 35000)
+        .fee(fee)
+        .enableRBF()
+        .sign(privateKeyOfUtxo)
+----
+
+Substituindo a última transação na mempool (_replace-by-fee_):
+
+----
+> rbfTx = new Transaction()
+           .from(utxo)
+           .to(address, 35000)
+           .fee(fee*2)
+           .enableRBF()
+           .sign(privateKeyOfUtxo);
+> tx.serialize();
+> rbfTx.serialize();
+----
+
+Transmitindo uma transação para a rede bitcoin
+(nota: transmite apenas transações válidas; consulte https://bitnodes.21.co/nodes[] para hosts pares):
+
+1. Copie o código abaixo em um arquivo chamado _broadcast.js_.
+2. As variáveis +tx+ e +rbfTx+ são o output das funções +tx.serialize()+ e +rbfTx.serialize()+, respectivamente.
+3. Para substituir por taxa (_replace-by-fee_), o par deve suportar a opção +mempoolreplace+ do bitcoind e deve ter ela definida como +1+.
+4. Execute o nó do arquivo _broadcast.js_((("", startref="bitcore16"))):
+
+----
+var p2p = require('bitcore-p2p');
+var bitcore = require('bitcore-lib');
+var tx = new bitcore.Transaction('output da função serialize');
+var rbfTx = new bitcore.Transaction('output da função serialize');
+var host = 'endereço ip'; // usar nó par válido escutando na porta tcp 8333
+var peer = new p2p.Peer({host: host});
+var messages = new p2p.Messages();
+peer.on('ready', function() {
+  var txs = [messages.Transaction(tx), messages.Transaction(rbfTx)];
+  var index = 0;
+  var interval = setInterval(function() {
+    peer.sendMessage(txs[index++]);
+    console.log('transação: ' + index + ' enviada');
+    if (index === txs.length) {
+      clearInterval(interval);
+      console.log('desconectando do peer: ' + host);
+      peer.disconnect();
+    }
+  }, 2000);
+});
+peer.connect();
+----

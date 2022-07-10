@@ -1,0 +1,500 @@
+[[ch05_wallets]]
+== Carteiras
+
+((("carteiras", "definição")))A palavra "carteira" é usada para descrever diferentes coisas no bitcoin.
+
+De maneira geral, uma carteira é um aplicativo que serve como a interface de usuário principal. A carteira controla o acesso ao dinheiro do usuário ao gerenciar chaves e endereços, controlar o saldo, criar transações e assinar transações.
+
+Mais precisamente, do ponto de vista de um programador, a palavra "carteira" refere-se à estrutura de dados usada para armazenar e gerenciar as chaves de um usuário.
+
+Neste capítulo, veremos o segundo significado, em que as carteiras são lugares para armazenar chaves privadas, geralmente implementados como arquivos estruturados ou bancos de dados simples.
+
+=== Visão Geral da Tecnologia de Carteira
+
+Nesta seção, resumimos as várias tecnologias usadas para construir carteiras de bitcoin fáceis de usar, seguras e versáteis.
+
+((("wallets", "contents of")))A common misconception about bitcoin is that bitcoin wallets contain bitcoin. In fact, the wallet contains only keys. The "coins" are recorded in the blockchain on the Bitcoin network. Users control the coins on the network by signing transactions with the keys in their wallets. ((("keychains")))In a sense, a bitcoin wallet is a _keychain_.
+
+[TIP]
+====
+As carteiras de bitcoin contêm chaves, e não moedas. Cada usuário tem uma carteira que contém chaves. As carteiras, na verdade, são chaveiros que contêm pares de chaves privadas/públicas (veja <<private_public_keys>>). Os usuários assinam transações com as suas chaves, provando que possuem as saídas de transação (provando que são donos de suas moedas). As moedas são armazenadas na blockchain na forma de saídas de transação (frequentemente denominadas como vout ou txout).
+====
+
+((("carteiras", "tipos de", "distinções principais")))Existem dois tipos principais de carteiras, que são distinguidas pelo fato de suas chaves estarem relacionadas entre si ou não.
+
+((("carteiras JBOK", seealso="wallets")))((("carteiras", "tipos de", "carteiras JBOK")))((("carteiras não determinísticas", seealso="wallets")))O primeiro tipo é uma _carteira não determinística_, em que cada chave é gerada independentemente a partir de um número aleatório. As chaves não estão relacionadas entre si. Este tipo de carteira também é conhecido como uma carteira JBOK, da frase em inglês "_Just a Bunch of Keys_" ("Apenas um Monte de Chaves").
+
+((("carteiras determinísticas", seealso="carteiras")))O segundo tipo de carteira é uma _carteira determinística_, em que todas as chaves são derivadas de uma única chave mestra, conhecida como a _semente_. Todas as chaves neste tipo de carteira estão relacionadas umas com as outras e podem ser geradas novamente por alguém que tiver a semente original. ((("métodos de derivação de chaves")))Existem vários métodos diferentes de _derivação de chaves_ usados ​​em carteiras determinísticas. ((("carteiras determinísticas hierárquicas (HD)", seealso="carteiras")))O método de derivação mais comumente usado utiliza uma estrutura semelhante a uma árvore e é conhecido como _carteira determinística hierárquica_ ou carteira _HD_.
+
+((("palavras de código mnemônico")))As carteiras determinísticas são inicializadas a partir de uma sequência aleatória (uma entropia). Para facilitar o uso, as sequências aleatórias são codificadas como palavras em inglês, também conhecidas como _palavras de código mnemônico_.
+
+As próximas seções apresentarão uma visão geral de cada uma dessas tecnologias.
+
+[[random_wallet]]
+==== Carteiras Não Determinísticas (Aleatórias)
+
+((("wallets", "types of", "nondeterministic (random) wallets")))In the first bitcoin wallet (now called Bitcoin Core), wallets were collections of randomly generated private keys. For example, the original Bitcoin Core client pregenerates 100 random private keys when first started and generates more keys as needed, using each key only once.  Such wallets are being replaced with deterministic wallets because they are cumbersome to manage, back up, and import. The disadvantage of random keys is that if you generate many of them you must keep copies of all of them, meaning that the wallet must be backed up frequently. Each key must be backed up, or the funds it controls are irrevocably lost if the wallet becomes inaccessible. This conflicts directly with the principle of avoiding address reuse, by using each Bitcoin address for only one transaction. Address reuse reduces privacy by associating multiple transactions and addresses with each other. A Type-0 nondeterministic wallet is a poor choice of wallet, especially if you want to avoid address reuse because it means managing many keys, which creates the need for frequent backups. Although the Bitcoin Core client includes a Type-0 wallet, using this wallet is discouraged by developers of Bitcoin Core. <<Type0_wallet>> shows a nondeterministic wallet, containing a loose collection of random keys.
+
+[TIP]
+====
+O uso de carteiras não determinísticas é desencorajado para qualquer uso que não seja para se fazer testes simples. Elas são simplesmente incômodas demais para fazer backup e para serem usadas. Em vez disso, use uma _carteira HD_ baseada no padrão da indústria com uma sequência aleatória _mnemônica_ (uma entropia ou "semente inicial") para backup.
+====
+
+[[Type0_wallet]]
+[role="smallersixty"]
+.Carteira não determinística (aleatória) do tipo 0: uma coleção de chaves geradas aleatoriamente
+image::images/mbc2_0501.png["Non-Deterministic Wallet"]
+
+==== Carteiras Determinísticas (com Semente)
+
+((("carteiras", "tipos de", "carteiras determinísticas (com semente)")))As carteiras determinísticas, ou "carteiras com semente", são carteiras que contêm chaves privadas que são todas derivadas de uma semente comum, através do uso de uma função de hash de sentido único. A semente é um número gerado aleatoriamente que é combinado com outros dados, como um número índice ou "código de cadeia" (veja <<hd_wallets>>), para derivar as chaves privadas. Em uma carteira determinística, a semente é a única informação necessária para se recuperar todas as chaves derivadas e, portanto, um único backup no momento da criação da carteira é suficiente. A semente também é a única informação necessária para se exportar ou importar a carteira, permitindo a fácil migração de todas as chaves do usuário entre diferentes implementações de carteira. A <<Type1_wallet>> mostra um diagrama lógico de uma carteira determinística.
+
+[[Type1_wallet]]
+[role="smallersixty"]
+.Carteira determinística tipo 1 (com semente): uma sequência determinística de chaves derivadas a partir de uma semente
+image::images/mbc2_0502.png["Deterministic Wallet"]
+
+[[hd_wallets]]
+==== Carteiras HD (BIP-32/BIP-44)
+
+((("carteiras", "tipos de", "carteiras determinísticas hierárquicas (HD)")))((("carteiras determinísticas hierárquicas (HD)")))((("propostas de melhoria ao bitcoin", "Carteiras Determinísticas Hierárquicas (BIP-32/BIP-44)")))As carteiras determinísticas foram desenvolvidas para facilitar a derivação de várias chaves a partir de uma única "semente". A forma mais avançada de carteira determinística é a carteira HD definida pelo padrão BIP-32. As carteiras HD contêm chaves derivadas em uma estrutura em forma de árvore, de tal forma que uma chave pai pode derivar uma sequência de chaves filhas, e cada uma das quais pode derivar uma sequência de chaves netas, e assim por diante, até uma profundidade infinita. Essa estrutura em forma de árvore é ilustrada na <<Type2_wallet>>.
+
+[[Type2_wallet]]
+.Carteira HD tipo 2: uma árvore de chaves geradas a partir de uma única semente
+image::images/mbc2_0503.png["HD wallet"]
+
+As carteiras HD oferecem duas grandes vantagens em relação às chaves aleatórias (não determinísticas). Primeiro, a estrutura em forma de árvore pode ser usada para expressar significado organizacional adicional, por exemplo, quando um ramo específico de subchaves é usado para receber pagamentos e um ramo diferente é usado para receber trocos de pagamentos efetuados. Os ramos de chaves também podem ser usados em cenários corporativos, alocando diferentes ramos a diferentes departamentos, subsidiárias, funções específicas ou categorias contábeis.
+
+A segunda vantagem das carteiras HD é que os usuários podem criar uma sequência de chaves públicas sem precisar ter acesso às chaves privadas correspondentes. Isso permite que carteiras HD sejam utilizadas em um servidor inseguro, ou em uma aplicação que somente recebe pagamentos, emitindo uma chave pública diferente para cada transação. As chaves públicas não precisam ser previamente carregadas ou derivadas, apesar de o servidor não deter as chaves privadas que podem gastar os fundos.
+
+==== Sementes e Códigos Mnemônicos (BIP-39)
+
+((("carteiras", "tecnologia de", "sementes e códigos mnemônicos")))((("palavras de código mnemônico")))((("propostas de melhoria ao bitcoin", "Palavras de Código Mnemônico (BIP-39)")))As carteiras HD são um mecanismo muito poderoso para gerenciar várias chaves e endereços. Elas são ainda mais úteis se forem combinadas com uma maneira padronizada de se criar sementes a partir de uma sequência de palavras em inglês que sejam fáceis de transcrever, exportar e importar entre carteiras. Essa sequência de palavras é conhecida como _mnemônico_, e o padrão é definido pela BIP-39. Hoje, a maioria das carteiras de bitcoin (e das carteiras de outras criptomoedas) usa esse padrão, que permite a importação e a exportação de sementes para backup e recuperação usando mnemônicos interoperáveis.
+
+Vamos analisar isso sob um ponto de vista prático. Qual das seguintes sementes é mais fácil de ser transcrita, anotada em um papel, lida sem erros, exportada e importada para uma outra carteira?
+
+.Uma semente para uma carteira determinística, exibida no formato hexadecimal
+----
+0C1E24E5917779D297E14D45F14E1A1A
+----
+
+.Uma semente para uma carteira determinística, codificada em um mnemônico de 12 palavras
+----
+army van defense carry jealous true
+garbage claim echo media make crunch
+----
+
+==== Melhores Práticas de Carteira
+
+((("carteiras", "melhores práticas para")))((("propostas de melhoria ao bitcoin", "Estrutura de Carteira HD Multipropósito (BIP-43)")))Conforme a tecnologia das carteiras de bitcoin amadureceu, alguns padrões comuns da indústria foram surgindo, tornando as carteiras de bitcoin amplamente interoperáveis, fáceis de usar, seguras e flexíveis. Esses padrões comuns são:
+
+* Palavras de código mnemônico, com base na BIP-39
+* Carteiras HD, com base na BIP-32
+* Estrutura de carteira HD multifuncional, com base na BIP-43
+* Carteiras multimoedas e multicontas, com base na BIP-44
+
+Esses padrões podem mudar ou tornarem-se obsoletos por desenvolvimentos futuros, mas, por enquanto, eles formam um conjunto de tecnologias interligadas que se tornaram o padrão amplamente reconhecido de carteira para bitcoin.
+
+Os padrões foram adotados por uma ampla variedade de carteiras de bitcoin de software e hardware, tornando todas essas carteiras interoperáveis. Um usuário pode exportar um mnemônico gerado em uma dessas carteiras e importá-lo em outra carteira, recuperando todas as transações, chaves e endereços.
+
+((("carteiras de hardware")))((("carteiras de hardware", see="também carteiras")))Alguns exemplos de carteiras de software que suportam esses padrões incluem (listadas em ordem alfabética) a Breadwallet, a Copay e a Multibit HD. Exemplos de carteiras de hardware que suportam esses padrões incluem (listadas em ordem alfabética) a KeepKey, a Ledger e a Trezor.
+
+Nas seções a seguir examinaremos cada uma dessas tecnologias em maiores detalhes.
+
+[TIP]
+====
+Se você estiver implementando uma carteira de bitcoin, ela deve ser construída como uma carteira HD, com uma semente derivada de, e codificada como, um código mnemônico para backup, seguindo os padrões BIP-32, BIP-39, BIP-43 e BIP-44, conforme descrito nas próximas seções.
+====
+
+==== Usando uma Carteira de Bitcoin
+
+((("carteiras", "usando carteiras de bitcoin")))Em <<user-stories>> apresentamos o Gabriel, ((("casos de uso", "loja virtual", id="gabrielfive")))um adolescente empreendedor do Rio de Janeiro, que gerencia uma pequena loja virtual que vende camisetas, canecas e adesivos com a marca bitcoin.
+
+((("carteiras", "tipos de", "carteiras de hardware")))Gabriel usa uma carteira de hardware da marca Trezor (<<a_trezor_device>>)  para gerenciar seus bitcoins com segurança. A Trezor é um dispositivo USB simples com dois botões que armazena chaves (na forma de uma carteira HD) e assina transações. As carteiras Trezor implementam todos os padrões da indústria discutidos neste capítulo, então o Gabriel não depende de nenhuma tecnologia proprietária ou solução de um único fornecedor.
+
+[[a_trezor_device]]
+.Um dispositivo Trezor: uma carteira HD de bitcoin em hardware
+image::images/mbc2_0504.png[alt]
+
+Quando o Gabriel usou a Trezor pela primeira vez, o dispositivo gerou uma sequência aleatória (uma entropia), o mnemônico associado e derivou uma semente a partir de um gerador de número aleatório embutido no próprio hardware. Durante esta fase de inicialização, a carteira exibiu na tela uma sequência de palavras numeradas, uma de cada vez (ver a <<trezor_mnemonic_display>>).
+
+[[trezor_mnemonic_display]]
+.Trezor exibindo uma das palavras mnemônicas
+image::images/mbc2_0505.png["Trezor wallet display of mnemonic word"]
+
+Ao anotar este mnemônico em um papel, Gabriel criou um backup (ver a <<mnemonic_paper_backup>>) que pode ser usado para recuperação em caso de perda ou dano ao dispositivo Trezor. Este mnemônico pode ser usado para recuperação em uma nova Trezor ou em qualquer uma entre várias carteiras de software ou hardware compatíveis. Note que a ordem das palavras é importante, e por causa disso os papéis para backup de mnemônico têm lacunas numeradas que são reservadas para cada palavra. Gabriel teve que anotar cuidadosamente cada palavra na lacuna numerada, a fim de preservar a ordem correta das palavras.
+
+[[mnemonic_paper_backup]]
+.O backup em papel do mnemônico de Gabriel
+[cols="<1,^50,<1,^50", width="80%"]
+|===
+|*1.*| _army_ |*7.*| _garbage_
+|*2.*| _van_ |*8.*| _claim_
+|*3.*| _defense_ |*9.*| _echo_
+|*4.*| _carry_ |*10.*| _media_
+|*5.*| _jealous_ |*11.*| _make_
+|*6.*| _true_ |*12.*| _crunch_
+|===
+
+[NOTE]
+====
+Um mnemônico de 12 palavras é mostrado na <<mnemonic_paper_backup>>, para simplificar. Na verdade, a maioria das carteiras de hardware gera um mnemônico de 24 palavras, que é mais seguro. O mnemônico é usado exatamente da mesma maneira, independentemente da quantidade de palavras que ele possui.
+====
+
+For the first implementation of his web store, Gabriel uses a single Bitcoin address, generated on his Trezor device. This single address is used by all customers for all orders. As we will see, this approach has some drawbacks and can be improved upon with an HD wallet.((("", startref="gabrielfive")))
+
+=== Detalhes da Tecnologia de Carteira
+
+Vamos agora examinar detalhadamente cada um dos importantes padrões da indústria usados por muitas carteiras de bitcoin.
+
+[[mnemonic_code_words]]
+==== Palavras de Código Mnemônico (BIP-39)
+
+((("carteiras", "tecnologia das", "palavras de código mnemônico")))((("palavras de código mnemônico", id="mnemonic05")))((("propostas de melhoria ao bitcoin", "Palavras de Código Mnemônico (BIP-39)", id="BIP3905")))As palavras de código mnemônico são sequências de palavras que representam (codificam) um número aleatório que é usado como uma semente para se derivar uma carteira determinística. A sequência de palavras é a única informação necessária para se recriar a semente e, a partir dela, recriar a carteira e todas as suas chaves derivadas. Um aplicativo de carteira que usa carteiras determinísticas com palavras mnemônicas exibirá ao usuário uma sequência de 12 a 24 palavras quando a carteira for criada pela primeira vez. Essa sequência de palavras é o backup da carteira e pode ser usada para recuperar e recriar todas as chaves no mesmo aplicativo ou em qualquer aplicativo de carteira compatível. As palavras mnemônicas facilitam a criação de backups de carteiras pelos usuários, pois elas são fáceis de serem lidas e de serem corretamente transcritas, quando comparadas a uma sequência de números aleatórios.
+
+[TIP]
+====
+((("carteiras cerebrais")))As palavras mnemônicas costumam ser confundidas com as "carteiras cerebrais" (em inglês, _brainwallets_). Elas não são a mesma coisa. A principal diferença é que uma carteira cerebral consiste em palavras que são escolhidas pelo próprio usuário, enquanto as palavras mnemônicas são criadas aleatoriamente pela carteira e depois são apresentadas ao usuário. Essa importante diferença torna as palavras mnemônicas muito mais seguras, pois os humanos são fontes muito pobres de aleatoriedade.
+====
+
+Os códigos mnemônicos são definidos na BIP-39 (consulte o <<appdxbitcoinimpproposals>>). Observe que a BIP-39 é uma implementação de um padrão de código mnemônico. ((("carteira Electrum", seealso="carteiras")))Existe também um padrão diferente, com um conjunto diferente de palavras, usado pela carteira Electrum, mais antigo do que a BIP-39. O padrão BIP-39 foi proposto pela empresa responsável pela carteira de hardware Trezor e não é compatível com a implementação da Electrum. No entanto, o padrão BIP-39 já obteve amplo suporte da indústria em dezenas de implementações interoperáveis e, atualmente, deve ser considerado o padrão "oficial" da indústria.
+
+A BIP-39 define a criação de um código mnemônico e de uma semente, que descrevemos aqui em nove etapas. Para maior clareza, o processo é dividido em duas partes: as etapas de 1 a 6 são mostradas em <<generating_mnemonic_words>> e as etapas de 7 a 9 são mostradas em <<mnemonic_to_seed>>.
+
+[[generating_mnemonic_words]]
+===== Gerando palavras mnemônicas
+
+As palavras mnemônicas são geradas automaticamente pela carteira usando o processo padronizado definido na BIP-39. A carteira começa a partir de uma fonte de entropia, adiciona uma soma de verificação (um _checksum_) e então mapeia a entropia para uma lista de palavras:
+
+1. Cria uma sequência aleatória (entropia) de 128 a 256 bits.
+2. Cria uma soma de verificação (_checksum_) da sequência aleatória tomando os primeiros (comprimento da entropia/32) bits de seu hash SHA256.
+3. Adiciona a soma de verificação (_checksum_) no final da sequência aleatória.
+4. Divide o resultado em segmentos com 11 bits de comprimento.
+5. Mapeia cada valor de 11 bits para uma palavra do dicionário predefinido de 2.048 palavras.
+6. O código mnemônico é a sequência de palavras.
+
+A <<generating_entropy_and_encoding>> mostra como a entropia é usada para gerar palavras mnemônicas.
+
+[[generating_entropy_and_encoding]]
+[role="smallerseventy"]
+.Gerando entropia e codificando como palavras mnemônicas
+image::images/mbc2_0506.png["Generating entropy and encoding as mnemonic words"]
+
+A <<table_4-5>> mostra a relação entre o tamanho dos dados de entropia e o comprimento em palavras dos códigos mnemônicos.
+
+[[table_4-5]]
+.Códigos mnemônicos: entropia e comprimento da palavra
+[options="header"]
+|=======
+|Entropia (bits) | _Checksum_ (bits) | Entropia *+* _checksum_ (bits) | Comprimento do mnemônico (palavras)
+| 128 | 4 | 132 | 12
+| 160 | 5 | 165 | 15
+| 192 | 6 | 198 | 18
+| 224 | 7 | 231 | 21
+| 256 | 8 | 264 | 24
+|=======
+
+[[mnemonic_to_seed]]
+===== Do mnemônico à semente
+
+((("função de alongamento de chaves")))((("função PBKDF2")))As palavras mnemônicas representam uma entropia com um comprimento de 128 a 256 bits. A entropia é então usada para derivar uma semente mais longa (de 512 bits) através do uso da função de alongamento de chaves PBKDF2. A semente produzida é então usada para construir uma carteira determinística e derivar suas chaves.
+
+((("sal")))((("frases de senha")))A função de alongamento de chaves usa dois parâmetros: o mnemônico e um _sal_ (em inglês, _salt_). O propósito de um sal em uma função de alongamento de chaves é dificultar a construção de uma tabela de pesquisa (em inglês, _lookup table_) que permita um ataque de força bruta. No padrão BIP-39, o sal tem outra finalidade&#x2014;ele permite a utilização de uma frase de senha (em inglês, _passphrase_) que serve como um fator de segurança adicional protegendo a semente, como descreveremos em mais detalhes em <<mnemonic_passphrase>>.
+
+O processo descrito nas etapas 7 a 9 é a continuação do processo descrito anteriormente em <<generating_mnemonic_words>>:
+
+++++
+<ol start="7">
+	<li>O primeiro parâmetro para a função de alongamento de chaves PBKDF2 é o <em>mnemônico</em> produzido na etapa 6.</li>
+	<li>O segundo parâmetro para a função de alongamento de chaves PBKDF2 é um <em>sal</em>. O sal é composto pela _string_ constante "<code>mnemonic</code>" concatenada com uma _string_ opcional da frase de senha fornecida pelo usuário.</li>
+	<li>A PBKDF2 estende os parâmetros mnemônico e sal usando 2.048 rodadas de hash com o algoritmo HMAC-SHA512, produzindo um valor de 512 bits como sua saída final. Esse valor de 512 bits é a semente.</li>
+</ol>
+++++
+
+A <<fig_5_7>> mostra como um mnemônico é usado para gerar uma semente.
+
+[[fig_5_7]]
+.Do mnemônico à semente
+image::images/mbc2_0507.png["From mnemonic to seed"]
+
+[TIP]
+====
+A função de alongamento de chaves, com suas 2.048 rodadas de _hashing_, é uma proteção muito eficaz contra ataques de força bruta contra o mnemônico ou a frase de senha. Torna-se extremamente custoso (em termos de esforço computacional) tentar mais do que algumas milhares de frases de senha e combinações mnemônicas, visto que o número possível de sementes derivadas é imenso (2^512^).
+====
+
+As Tabelas pass:[<a data-type="xref" href="#mnemonic_128_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_no_pass</a>], pass:[<a data-type="xref" href="#mnemonic_128_w_pass" data-xrefstyle="select: labelnumber">#mnemonic_128_w_pass</a>] e pass:[<a data-type="xref" href="#mnemonic_256_no_pass" data-xrefstyle="select: labelnumber">#mnemonic_256_no_pass</a>] demonstram alguns exemplos de códigos mnemônicos e as sementes que eles produzem (com ou sem uma frase de senha).
+
+[[mnemonic_128_no_pass]]
+.Código mnemônico com entropia de 128 bits, sem frase de senha, e a semente resultante
+[cols="h,"]
+|=======
+| *Input de entropia (128 bits)*| +0c1e24e5917779d297e14d45f14e1a1a+
+| *Mnemônico (12 palavras)* | +army van defense carry jealous true garbage claim echo media make crunch+
+| *Frase de senha*| (nenhuma)
+| *Semente (512 bits)* | +5b56c417303faa3fcba7e57400e120a0ca83ec5a4fc9ffba757fbe63fbd77a89a1a3be4c67196f57c39+
++a88b76373733891bfaba16ed27a813ceed498804c0570+
+|=======
+
+[[mnemonic_128_w_pass]]
+.Código mnemônico com entropia de 128 bits, com frase de senha, e a semente resultante
+[cols="h,"]
+|=======
+| *Input de entropia (128 bits)*| +0c1e24e5917779d297e14d45f14e1a1a+
+| *Mnemônico (12 palavras)* | +army van defense carry jealous true garbage claim echo media make crunch+
+| *Frase de senha*| SuperDuperSecret
+| *Semente (512 bits)* | +3b5df16df2157104cfdd22830162a5e170c0161653e3afe6c88defeefb0818c793dbb28ab3ab091897d0+
++715861dc8a18358f80b79d49acf64142ae57037d1d54+
+|=======
+
+
+[[mnemonic_256_no_pass]]
+.Código mnemônico com entropia de 256 bits, sem frase de senha, e a semente resultante
+[cols="h,"]
+|=======
+| *Input de entropia (256 bits)* | +2041546864449caff939d32d574753fe684d3c947c3346713dd8423e74abcf8c+
+| *Mnemônico (24 palavras)* | +cake apple borrow silk endorse fitness top denial coil riot stay wolf
+luggage oxygen faint major edit measure invite love trap field dilemma oblige+
+| *Frase de senha*| (nenhuma)
+| *Semente (512 bits)* | +3269bce2674acbd188d4f120072b13b088a0ecf87c6e4cae41657a0bb78f5315b33b3a04356e53d062e5+
++5f1e0deaa082df8d487381379df848a6ad7e98798404+
+|=======
+
+[TIP]
+====
+Many wallets do not allow for the creation of wallets with more than a 12 word mnemonic phrase. You will notice from the tables above that despite the unique lengths of entropy input, the seed size remains the same (512 bits). From a security perspective, the amount of entropy actually used for the production of HD wallets is roughly 128 bits, which equals 12 words.  Providing more than 12 words produces additional entropy which is unnecessary, and this _unused_ entropy is not used for the derivation of the seed in the way that one might initially suspect. From a usability perspective, 12 words is also easier to write down, back up, and store.
+====
+
+[[mnemonic_passphrase]]
+===== Frase de senha (_passphrase_) opcional no padrão BIP-39
+
+((("frases de senha")))O padrão BIP-39 permite o uso de uma frase de senha (_passphrase_) opcional na derivação da semente. Se nenhuma frase de senha for usada, o mnemônico é alongado com um sal que consiste na _string_ constante +"mnemonic"+, produzindo uma semente específica de 512 bits a partir de qualquer mnemônico fornecido. Se uma frase de senha for usada, a função de alongamento produz uma semente _diferente_ a partir desse mesmo mnemônico. Ou seja, dado um único mnemônico, cada frase de senha possível gera uma semente diferente. Em outras palavras, não existe uma frase de senha "errada". Todas as frases de senha são válidas e todas elas geram sementes diferentes, formando um imenso conjunto de possíveis carteiras não inicializadas. O número de carteiras possíveis é tão grande (2^512^) que não há a possibilidade prática de se utilizar força bruta ou de se adivinhar acidentalmente alguma semente que já esteja em uso.
+
+[TIP]
+====
+Não há frases de senha "erradas" no padrão BIP-39. Cada frase de senha gera uma carteira, que, a menos que ela já tenha sido usada anteriormente, estará vazia.
+====
+
+A frase de senha opcional cria dois recursos importantes:
+
+* Um segundo fator (algo memorizado) que torna um mnemônico inútil quando obtido isoladamente, protegendo os backups de mnemônicos de serem comprometidos por um ladrão.
+
+* Uma forma de negação plausível ou "carteira de coação", quando se usa uma frase de senha para abrir uma carteira com uma pequena quantidade de fundos, a qual é usada para distrair um criminoso da carteira "verdadeira", que contém a maioria dos fundos.
+
+No entanto, é importante observar que o uso de uma frase de senha também introduz o risco de perda:
+
+* Se o dono da carteira ficar incapacitado ou vier a óbito e ninguém mais souber a frase de senha, o código mnemônico será inútil, e todos os fundos armazenados na carteira serão perdidos para sempre.
+
+* Além disso, se o proprietário fizer o backup da frase de senha no mesmo lugar que o backup do código mnemônico, isso anulará o propósito de servir como um segundo fator.
+
+Embora as frases de senha sejam muito úteis, elas só devem ser usadas em combinação com um processo cuidadosamente planejado para backup e recuperação, que leve em consideração a possibilidade de que o proprietário venha a óbito no futuro, permitindo que sua família recupere as criptomoedas de herança.
+
+===== Trabalhando com códigos mnemônicos
+
+O padrão BIP-39 é implementado como uma biblioteca em muitas linguagens de programação diferentes:
+
+https://github.com/trezor/python-mnemonic[python-mnemonic]:: A implementação de referência do padrão feita pela equipe da SatoshiLabs, que propôs o padrão BIP-39, em Python
+
+https://github.com/bitcoinjs/bip39[bitcoinjs/bip39]:: Uma implementação do padrão BIP-39, como parte do popular framework bitcoinJS, em JavaScript
+
+https://github.com/libbitcoin/libbitcoin/blob/master/src/wallet/mnemonic.cpp[libbitcoin/mnemonic]:: Uma implementação do padrão BIP-39, como parte do popular framework Libbitcoin, em pass:[<span class="keep-together">C++</span>]
+
+==== Criando uma Carteira HD a partir da Semente
+
+((("carteiras", "tecnologia das", "criando carteiras HD a partir da semente raiz")))((("sementes raiz")))((("carteiras determinísticas hierárquicas (HD)")))As carteiras HD são criadas a partir de uma única _semente raiz_, que é um número aleatório de 128, 256 ou 512 bits. Mais comumente, essa semente é gerada a partir de um _mnemônico_, conforme detalhado na seção anterior.
+
+Cada chave na carteira HD é derivada deterministicamente a partir dessa semente raiz, o que torna possível recriar toda a carteira HD a partir dessa semente em qualquer carteira HD compatível. Isso torna mais fácil fazer backup, restaurar, exportar e importar carteiras HD contendo milhares ou até mesmo milhões de chaves, simplesmente transferindo apenas o mnemônico a partir do qual a semente raiz é derivada.
+
+O processo de criação das chaves mestras e do código de cadeia mestre para uma carteira HD é demonstrado na <<HDWalletFromSeed>>.
+
+[[HDWalletFromSeed]]
+.Criando as chaves mestras e o código de cadeia mestre a partir da semente raiz
+image::images/mbc2_0509.png["HDWalletFromRootSeed"]
+
+A semente raiz é usada como _input_ no algoritmo HMAC-SHA512 e o hash resultante é usado para criar uma _chave privada mestra_ (m) e um _código de cadeia mestre_ (c).
+
+A chave privada mestra (m) então gera uma chave pública mestra (M) correspondente usando o processo normal de multiplicação de curva elíptica +m * G+ que vimos em <<pubkey>>.
+
+O código de cadeia (c) é usado para introduzir entropia na função que cria chaves filhas a partir de chaves pais, como veremos na próxima seção.
+
+===== Derivação de chave privada filha
+
+((("derivação de chaves filhas (CKD)")))((("chaves públicas e privadas", "derivação de chaves filhas (CKD)")))As carteiras HD usam uma função de _derivação de chaves filhas_ (em inglês, _child key derivation_ ou CKD) para derivar as chaves filhas a partir das chaves pais.
+
+As funções de derivação de chaves filhas são baseadas em uma função de hash de sentido único, que combina:
+
+* Uma chave pai privada ou pública (chave ECDSA comprimida)
+* Uma semente chamada de código de cadeia (256 bits)
+* Um número índice (32 bits)
+
+O código de cadeia é usado para introduzir dados aleatórios determinísticos ao processo, de forma que saber o índice e uma chave filha não é suficiente para se derivar outras chaves filhas. Saber uma chave filha não torna alguém capaz de descobrir suas chaves irmãs, a menos que a pessoa também tenha o código de cadeia. A semente inicial do código de cadeia (na raiz da árvore) é feita a partir da semente, enquanto os códigos de cadeia filhos subsequentes são derivados de cada código de cadeia pai.
+
+Esses três itens (a chave pai, o código de cadeia e o índice) são combinados e depois submetidos a uma função de hash para gerar as chaves filhas, conforme abaixo descrito.
+
+A chave pública pai, o código de cadeia pai e o número índice são combinados e são submetidos a uma função de hash com o algoritmo HMAC-SHA512 para produzir um hash de 512 bits. Esse hash de 512 bits é dividido em duas metades de 256 bits. Os 256 bits da metade direita do hash resultante tornam-se o código de cadeia filho. Os 256 bits da metade esquerda do hash são adicionados à chave pai para produzir a chave privada filha. Na <<CKDpriv>>, vemos isso ilustrado com o índice definido como 0 para produzir a chave privada filha "zero" (a primeira chave privada filha) da chave privada pai.
+
+[[CKDpriv]]
+.Estendendo uma chave privada pai para criar uma chave privada filha
+image::images/mbc2_0510.png["ChildPrivateDerivation"]
+
+Mudar o índice nos permite estender a chave pai e criar as outras chaves filhas na sequência, por exemplo, Filha 0, Filha 1, Filha 2, etc. Cada chave pai pode ter 2.147.483.647 (2^31^) chaves filhas (2^31^ é metade de todo o intervalo de 2^32^ chaves que está disponível, pois a outra metade é reservada para um tipo especial de derivação, sobre a qual falaremos mais adiante neste capítulo).
+
+Repetindo o processo em um nível abaixo da árvore, cada chave filha pode virar uma chave pai e criar suas próprias filhas, em um número infinito de gerações.
+
+===== Usando as chaves filhas derivadas
+
+As chaves privadas filhas são indistinguíveis das chaves não determinísticas (aleatórias). Como a função de derivação é uma função de sentido único, a chave filha não pode ser usada para se encontrar a chave pai. A chave filha também não pode ser usada para se encontrar chaves irmãs. Se você tiver a nª (enésima) filha, você não será capaz de encontrar as suas irmãs, como a filha n&#x2013;1 ou a filha n + 1, ou quaisquer outras filhas que façam parte da sequência. Apenas a chave pai e o código de cadeia são capazes de derivar todas as chaves filhas. Sem o código de cadeia filho, a chave filha também não pode ser usada para derivar nenhuma chave neta. Você precisa ter ambos, tanto a chave privada filha quanto o código de cadeia filho, para poder iniciar um novo ramo e derivar as chaves netas.
+
+So what can the child private key be used for on its own? It can be used to make a public key and a Bitcoin address. Then, it can be used to sign transactions to spend anything paid to that address.
+
+[TIP]
+====
+A child private key, the corresponding public key, and the Bitcoin address are all indistinguishable from keys and addresses created randomly. The fact that they are part of a sequence is not visible outside of the HD wallet function that created them. Once created, they operate exactly as "normal" keys.
+====
+
+===== Chaves estendidas
+
+((("chaves públicas e privadas", "chaves estendidas")))((("chaves estendidas")))Conforme vimos anteriormente, a função de derivação de chaves pode ser usada para criar chaves filhas em qualquer nível da árvore, baseando-se em três entradas (inputs): uma chave, um código de cadeia e o índice da filha desejada. Os dois ingredientes essenciais são a chave e o código de cadeia, que combinados são chamados de _chave estendida_. O termo "chave estendida" também poderia ser considerado como "chave extensível", pois esse tipo de chave pode ser usado para derivar chaves filhas.
+
+As chaves estendidas são armazenadas e representadas como uma simples concatenação da chave de 256 bits e do código de cadeia de 256 bits em uma sequência de 512 bits. Existem dois tipos de chaves estendidas. Uma chave privada estendida é a combinação de uma chave privada com um código de cadeia, e pode ser usada para derivar chaves privadas filhas (e, a partir delas, chaves públicas filhas). Uma chave pública estendida é a combinação de uma chave pública com um código de cadeia, e pode ser usada para criar chaves públicas filhas (_somente chaves públicas_), conforme descrito em <<public_key_derivation>>.
+
+Imagine uma chave estendida como se fosse a raiz de um ramo na estrutura em forma de árvore da carteira HD. Tendo a raiz do ramo, você pode derivar o resto do ramo. A chave privada estendida pode criar um ramo completo, ao passo que a chave pública estendida pode criar um ramo que tenha _apenas_ chaves públicas.
+
+[TIP]
+====
+Uma chave estendida consiste em uma chave privada ou pública e um código de cadeia. Uma chave estendida pode criar chaves filhas, gerando o seu próprio ramo na estrutura em forma de árvore. Compartilhar uma chave estendida dá acesso a todo o ramo.
+====
+
+As chaves estendidas são codificadas usando Base58Check, para facilitar a exportação e a importação entre diferentes carteiras compatíveis com a BIP-32. A codificação Base58Check para as chaves estendidas usa um número de versão especial que resulta nos prefixos "xprv" e "xpub" quando codificado em caracteres Base58, fazendo com que as chaves sejam mais facilmente reconhecíveis. Como a chave estendida tem 512 ou 513 bits, ela é muito mais longa do que qualquer uma das _strings_ codificadas em Base58Check que vimos anteriormente.
+
+Esse é um exemplo de uma chave _privada_ estendida, codificada em Base58Check:
+
+----
+xprv9tyUQV64JT5qs3RSTJkXCWKMyUgoQp7F3hA1xzG6ZGu6u6Q9VMNjGr67Lctvy5P8oyaYAL9CAWrUE9i6GoNMKUga5biW6Hx4tws2six3b9c
+----
+
+Essa é a chave _pública_ estendida correspondente, codificada em Base58Check:
+
+----
+xpub67xpozcx8pe95XVuZLHXZeG6XWXHpGq6Qv5cmNfi7cS5mtjJ2tgypeQbBs2UAR6KECeeMVKZBPLrtJunSDMstweyLXhRgPxdp14sk9tJPW9
+----
+
+[[public__child_key_derivation]]
+===== Derivação de chave pública filha
+
+((("chaves públicas e privadas", "derivação de chave pública filha")))Como mencionado anteriormente, uma característica muito útil das carteiras HD é a capacidade de derivar chaves públicas filhas a partir de chaves públicas pais, _sem_ a necessidade das chaves privadas. Isso nos fornece duas maneiras de derivar uma chave pública filha: a partir da chave privada filha, ou diretamente a partir da chave pública pai.
+
+Portanto, uma chave pública estendida pode ser usada para derivar todas as chaves _públicas_ (e somente as chaves públicas) naquele ramo da estrutura da carteira HD.
+
+This shortcut can be used to create very secure public key&#x2013;only deployments where a server or application has a copy of an extended public key and no private keys whatsoever. That kind of deployment can produce an infinite number of public keys and Bitcoin addresses, but cannot spend any of the money sent to those addresses. Meanwhile, on another, more secure server, the extended private key can derive all the corresponding private keys to sign transactions and spend the money.
+
+One common application of this solution is to install an extended public key on a web server that serves an ecommerce application. The web server can use the public key derivation function to create a new Bitcoin address for every transaction (e.g., for a customer shopping cart). The web server will not have any private keys that would be vulnerable to theft. Without HD wallets, the only way to do this is to generate thousands of Bitcoin addresses on a separate secure server and then preload them on the ecommerce server. That approach is cumbersome and requires constant maintenance to ensure that the ecommerce server doesn't "run out" of addresses.
+
+((("cold storage")))((("storage", "cold storage")))((("hardware wallets")))Another common application of this solution is for cold-storage or hardware wallets. In that scenario, the extended private key can be stored on a paper wallet or hardware device (such as a Trezor hardware wallet), while the extended public key can be kept online. The user can create "receive" addresses at will, while the private keys are safely stored offline. To spend the funds, the user can use the extended private key on an offline signing Bitcoin client or sign transactions on the hardware wallet device (e.g., Trezor). <<CKDpub>> illustrates the mechanism for extending a parent public key to derive child public keys.
+
+[[CKDpub]]
+.Estendendo uma chave pública pai para criar uma chave pública filha
+image::images/mbc2_0511.png["ChildPublicDerivation"]
+
+===== Derivação endurecida da chave filha
+
+((("chaves públicas e privadas", "derivação endurecida de chave filha")))((("derivação endurecida")))A habilidade de derivar um ramo de chaves públicas a partir de uma xpub é muito útil, mas isso traz um risco em potencial. Ter acesso a uma xpub não dá acesso às chaves privadas filhas. No entanto, como a xpub contém o código de cadeia, se uma chave privada filha for descoberta ou vazar de alguma maneira, ela pode ser usada com o código de cadeia para derivar todas as outras chaves privadas filhas. Ou seja, basta que uma única chave privada filha vaze junto com um código de cadeia pai, para que todas chaves privadas de todas as chaves filhas sejam reveladas. Ou, pior ainda, a chave privada filha pode ser usada junto com um código de cadeia pai para deduzir a chave privada pai.
+
+Para evitar esse risco, as carteiras HD usam uma função de derivação alternativa chamada _derivação endurecida_ (em inglês, _hardened derivation_), que "desfaz" a relação entre a chave pública pai e o código de cadeia filho. A função de derivação endurecida usa a chave privada pai para derivar o código de cadeia filho, em vez de usar a chave pública pai. Isso cria um "firewall" na sequência pai/filho, com um código de cadeia que não pode ser usado para comprometer uma chave privada pai ou irmã. A função de derivação endurecida parece quase idêntica à derivação normal de chave privada filha, com a exceção de que a chave privada pai é usada como input da função de hash, ao invés da chave pública pai, como demonstrado no diagrama da <<CKDprime>>.
+
+[[CKDprime]]
+.Derivação endurecida de uma chave filha; a chave pública pai é omitida
+image::images/mbc2_0513.png["ChildHardPrivateDerivation"]
+
+[role="pagebreak-before"]
+Quando a função de derivação endurecida é utilizada, a chave privada filha e o código de cadeia filho resultantes são completamente diferentes do que resultariam a partir de uma função de derivação normal. O "ramo" de chaves resultante pode ser usado para produzir chaves públicas estendidas que não são vulneráveis, pois o código de cadeia que elas contêm, mesmo se for descoberto, não será capaz de revelar nenhuma das chaves privadas. A derivação endurecida é portanto usada para criar uma lacuna na árvore, localizada acima do nível onde as chaves públicas estendidas são usadas.
+
+Em termos simples, se você quer usar a conveniência de uma xpub para derivar ramos de chaves públicas, sem se expor ao risco de vazar um código de cadeia, você deveria derivar o ramo a partir de uma chave pai endurecida, ao invés de uma chave pai normal (não endurecida). Como prática recomendada, as chaves filhas do nível 1 das chaves mestras são sempre derivadas por meio da derivação endurecida, para evitar o comprometimento das chaves mestras.
+
+===== Números índice para a derivação normal e a endurecida
+
+O número índice usado na função de derivação é um número inteiro de 32 bits. Para facilitar a diferenciação entre as chaves derivadas pela função de derivação normal e as chaves derivadas pela função de derivação endurecida, esse número índice é dividido em dois intervalos. Os números índice entre 0 e 2^31^&#x2013;1 (0x0 a 0x7FFFFFFF) são usados _apenas_ para a derivação normal. Os números índice entre 2^31^ e 2^32^&#x2013;1 (0x80000000 a 0xFFFFFFFF) são usados _apenas_ para a derivação endurecida. Portanto, se o número índice for menor do que 2^31^, isso significa que a chave filha é normal, enquanto se o número índice for maior ou igual a 2^31^, isso significa que a chave filha é endurecida.
+
+Para tornar o número índice mais fácil de ser lido e exibido, o número índice para as chaves filhas endurecidas é exibido iniciando do zero, mas com um apóstrofo. A primeira chave filha normal é portanto exibida como 0, enquanto a primeira chave filha endurecida (índice 0x80000000) é exibida como 0++&#x27;++. Na sequência, a segunda chave endurecida teria o índice 0x80000001 e seria exibida como 1++&#x27;++, e assim por diante. Quando você se deparar com um índice de carteira HD i++&#x27;++, isso significa 2^31^+i.
+
+===== Identificador (caminho) de chave de carteira HD
+
+((("carteiras determinísticas hierárquicas (HD)")))As chaves em uma carteira HD são identificadas a partir de uma convenção de nomenclatura de "caminho", com cada nível da árvore sendo separado por uma barra (/) (ver a <<table_4-8>>). As chaves privadas derivadas a partir da chave privada mestra iniciam com "m". As chaves públicas derivadas a partir da chave pública mestra iniciam com "M". Portanto, a primeira chave privada filha da chave privada mestra é m/0. A primeira chave pública filha é M/0. A segunda neta da primeira filha é m/0/1, e assim por diante.
+
+Os "antepassados" de uma chave são lidos da direita para a esquerda, até você chegar na chave mestra a partir da qual eles foram derivados. Por exemplo, o identificador m/x/y/z descreve a chave privada que é a zª filha da chave privada pai m/x/y, que é a yª filha da chave privada pai m/x, que é a xª filha da chave privada pai mestra m.
+
+[[table_4-8]]
+.Exemplos de caminhos de carteira HD
+[options="header"]
+|=======
+|Caminho HD | Chave descrita
+| m/0 | A primeira (0) chave privada filha da chave privada mestra (m)
+| m/0/0 | A primeira (0) chave privada filha da primeira filha (m/0)
+| m/0'/0 | A primeira (0) filha normal da primeira filha _endurecida_ (m/0')
+| m/1/0 | A primeira (0) chave privada filha da segunda filha (m/1)
+| M/23/17/0/0 | A primeira (0) chave pública filha da primeira filha (M/23/17/0) da 18ª filha (M/23/17) da 24ª filha (M/23)
+|=======
+
+===== Navegando a estrutura em forma de árvore da carteira HD
+
+A estrutura em forma de árvore da carteira HD oferece uma enorme flexibilidade. Cada chave estendida pai pode ter quatro bilhões de chaves filhas: dois bilhões de chaves filhas normais e dois bilhões de chaves filhas endurecidas. Cada uma dessas chaves filhas pode ter outras quatro bilhões de chaves filhas, e assim por diante. A árvore pode ter a profundidade que for necessária, com um número infinito de gerações. No entanto, com toda essa flexibilidade, torna-se bastante difícil navegar nessa árvore infinita. É especialmente difícil transferir carteiras HD entre diferentes implementações, pois as possibilidades de organização interna em ramos e subramos são infinitas.
+
+Duas BIPs oferecem uma solução para essa complexidade, ao criar alguns padrões propostos para a estrutura das árvores das carteiras HD. A BIP-43 propõe o uso do índice da primeira filha endurecida como um identificador especial que representa o "propósito" da estrutura em forma de árvore. Baseando-se na BIP-43, uma carteira HD deveria usar apenas um ramo de nível 1 da árvore, com o número índice identificando a estrutura e o espaço de nomes do resto da árvore ao definir o seu propósito. Por exemplo, uma carteira HD usando apenas o ramo m/i++&#x27;++/ se destina a um propósito específico, e esse propósito é identificado pelo número índice "i".
+
+Estendendo essa especificação, a BIP-44 propõe uma estrutura multiconta como número de "propósito" +44'+ sob a BIP-43. Todas as carteiras HD que seguem a estrutura BIP-44 são identificadas pelo fato de usarem apenas um ramo da árvore: m/44'/.
+
+A BIP-44 especifica a estrutura como consistindo em cinco níveis de árvore predefinidos:
+
+-----
+m / purpose' / coin_type' / account' / change / address_index
+-----
+
+O primeiro nível, "purpose" (propósito) é sempre definido como +44'+. O segundo nível, "coin_type" especifica o tipo da criptomoeda, permitindo a existência de carteiras HD com suporte a múltiplas moedas, onde cada moeda possui a sua própria subárvore sob o segundo nível. Existem três moedas definidas até o momento: o Bitcoin é m/44'/0', a Testnet do Bitcoin é m/44++&#x27;++/1++&#x27;++ e a Litecoin é m/44++&#x27;++/2++&#x27;++.
+
+O terceiro nível da árvore é o "account" (conta), que permite que os usuários subdividam suas carteiras em subcontas separadas de maneira lógica, para fins de contabilidade e organização. Por exemplo, uma carteira HD pode conter duas "contas" de bitcoin: m/44++&#x27;++/0++&#x27;++/0++&#x27;++ e m/44++&#x27;++/0++&#x27;++/1++&#x27;++. Cada conta é a raiz de sua própria subárvore.
+
+((("chaves e endereços", see="também chaves públicas e privadas")))No quarto nível, "change" (troco), uma carteira HD tem duas subárvores, uma para criar endereços de recebimento e outra para criar endereços de troco. Note que enquanto os níveis anteriores usavam derivação endurecida, este nível usa derivação normal. Isso permite que este nível da árvore exporte chaves públicas estendidas para uso em um ambiente não seguro. Os endereços utilizáveis são derivados pela carteira HD como filhos do quarto nível, e o quinto nível da árvore, o "address_index", é usado para o índice do endereço. Por exemplo, o terceiro endereço de recebimento para pagamentos de bitcoin na conta principal seria M/44++&#x27;++/0++&#x27;++/0++&#x27;++/0/2. A <<table_4-9>> mostra mais alguns exemplos.
+
+[[table_4-9]]
+.Exemplos de estrutura de carteira HD da BIP-44
+[options="header"]
+|=======
+|Caminho HD | Chave descrita
+| M/44++&#x27;++/0++&#x27;++/0++&#x27;++/0/2 | A terceira chave pública para endereço de recebimento da primeira conta de bitcoin
+| M/44++&#x27;++/0++&#x27;++/3++&#x27;++/1/14 | A décima quinta chave pública para endereço de troco da quarta conta de bitcoin
+| m/44++&#x27;++/2++&#x27;++/0++&#x27;++/0/1 | A segunda chave privada na conta principal de Litecoin, usada para assinar transações
+|=======
+
+==== Usando uma Chave Pública Estendida em uma Loja Virtual
+
+((("carteiras", "tecnologia das", "usando chaves públicas estendidas em lojas virtuais")))Para vermos como as carteiras HD são usadas, vamos continuar a nossa história da loja virtual do Gabriel.((("casos de uso", "loja virtual", id="gabrielfivetwo")))
+
+Gabriel first set up his web store as a hobby, based on a simple hosted Wordpress page. His store was quite basic with only a few pages and an order form with a single Bitcoin address.
+
+Gabriel used the first Bitcoin address generated by his Trezor device as the main Bitcoin address for his store. This way, all incoming payments would be paid to an address controlled by his Trezor hardware wallet.
+
+Customers would submit an order using the form and send payment to Gabriel's published Bitcoin address, triggering an email with the order details for Gabriel to process. With just a few orders each week, this system worked well enough.
+
+No entanto, a pequena loja virtual fez muito sucesso e acabou recebendo muitos pedidos da comunidade local. Em pouco tempo, Gabriel ficou sobrecarregado. Com todos os pedidos pagando no mesmo endereço, tornou-se difícil combinar corretamente os pedidos e as transações, especialmente quando vários pedidos de mesmo valor eram realizados em um curto intervalo de tempo.
+
+A carteira HD do Gabriel oferece uma solução muito melhor, pois ela é capaz de derivar chaves públicas filhas sem conhecer as chaves privadas. Gabriel pode colocar uma chave pública estendida (xpub) em seu site, que pode ser usada para derivar um endereço único para cada pedido de cliente. Gabriel pode gastar o dinheiro de sua Trezor, mas a xpub carregada no site só é capaz de gerar endereços e receber fundos. Este recurso das carteiras HD é um ótimo recurso de segurança. Por não conter nenhuma chave privada, o site do Gabriel não precisa de altos níveis de segurança.
+
+To export the xpub, Gabriel uses the Trezor Suite desktop app in conjunction with the Trezor hardware wallet. The Trezor device must be plugged in for the public keys to be exported. Note that hardware wallets will never export private keys&#x2014;those always remain on the device. <<export_xpub>> shows what Gabriel sees in Trezor Suite when exporting the xpub.
+
+[[export_xpub]]
+.Exportando uma xpub de uma carteira de hardware Trezor
+image::images/mbc2_0512.png["Exporting the xpub from the Trezor"]
+
+Gabriel copia a xpub para o software de pagamento de bitcoin de sua loja online. Ele usa o _BTCPay Server_, que é uma plataforma de loja virtual de código aberto disponível para vários tipos de hospedagem e plataformas de conteúdo. O _BTCPay Server_ usa a xpub para gerar um endereço único para cada compra. ((("", startref="gabrielfivetwo")))
+
+===== Importação e Gerenciamento de Contas
+
+Gabriel's business is flourishing. He has provided his extended public key (xpub) to _BTCPay Server_, which is generating unique addresses for customers to his website. Every time a customer to Gabriel's website clicks on the "Checkout" button with a specified payment modality (in this case, bitcoin), _BTCPay Server_ generates a new address for that customer.  More specifically, _BTCPay Server_ iterates on the _address_index_ tree to create a new address to display to the customer, as defined by BIP-44. If the customer decides to switch payment methods or abandon the transaction entirely, this Bitcoin address goes unused and will not be used for another customer right away. 
+
+Em um determinado momento, o site de Gabriel pode ter um grande volume de endereços pendentes para clientes que estejam fazendo compras, alguns dos quais podem ficar inutilizados e, eventualmente, expirar. Assim que esses endereços expirarem, o _BTCPay Server_ voltará a reutilizar esses endereços para preencher a lacuna na _address_index_, mas nosso exemplo demonstra como podem surgir lacunas entre as folhas da árvore determinística hierárquica, que é onde o dinheiro realmente está localizado.  
+
+Digamos que o Gabriel esteja interessado em ver a sua quantia total de bitcoins recebidos em uma carteira somente-leitura (uma carteira que permite que você visualize o histórico de transações, mas não permite que você gaste os fundos) separada do servidor _BTCPay_, mas que também está em conformidade com o padrão BIP-44. Como essa carteira separada deve proceder para procurar fundos nesta vasta árvore hierárquica, e quando ela deve parar de procurar? A maioria das carteiras seguirá um processo iterativo que utiliza um limite predefinido, o _limite de lacuna_ (em inglês, _gap limit_). Se, enquanto estiver procurando por endereços usados, a carteira não encontrar endereços usados consecutivamente além desse número limite, ela parará de pesquisar a cadeia de endereços. O limite de lacuna padrão é normalmente definido como 20. Esse processo é detalhado na [[bip-44]]https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki[BIP-44]. 
+
+[TIP]
+====
+Os limites de gap explicam o fenômeno pelo qual a importação de uma carteira pode apresentar um saldo incorreto ou zero. Os fundos não são perdidos, mas, a função de importação de carteira, neste caso, não percorreu o suficiente para detectar totalmente os fundos. Muitas carteiras permitem que esse limite de lacuna padrão seja alterado, e Gabriel pode precisar aumentar esse limite para permitir que sua carteira importe totalmente seu histórico de transações. 
+====

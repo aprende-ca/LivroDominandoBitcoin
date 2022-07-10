@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Aplicações da Blockchain</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article data-line-1">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1 data-line-2">
+<h2 id="ch12">Aplicações da Blockchain</h2>
+<div class="sectionbody">
+<div class="paragraph data-line-4">
+<p>Agora vamos aprofundar nossa compreensão do bitcoin, encarando-o como uma <em>plataforma de aplicações</em>. Atualmente, muitas pessoas usam o termo "blockchain" para referir-se a qualquer plataforma de aplicações que compartilhe os princípios de design do bitcoin. O termo geralmente é mal utilizado, sendo aplicado a muitas coisas que não fornecem os recursos principais que a blockchain do bitcoin oferece.</p>
+</div>
+<div class="paragraph data-line-6">
+<p>In this chapter we will look at the features offered by the Bitcoin blockchain, as an application platform. We will consider the application building <em>primitives</em>, which form the building blocks of any blockchain application. We will look at several important applications that use these primitives, such as payment (state) channels and routed payment channels (Lightning Network).</p>
+</div>
+<div class="sect2 data-line-8">
+<h3 id="_introdução">Introdução</h3>
+<div class="paragraph data-line-10">
+<p>The Bitcoin system was designed as a decentralized currency and payment system. However, most of its functionality is derived from much lower-level constructs that can be used for much broader applications. Bitcoin wasn&#8217;t built with components such as accounts, users, balances, and payments. Instead, it uses a transactional scripting language with low-level cryptographic functions, as we saw in <a href="#transactions">[transactions]</a>. Just as the higher-level concepts of accounts, balances, and payments can be derived from these basic primitives, so can many other complex applications. Thus, the Bitcoin blockchain can become an application platform offering trust services to applications, such as smart contracts, far surpassing the original purpose of digital currency and payments.</p>
+</div>
+</div>
+<div class="sect2 data-line-12">
+<h3 id="_blocos_fundamentais_primitivos">Blocos Fundamentais (Primitivos)</h3>
+<div class="paragraph data-line-14">
+<p>When operating correctly and over the long term, the Bitcoin system offers certain guarantees, which can be used as building blocks to create applications. These include:</p>
+</div>
+<div class="dlist data-line-16">
+<dl>
+<dt class="hdlist1">Sem Gasto Duplo</dt>
+<dd>
+<p>A garantia mais fundamental do algoritmo de consenso descentralizado do bitcoin assegura que nenhuma UTXO possa ser gasta duas vezes.</p>
+</dd>
+<dt class="hdlist1">Imutabilidade</dt>
+<dd>
+<p>Depois de uma transação ser registrada na blockchain e uma quantidade suficiente de trabalho ser adicionada com os blocos subsequentes, os dados da transação tornam-se imutáveis. A imutabilidade do registro é assegurada através do uso de energia, pois reescrever a blockchain requer o gasto de energia para produzir Prova-de-Trabalho. A energia necessária e, portanto, o grau de imutabilidade aumentam quanto maior for a quantidade de trabalho que for comprometida em cima do bloco que contém uma transação.</p>
+</dd>
+<dt class="hdlist1">Neutrality</dt>
+<dd>
+<p>The decentralized Bitcoin network propagates valid transactions regardless of the origin or content of those transactions. This means that anyone can create a valid transaction with sufficient fees and trust they will be able to transmit that transaction and have it included in the blockchain at any time.</p>
+</dd>
+<dt class="hdlist1">Carimbo de data e hora (<em>timestamp</em>) seguro</dt>
+<dd>
+<p>As regras de consenso rejeitam qualquer bloco cujo carimbo de data e hora esteja muito distante no passado ou no futuro. Isso garante que os carimbos de data e hora nos blocos sejam confiáveis. O carimbo de data e hora em um bloco implica uma garantia de que todas as entradas de todas as transações incluídas não foram gastas anteriormente.</p>
+</dd>
+<dt class="hdlist1">Autorização</dt>
+<dd>
+<p>As assinaturas digitais, validadas em uma rede descentralizada, oferecem garantias de autorização. Os scripts que contêm um requisito para uma assinatura digital não podem ser executados sem autorização do detentor da chave privada necessária para o script.</p>
+</dd>
+<dt class="hdlist1">Auditabilidade</dt>
+<dd>
+<p>Todas as transações são públicas e podem ser auditadas. Todas as transações e blocos podem ser seguidos para trás em uma cadeia ininterrupta até se chegar ao bloco gênese.</p>
+</dd>
+<dt class="hdlist1">Contabilidade</dt>
+<dd>
+<p>Em qualquer transação (exceto a transação coinbase) o valor das entradas é igual ao valor das saídas somadas às taxas. Não é possível criar ou destruir valor em uma transação de bitcoin. As saídas não podem exceder as entradas.</p>
+</dd>
+<dt class="hdlist1">Não expiração</dt>
+<dd>
+<p>Uma transação válida não expira. Se ela é válida hoje, ela será válida no futuro próximo, desde que as entradas permaneçam não gastas e as regras de consenso não mudem.</p>
+</dd>
+<dt class="hdlist1">Integridade</dt>
+<dd>
+<p>Uma transação de bitcoin assinada com SIGHASH_ALL ou partes de uma transação assinada por outro tipo de SIGHASH não podem ser modificadas sem invalidar a assinatura, e, com isso, invalidando a própria transação.</p>
+</dd>
+<dt class="hdlist1">Atomicidade da Transação</dt>
+<dd>
+<p>As transações do bitcoin são atômicas. Ou elas são válidas e confirmadas (mineradas), ou não são. As transações parciais não podem ser mineradas e não há um estado provisório para uma transação. A qualquer momento no tempo, ou uma transação foi minerada, ou não foi.</p>
+</dd>
+<dt class="hdlist1">Unidades de Valor Discretas (Indivisíveis)</dt>
+<dd>
+<p>As saídas de transação são unidades de valor discretas e indivisíveis. Elas podem ser gastas ou não, por completo. Eles não podem ser divididas ou parcialmente gastas.</p>
+</dd>
+<dt class="hdlist1">Quórum de Controle</dt>
+<dd>
+<p>Restrições de multiassinatura em scripts impõem um quórum de autorização, predefinido no esquema de multiassinatura. O requisito M-de-N é aplicado pelas regras de consenso.</p>
+</dd>
+<dt class="hdlist1">Timelock/Envelhecimento</dt>
+<dd>
+<p>Qualquer cláusula de script contendo um timelock relativo ou absoluto só pode ser executada depois que sua idade exceder o tempo especificado.</p>
+</dd>
+<dt class="hdlist1">Replicação</dt>
+<dd>
+<p>O armazenamento descentralizado da blockchain garante que quando uma transação é minerada, após confirmações suficientes, ela é replicada pela rede e torna-se durável e resiliente a perdas de energia, perdas de dados, etc.</p>
+</dd>
+<dt class="hdlist1">Proteção contra Falsificação</dt>
+<dd>
+<p>Uma transação só pode gastar saídas validadas e existentes. Não é possível criar ou falsificar valor.</p>
+</dd>
+<dt class="hdlist1">Consistência</dt>
+<dd>
+<p>Na ausência de divisões entre os mineradores, os blocos que são registrados na blockchain estão sujeitos a reorganização ou desacordo com probabilidade exponencialmente decrescente, com base na profundidade em que estão registrados. Uma vez profundamente registrados, a computação e a energia necessárias para se fazer uma alteração tornam a alteração dos blocos algo praticamente inviável.</p>
+</dd>
+<dt class="hdlist1">Registro de Estado Externo</dt>
+<dd>
+<p>Uma transação pode comprometer um valor de dados, via OP_RETURN, representando uma transição de estado em uma máquina de estado externa.</p>
+</dd>
+<dt class="hdlist1">Emissão Previsível</dt>
+<dd>
+<p>Menos de 21 milhões de bitcoins serão emitidos, a uma taxa previsível.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph data-line-52">
+<p>A lista dos blocos fundamentais não está completa e mais elementos são adicionados cada vez que um novo recurso é introduzido no bitcoin.</p>
+</div>
+</div>
+<div class="sect2 data-line-54">
+<h3 id="_aplicações_a_partir_dos_blocos_fundamentais">Aplicações a partir dos Blocos Fundamentais</h3>
+<div class="paragraph data-line-56">
+<p>Os blocos fundamentais oferecidos pelo bitcoin são elementos de uma plataforma de confiança que podem ser usados para compor aplicações. Aqui estão alguns exemplos de aplicações que existem hoje e os blocos fundamentais que elas usam:</p>
+</div>
+<div class="dlist data-line-58">
+<dl>
+<dt class="hdlist1">Prova de Existência (Tabelião Digital)</dt>
+<dd>
+<p>Imutabilidade + Carimbo de data e hora + Durabilidade. Uma impressão digital eletrônica pode ser vinculada com uma transação registrada na blockchain, provando que um documento existia (Carimbo de data e hora) no momento em que a transação foi registrada. A impressão digital não pode ser modificada <em>ex post facto</em> (Imutabilidade) e a prova será armazenada permanentemente (Durabilidade).</p>
+</dd>
+<dt class="hdlist1">Arrecadação de Fundos (Lighthouse)</dt>
+<dd>
+<p>Consistência + Atomicidade + Integridade. Se você assinar uma entrada e a saída (Integridade) de uma transação de arrecadação de fundos, outras pessoas podem contribuir para a arrecadação de fundos, mas a transação não pode ser gasta (Atomicidade) até que a meta (a quantia da saída) seja totalmente financiada (Consistência).</p>
+</dd>
+<dt class="hdlist1">Canais de Pagamento</dt>
+<dd>
+<p>Quórum de Controle + Timelock + Sem gasto duplo + Não Expiração + Resistência à Censura + Autorização. Uma multiassinatura 2-de-2 (Quórum) com uma trava de tempo (Timelock) usada como a transação de "liquidação" de um canal de pagamento pode ser retida (Não Expiração) e gasta a qualquer momento (Resistência à Censura) por qualquer uma das partes (Autorização). As duas partes podem, então, criar transações de compromisso que realizem um gasto duplo (Sem Gasto Duplo) da liquidação em um intervalo de tempo menor que a trava de tempo (Timelock).</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2 data-line-64">
+<h3 id="_counterparty">Counterparty</h3>
+<div class="paragraph data-line-66">
+<p>Counterparty é uma camada de protocolo construída sobre bitcoin. O protocolo Counterparty oferece a capacidade de criar e negociar ativos virtuais e tokens. Além disso, o Counterparty oferece uma exchange (corretora) descentralizada de ativos. Ele também está implementando contratos inteligentes, baseados na Máquina Virtual Ethereum (EVM).</p>
+</div>
+<div class="paragraph data-line-68">
+<p>O Counterparty incorpora metadados em transações de bitcoin, usando o código operacional OP_RETURN ou endereços multiassinatura 1-de-N que codificam metadados no lugar de chaves públicas. Usando esses mecanismos, o Counterparty implementa uma camada de protocolo codificada em transações de bitcoin. A camada de protocolo adicional pode ser interpretada por aplicativos que sejam compatíveis com o Counterparty, como carteiras e exploradores de blockchain, ou qualquer aplicativo que seja desenvolvido usando-se as bibliotecas do Counterparty.</p>
+</div>
+<div class="paragraph data-line-70">
+<p>O Counterparty pode ser utilizado como uma plataforma para outras aplicações e serviços. Por exemplo, o Tokenly é uma plataforma construída sobre o Counterparty que permite que criadores de conteúdo, artistas e empresas emitam tokens que expressem posse digital e que podem ser usados para alugar, acessar, trocar ou comprar conteúdo, produtos e serviços. Outras aplicações que tiram proveito do Counterparty incluem jogos (Spells of Genesis) e projetos de computação em grade (Folding Coin).</p>
+</div>
+<div class="paragraph data-line-72">
+<p>Mais detalhes sobre o Counterparty podem ser encontrados em <a href="https://counterparty.io" class="undefined" data-href="https://counterparty.io">https://counterparty.io</a>. O projeto de código aberto pode ser encontrado em <a href="https://github.com/CounterpartyXCP" class="undefined" data-href="https://github.com/CounterpartyXCP">https://github.com/CounterpartyXCP</a>.</p>
+</div>
+</div>
+<div class="sect2 data-line-75">
+<h3 id="state_channels">Canais de Pagamento e Canais de Estado</h3>
+<div class="paragraph data-line-77">
+<p><em>Payment channels</em> are a trustless mechanism for exchanging bitcoin transactions between two parties, outside of the Bitcoin blockchain. These transactions, which would be valid if settled on the Bitcoin blockchain, are held off-chain instead, acting as <em>promissory notes</em> for eventual batch settlement. Because the transactions are not settled, they can be exchanged without the usual settlement latency, allowing extremely high transaction throughput, low (submillisecond) latency, and fine (satoshi-level) granularity.</p>
+</div>
+<div class="paragraph data-line-79">
+<p>Na verdade, o termo <em>canal</em> é uma metáfora. Os canais de estado são construções virtuais representadas pela troca de estado entre duas partes, fora da blockchain. Não há "canais" em si, e o mecanismo de transporte de dados subjacente não é o canal. Usamos o termo canal para representar o relacionamento e o estado compartilhado entre duas partes, fora da blockchain.</p>
+</div>
+<div class="paragraph data-line-81">
+<p>Para explicar melhor esse conceito, pense em um fluxo TCP. Do ponto de vista dos protocolos de nível superior, ele é um "soquete" que conecta dois aplicativos pela Internet. Mas se você olhar para o tráfego da rede, um fluxo TCP é apenas um canal virtual formado pelos pacotes IP. Cada ponto final do fluxo TCP sequencia e monta pacotes IP para criar a ilusão de um fluxo de bytes. Por baixo dos panos, o fluxo TCP nada mais é do que vários pacotes desconectados. Da mesma forma, um canal de pagamento nada mais é do que uma série de transações. Se devidamente sequenciadas e conectadas, elas criam obrigações resgatáveis nas quais você pode confiar, mesmo que você não confie em quem está no outro lado do canal.</p>
+</div>
+<div class="paragraph data-line-83">
+<p>Nesta seção, examinaremos várias formas de canais de pagamento. Primeiro, examinaremos os mecanismos usados para construir um canal de pagamento de via única (unidirecional) para um serviço de micropagamento mensurado, como um streaming de vídeo. Em seguida, expandiremos esse mecanismo e apresentaremos os canais de pagamento bidirecionais. Por fim, veremos como os canais bidirecionais podem ser conectados de ponta a ponta para formar canais de múltiplos saltos em uma rede roteada, proposta inicialmente sob o nome de <em>Lightning Network</em>.</p>
+</div>
+<div class="paragraph data-line-85">
+<p>Os canais de pagamento fazem parte do conceito mais amplo de um <em>canal de estado</em>, que representa uma alteração de estado <em>off-chain</em> (fora da cadeia), assegurada pela liquidação final em uma blockchain. Um canal de pagamento é um canal de estado onde o estado que está sendo alterado é o saldo de uma moeda virtual.</p>
+</div>
+<div class="sect3 data-line-87">
+<h4 id="_canais_de_estadoconceitos_básicos_e_terminologia">Canais de Estado&#x2014;Conceitos Básicos e Terminologia</h4>
+<div class="paragraph data-line-89">
+<p>Um canal de estado é estabelecido entre duas partes, por meio de uma transação que trava um estado compartilhado na blockchain. Essa transação é conhecida como <em>transação de financiamento</em> ou <em>transação âncora</em>. Apenas essa única transação deve ser transmitida à rede e minerada em um bloco para que o canal seja estabelecido. No exemplo de um canal de pagamento, o estado travado é o saldo inicial (em moeda) do canal.</p>
+</div>
+<div class="paragraph data-line-91">
+<p>As duas partes então trocam transações assinadas, chamadas de <em>transações de compromisso</em>, que alteram o estado inicial. Essas transações são transações válidas no sentido de que <em>poderiam</em> ser enviadas para liquidação por qualquer uma das partes, mas, em vez disso, são mantidas fora da cadeia (<em>off-chain</em>) por cada uma das partes enquanto o canal ainda não for fechado. As atualizações de estado podem ser criadas tão rápido quanto cada parte puder criar, assinar e transmitir uma transação para a outra parte. Na prática, isso significa que milhares de transações por segundo podem ser trocadas.</p>
+</div>
+<div class="paragraph data-line-93">
+<p>Ao trocar transações de compromisso, as duas partes também invalidam os estados anteriores, de modo que a transação de compromisso mais atualizada é sempre a única que pode ser resgatada. Isso evita que qualquer uma das partes trapaceie fechando o canal unilateralmente com um estado anterior expirado, que lhe seja mais favorável do que o estado atual. No restante deste capítulo, examinaremos os vários mecanismos que podem ser usados para invalidar um estado anterior.</p>
+</div>
+<div class="paragraph data-line-95">
+<p>Finalmente, o canal pode ser fechado ou de forma cooperativa, enviando uma <em>transação de liquidação</em> final à blockchain, ou unilateralmente, por qualquer uma das partes, enviando a última transação de compromisso à blockchain. Uma opção de fechamento unilateral é necessária no caso de uma das partes se desconectar inesperadamente. A transação de liquidação representa o estado final do canal e é incluída na blockchain.</p>
+</div>
+<div class="paragraph data-line-97">
+<p>Em todo o ciclo de vida do canal, apenas duas transações precisam ser enviadas para serem mineradas e incluídas na blockchain: a transação de financiamento e a transação de liquidação. Entre esses dois estados, as duas partes podem trocar qualquer número de transações de compromisso, as quais jamais serão vistas por nenhuma outra pessoa, nem serão enviadas para a blockchain.</p>
+</div>
+<div class="paragraph data-line-99">
+<p>A <a href="#payment_channel">Um canal de pagamento entre Bob e Alice, mostrando a transação de financiamento, as transações de compromisso e a transação de liquidação</a> ilustra um canal de pagamento entre Bob e Alice, mostrando a transação de financiamento, as transações de compromisso e a transação de liquidação.</p>
+</div>
+<div id="payment_channel" class="imageblock data-line-103">
+<div class="content">
+<img src="images/mbc2_1201.png" alt="A payment channel between Bob and Alice, showing the funding, commitment, and settlement transactions">
+</div>
+<div class="title">Figure 1. Um canal de pagamento entre Bob e Alice, mostrando a transação de financiamento, as transações de compromisso e a transação de liquidação</div>
+</div>
+</div>
+<div class="sect3 data-line-105">
+<h4 id="_exemplo_de_canal_de_pagamento_simples">Exemplo de Canal de Pagamento Simples</h4>
+<div class="paragraph data-line-107">
+<p>Para explicar os canais de estado, começaremos com um exemplo muito simples. Demonstramos um canal de pagamento de via única, o que significa que o valor está fluindo em apenas uma única direção. Para simplificar, também começaremos com a suposição ingênua de que ninguém está tentando trapacear. Assim que tivermos explicado a ideia básica do canal, veremos o que é necessário para fazer com que ele não precise de confiança, de maneira que nenhuma das partes <em>consiga</em> trapacear, mesmo que elas estejam tentando.</p>
+</div>
+<div class="paragraph data-line-109">
+<p>Para este exemplo, assumiremos dois participantes: Emma e Fabian. Fabian oferece um serviço de streaming de vídeo que é cobrado por segundo, usando um canal de micropagamento. Fabian cobra 0,01 milibit (0,00001 BTC) por segundo de vídeo, o que é equivalente a 36 milibits (0,036 BTC) por hora de vídeo. Emma é uma usuária que adquire este serviço de streaming de vídeo de Fabian. A <a href="#emma_fabian_streaming_video">Emma compra um streaming de vídeo de Fabian através de um canal de pagamento, pagando por cada segundo de vídeo</a> mostra Emma comprando o serviço de streaming de vídeo de Fabian usando um canal de pagamento.</p>
+</div>
+<div id="emma_fabian_streaming_video" class="imageblock data-line-113">
+<div class="content">
+<img src="images/mbc2_1202.png" alt="Emma purchases streaming video from Fabian with a payment channel, paying for each second of video">
+</div>
+<div class="title">Figure 2. Emma compra um streaming de vídeo de Fabian através de um canal de pagamento, pagando por cada segundo de vídeo</div>
+</div>
+<div class="paragraph data-line-115">
+<p>Neste exemplo, Fabian e Emma estão usando um software especial que lida tanto com o canal de pagamento quanto com o streaming de vídeo. Emma está executando o software em seu navegador da Internet, enquanto Fabian está executando-o em um servidor. O software inclui as funcionalidades básicas de uma carteira de bitcoin e pode criar e assinar transações de bitcoin. Tanto o conceito quanto o termo "canal de pagamento" são completamente ocultados dos usuários. O que eles enxergam no software é um vídeo que é pago por segundo.</p>
+</div>
+<div class="paragraph data-line-117">
+<p>Para configurar o canal de pagamento, a Emma e o Fabian estabelecem um endereço multiassinatura 2-de-2, com cada um deles possuindo uma das chaves. No computador da Emma, o software em seu navegador apresenta um código QR com um endereço P2SH (começando com "3") e pede para que ela envie um "depósito" que seja suficiente para até uma hora de vídeo. O endereço é então financiado pela Emma. A transação da Emma, pagando para o endereço multiassinatura, é a transação de financiamento ou transação âncora para o canal de pagamento.</p>
+</div>
+<div class="paragraph data-line-119">
+<p>Para este exemplo, digamos que a Emma financia o canal com 36 milibits (0,036 BTC). Isso permitirá que a Emma consuma <em>até</em> 1 hora de streaming de vídeo. A transação de financiamento, neste caso, define o valor máximo que pode ser transmitido neste canal, definindo a <em>capacidade do canal</em>.</p>
+</div>
+<div class="paragraph data-line-121">
+<p>A transação de financiamento consome uma ou mais entradas da carteira da Emma, que é a origem dos fundos. Ela cria uma saída com um valor de 36 milibits que é paga ao endereço multiassinatura 2-de-2 controlado de maneira conjunta pela Emma e pelo Fabian. A transação também pode ter saídas adicionais para enviar troco de volta para a carteira da Emma.</p>
+</div>
+<div class="paragraph data-line-123">
+<p>Assim que a transação de financiamento for confirmada, a Emma pode iniciar o streaming de vídeo. O software da Emma cria e assina uma transação de compromisso que altera o saldo do canal para creditar 0,01 milibit no endereço do Fabian e para reembolsar 35,99 milibits de volta para a Emma. A transação assinada pela Emma consome a saída de 36 milibits criada pela transação de financiamento e cria duas saídas: uma para o reembolso dela, e outra de pagamento para o Fabian. A transação está apenas parcialmente assinada&#x2014;ela requer duas assinaturas (2-de-2), mas tem apenas a assinatura da Emma. Quando o servidor do Fabian recebe essa transação, ele adiciona a segunda assinatura (para a entrada 2-de-2) e a retorna para a Emma junto com 1 segundo de vídeo. Agora ambas as partes têm uma transação de compromisso totalmente assinada que qualquer uma das partes pode resgatar, representando o saldo correto e atualizado do canal. Nenhuma das partes transmite esta transação para a rede.</p>
+</div>
+<div class="paragraph data-line-125">
+<p>Na próxima rodada, o software da Emma cria e assina outra transação de compromisso (compromisso nº2) que consome a <em>mesma</em> saída 2-de-2 da transação de financiamento. A segunda transação de compromisso aloca uma saída de 0,02 milibits para o endereço do Fabian e uma saída de 35,98 milibits de volta para o endereço da Emma. Esta nova transação é o pagamento por dois segundos cumulativos de vídeo. O software do Fabian assina e retorna a segunda transação de compromisso, junto com outro segundo de vídeo.</p>
+</div>
+<div class="paragraph data-line-127">
+<p>Desta forma, o software da Emma continua a enviar transações de compromisso para o servidor do Fabian em troca de streaming de vídeo. À medida que a Emma consome mais segundos de vídeo, o saldo do canal gradualmente acumula-se em favor do Fabian. Digamos que a Emma assista a 600 segundos (10 minutos) de vídeo, criando e assinando 600 transações de compromisso. A última transação de compromisso (nº600) terá duas saídas, dividindo o saldo do canal, uma de 6 milibits para o Fabian e outra de 30 milibits para a Emma.</p>
+</div>
+<div class="paragraph data-line-129">
+<p>Finalmente, A Emma clica em "Parar" para interromper o streaming de vídeo. Agora ou Fabian ou a Emma podem transmitir a transação de estado final para liquidação. Esta última transação é a <em>transação de liquidação</em> e paga para o Fabian por todo o vídeo que a Emma consumiu, devolvendo o restante da transação de financiamento para a Emma.</p>
+</div>
+<div class="paragraph data-line-131">
+<p>A <a href="#video_payment_channel">Canal de pagamento da Emma com o Fabian, mostrando as transações de compromisso que atualizam o saldo do canal</a> mostra o canal entre a Emma e o Fabian e as transações de compromisso que atualizam o saldo do canal.</p>
+</div>
+<div class="paragraph data-line-133">
+<p>No final, apenas duas transações são registradas na blockchain: a transação de financiamento que estabeleceu o canal e uma transação de liquidação que alocou o saldo final corretamente entre os dois participantes.</p>
+</div>
+<div id="video_payment_channel" class="imageblock data-line-137">
+<div class="content">
+<img src="images/mbc2_1203.png" alt="Emma&#8217;s payment channel with Fabian, showing the commitment transactions that update the balance of the channel">
+</div>
+<div class="title">Figure 3. Canal de pagamento da Emma com o Fabian, mostrando as transações de compromisso que atualizam o saldo do canal</div>
+</div>
+</div>
+<div class="sect3 data-line-139">
+<h4 id="_criando_canais_que_não_dependem_de_confiança">Criando Canais que Não Dependem de Confiança</h4>
+<div class="paragraph data-line-141">
+<p>O canal que acabamos de descrever funciona, mas apenas se ambas as partes cooperarem, e caso não haja falhas ou tentativas de trapaça. Vejamos alguns dos cenários em que esse canal deixa de funcionar, e o que é necessário para corrigi-los:</p>
+</div>
+<div class="ulist data-line-143">
+<ul>
+<li class="data-line-143">
+<p>Após a transação de financiamento ocorrer, a Emma precisa da assinatura do Fabian para receber o dinheiro de volta. Se o Fabian desaparecer, os fundos da Emma serão travados em uma 2-de-2 e serão efetivamente perdidos. Este canal, da maneira que foi construído, leva a uma perda de fundos caso uma das partes desconectar-se antes que haja pelo menos uma transação de compromisso assinada por ambas as partes.</p>
+</li>
+<li class="data-line-145">
+<p>Enquanto o canal está funcionando, a Emma pode pegar qualquer uma das transações de compromisso que o Fabian assinou e transmiti-la para a blockchain. Por que pagar por 600 segundos de vídeo, se ela pode transmitir a transação de compromisso nº1 e pagar apenas por 1 segundo de vídeo? O canal falha porque a Emma pode trapacear ao transmitir um compromisso anterior que lhe favoreça.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph data-line-147">
+<p>Ambos os problemas podem ser resolvidos com timelocks&#x2014;vamos ver como poderíamos usar timelocks a nível de transação (nLocktime).</p>
+</div>
+<div class="paragraph data-line-149">
+<p>A Emma não pode se arriscar a enviar dinheiro para uma multiassinatura 2-de-2, a menos que ela tenha um reembolso garantido. Para resolver esse problema, ela constrói as transações de financiamento e de reembolso ao mesmo tempo. Ela assina a transação de financiamento, mas não a transmite para ninguém. Ela transmite apenas a transação de reembolso para o Fabian e obtém a assinatura dele.</p>
+</div>
+<div class="paragraph data-line-151">
+<p>A transação de reembolso atua como a primeira transação de compromisso e seu timelock estabelece o limite superior para a vida do canal. Nesse caso, a Emma poderia definir o nLocktime para 30 dias ou 4.320 blocos no futuro. Todas as transações de compromisso subsequentes devem ter um timelock menor, de maneira que elas possam ser resgatadas antes da transação de reembolso.</p>
+</div>
+<div class="paragraph data-line-153">
+<p>Agora que a Emma tem uma transação de reembolso totalmente assinada, ela pode transmitir com segurança a transação de financiamento assinada, sabendo que no futuro, após o timelock expirar, ela poderá resgatar a transação de reembolso, mesmo que o Fabian desapareça.</p>
+</div>
+<div class="paragraph data-line-155">
+<p>Cada transação de compromisso que as partes trocam durante a vida do canal será travada com um timelock para um momento no futuro. Mas o atraso será um pouco menor para cada compromisso, de modo que o compromisso mais recente possa ser resgatado antes do compromisso anterior que ele invalida. Por causa do nLockTime, nenhuma das partes pode propagar com êxito nenhuma das transações de compromisso até que seu timelock expire. Se tudo correr bem, elas irão cooperar e fechar o canal normalmente com uma transação de liquidação, tornando desnecessária a transmissão de uma transação de compromisso intermediária. Caso contrário, a transação de compromisso mais recente pode ser propagada para liquidar a conta e invalidar todas as transações de compromisso anteriores.</p>
+</div>
+<div class="paragraph data-line-157">
+<p>Por exemplo, se a transação de compromisso nº1 tiver um timelock para 4.320 blocos no futuro, então a transação de compromisso nº2 terá um timelock para 4.319 blocos no futuro. A transação de compromisso nº600 pode ser gasta até 600 blocos antes de a transação de compromisso nº1 se tornar válida.</p>
+</div>
+<div class="paragraph data-line-159">
+<p>A <a href="#timelocked_commitments">Cada compromisso define um timelock menor, permitindo que ele seja gasto antes que os compromissos anteriores se tornem válidos</a> mostra cada transação de compromisso definindo um timelock menor, permitindo que ela seja gasta antes que os compromissos anteriores se tornem válidos.</p>
+</div>
+<div id="timelocked_commitments" class="imageblock data-line-163">
+<div class="content">
+<img src="images/mbc2_1204.png" alt="Each commitment sets a shorter timelock, allowing it to be spent before the previous commitments become valid">
+</div>
+<div class="title">Figure 4. Cada compromisso define um timelock menor, permitindo que ele seja gasto antes que os compromissos anteriores se tornem válidos</div>
+</div>
+<div class="paragraph data-line-165">
+<p>Each subsequent commitment transaction must have a shorter timelock so that it may be broadcast before its predecessors and before the refund transaction. The ability to broadcast a commitment earlier ensures it will be able to spend the funding output and preclude any other commitment transaction from being redeemed by spending the output. The guarantees offered by the Bitcoin blockchain, preventing double-spends and enforcing timelocks, effectively allow each commitment transaction to invalidate its predecessors.</p>
+</div>
+<div class="paragraph data-line-167">
+<p>Os canais de estado usam timelocks para impor contratos inteligentes em uma dimensão de tempo. Neste exemplo, vimos como a dimensão do tempo garante que a transação de compromisso mais recente se torne válida antes de quaisquer compromissos anteriores. Assim, a transação de compromisso mais recente pode ser transmitida, gastando as entradas e invalidando as transações de compromisso anteriores. A implementação de contratos inteligentes com timelocks absolutos protege contra a trapaça por uma das partes. Esta implementação não precisa de nada mais do que timelocks absolutos a nível de transação (nLocktime). A seguir, veremos como os timelocks a nível de script, o CHECKLOCKTIMEVERIFY e o CHECKSEQUENCEVERIFY, podem ser usados para construir canais de estado mais flexíveis, úteis e sofisticados.</p>
+</div>
+<div class="paragraph data-line-169">
+<p>A primeira forma de canal de pagamento unidirecional foi demonstrada em 2015 por uma equipe de desenvolvedores argentinos como um protótipo de um aplicativo de streaming de vídeo.</p>
+</div>
+<div class="paragraph data-line-171">
+<p>Os timelocks não são a única maneira de se invalidar transações de compromisso anteriores. Nas próximas seções, veremos como uma chave de revogação pode ser usada para se obter o mesmo resultado. Os timelocks são eficazes, mas eles têm duas desvantagens distintas. Ao estabelecer um timelock máximo quando o canal é aberto inicialmente, eles limitam a vida útil do canal. Pior, eles forçam as implementações de canais a encontrar um equilíbrio entre permitir canais de longa duração e forçar um dos participantes a esperar um tempo muito longo por um reembolso, caso haja um fechamento prematuro do canal. Por exemplo, se você permitir que o canal permaneça aberto por 30 dias, ao definir o timelock de reembolso para 30 dias, se uma das partes desaparecer imediatamente, a outra parte precisará esperar 30 dias pelo reembolso. Quanto mais distante for o ponto final, mais distante será o reembolso.</p>
+</div>
+<div class="paragraph data-line-173">
+<p>O segundo problema é que, uma vez que cada transação de compromisso subsequente deve diminuir o timelock, há um limite explícito no número de transações de compromisso que podem ser trocadas entre as partes. Por exemplo, um canal de 30 dias, definindo um timelock de 4.320 blocos no futuro, pode acomodar apenas 4.320 transações de compromisso intermediárias antes que ele precise ser fechado. Existe o perigo de se definir para 1 bloco o intervalo entre as transações de compromisso do timelock. Ao fazer isso, um desenvolvedor está criando um fardo muito grande para os participantes do canal, que precisarão ficar online e vigilantes, estando prontos para transmitir a transação de compromisso correta a qualquer momento.</p>
+</div>
+<div class="paragraph data-line-175">
+<p>Agora que entendemos como os timelocks podem ser usados para invalidar compromissos anteriores, podemos ver a diferença entre fechar o canal cooperativamente e fechá-lo unilateralmente, ao transmitir uma transação de compromisso. Como todas as transações de compromisso possuem um timelock definido, para transmiti-las, sempre é necessário esperar até que o timelock tenha expirado. Mas se ambas as partes estiverem de acordo sobre o saldo final e souberem que ambas mantêm transações de compromisso que tornarão esse saldo uma realidade, elas podem construir uma transação de liquidação sem um timelock, a qual representará o mesmo saldo final. Em um fechamento cooperativo, qualquer uma das partes pega a transação de compromisso mais recente e constrói uma transação de liquidação que é idêntica em todos os aspectos, com a exceção de que ela omite o timelock. Ambas as partes podem assinar esta transação de liquidação sabendo que não há como se trapacear e obter um saldo mais favorável. Ao assinar e transmitir cooperativamente a transação de liquidação, elas podem fechar o canal e resgatar seus saldos finais imediatamente. Na pior das hipóteses, uma das partes pode ser mesquinha, recusar-se a cooperar e forçar a outra parte a fazer um fechamento unilateral com a transação de compromisso mais recente. Mas se ela fizer isso, ela também terá que esperar por seus fundos.</p>
+</div>
+</div>
+<div class="sect3 data-line-177">
+<h4 id="_compromissos_revogáveis_assimétricos">Compromissos Revogáveis Assimétricos</h4>
+<div class="paragraph data-line-179">
+<p>Uma melhor maneira de lidar com os estados de compromisso anteriores é revogá-los explicitamente. No entanto, isso não é fácil de se fazer. Uma característica-chave do bitcoin é que, uma vez que uma transação é válida, ela permanece válida e não expira. A única maneira de se cancelar uma transação é fazendo um gasto duplo de suas entradas com outra transação antes de ela ser minerada. É por isso que usamos os timelocks no exemplo anterior do canal de pagamento simples, para garantir que os compromissos mais recentes pudessem ser gastos antes que os compromissos mais antigos se tornassem válidos. No entanto, a utilização de uma sequência de compromissos um após o outro cria uma série de restrições que tornam os canais de pagamento difíceis de se usar.</p>
+</div>
+<div class="paragraph data-line-181">
+<p>Mesmo que uma transação não possa ser cancelada, ela pode ser construída de forma a tornar o seu uso algo indesejável. A maneira como fazemos isso é dando a cada parte uma <em>chave de revogação</em> que pode ser usada para punir a outra parte, caso ela tente trapacear. Este mecanismo para revogar transações de compromisso anteriores foi proposto pela primeira vez como parte da Lightning Network.</p>
+</div>
+<div class="paragraph data-line-183">
+<p>To explain revocation keys, we will construct a more complex payment channel between two exchanges run by Hitesh and Irene. Hitesh and Irene run bitcoin exchanges in India and the USA, respectively. Customers of Hitesh&#8217;s Indian exchange often send payments to customers of Irene&#8217;s USA exchange and vice versa. Currently, these transactions occur on the Bitcoin blockchain, but this means paying fees and waiting several blocks for confirmations. Setting up a payment channel between the exchanges will significantly reduce the cost and accelerate the transaction flow.</p>
+</div>
+<div class="paragraph data-line-185">
+<p>Hitesh e Irene iniciam o canal construindo colaborativamente uma transação de financiamento, cada um financiando o canal com 5 bitcoins.
+O saldo inicial é de 5 bitcoins para Hitesh e 5 bitcoins para Irene. A transação de financiamento trava o estado do canal em uma multiassinatura 2-de-2, assim como no exemplo de um canal simples.</p>
+</div>
+<div class="paragraph data-line-188">
+<p>A transação de financiamento pode ter uma ou mais entradas do Hitesh (somando até 5 bitcoins ou mais), e uma ou mais entradas da Irene (somando até 5 bitcoins ou mais). As entradas devem exceder ligeiramente a capacidade do canal, a fim de cobrir as taxas de transação. A transação tem uma saída que trava o total de 10 bitcoins em um endereço multiassinatura 2-de-2 controlado por Hitesh e Irene. A transação de financiamento também pode ter uma ou mais saídas retornando troco para o Hitesh e a Irene, caso as entradas deles forem maiores do que o valor que eles pretendem contribuir para o canal. A transação de financiamento é apenas uma única transação, a qual é criada com entradas que são oferecidas e assinadas pelas duas partes. Ela deve ser construída em colaboração e assinada por cada parte antes de ser transmitida.</p>
+</div>
+<div class="paragraph data-line-190">
+<p>Agora, ao invés de criar uma única transação de compromisso que ambas as partes assinam, Hitesh e Irene criam duas transações de compromisso diferentes que são <em>assimétricas</em>.</p>
+</div>
+<div class="paragraph data-line-192">
+<p>Hitesh tem uma transação de compromisso com duas saídas. A primeira saída paga a Irene os 5 bitcoins devidos a ela <em>imediatamente</em>. A segunda saída paga a Hitesh os 5 bitcoins devidos a ele, mas somente após um timelock de 1.000 blocos. As saídas da transação são assim:</p>
+</div>
+<div class="listingblock data-line-194">
+<div class="content">
+<pre>Entrada: saída de financiamento 2-de-2, assinada pela Irene
+
+Saída 0 &lt;5 bitcoins&gt;:
+    &lt;Chave Pública da Irene&gt; CHECKSIG
+
+Saída 1 &lt;5 bitcoins&gt;:
+    &lt;1.000 blocos&gt;
+    CHECKSEQUENCEVERIFY
+    DROP
+    &lt;Chave Pública do Hitesh&gt; CHECKSIG</pre>
+</div>
+</div>
+<div class="paragraph data-line-207">
+<p>A Irene tem uma transação de compromisso diferente com duas saídas. A primeira saída paga a Hitesh os 5 bitcoins devidos a ele imediatamente. A segunda saída paga a Irene os 5 bitcoins devidos a ela, mas somente após um timelock de 1.000 blocos. A transação de compromisso que a Irene mantém (assinada pelo Hitesh) é assim:</p>
+</div>
+<div class="listingblock data-line-209">
+<div class="content">
+<pre>Entrada: saída de financiamento 2-de-2, assinada pelo Hitesh
+
+Saída 0 &lt;5 bitcoins&gt;:
+    &lt;Chave Pública do Hitesh&gt; CHECKSIG
+
+Saída 1 &lt;5 bitcoins&gt;:
+    &lt;1.000 blocos&gt;
+    CHECKSEQUENCEVERIFY
+    DROP
+    &lt;Chave Pública da Irene&gt; CHECKSIG</pre>
+</div>
+</div>
+<div class="paragraph data-line-222">
+<p>Dessa forma, cada parte tem uma transação de compromisso, gastando a saída de financiamento 2-de-2. Esta entrada é assinada pela <em>outra</em> parte. A qualquer momento, a parte que detém a transação também pode assiná-la (completando os 2-de-2) e transmiti-la. No entanto, se um deles transmitir a transação de compromisso, a outra parte será paga imediatamente, mas quem transmite terá que esperar que um timelock expire. Ao impor um atraso no resgate de uma das saídas, colocamos cada parte em ligeira desvantagem quando ela opta por transmitir unilateralmente uma transação de compromisso. Mas um atraso no resgate, por si só, não é suficiente para encorajar um comportamento honesto.</p>
+</div>
+<div class="paragraph data-line-224">
+<p>A <a href="#asymmetric_commitments">Duas transações de compromisso assimétricas com pagamento atrasado para a parte que detém a transação</a> mostra duas transações de compromisso assimétricas, onde a saída que paga o detentor do compromisso é atrasada.</p>
+</div>
+<div id="asymmetric_commitments" class="imageblock data-line-228">
+<div class="content">
+<img src="images/mbc2_1205.png" alt="Two asymmetric commitment transactions with delayed payment for the party holding the transaction">
+</div>
+<div class="title">Figure 5. Duas transações de compromisso assimétricas com pagamento atrasado para a parte que detém a transação</div>
+</div>
+<div class="paragraph data-line-230">
+<p>Agora, apresentamos o elemento final desse esquema: uma chave de revogação que previne que um trapaceiro transmita um compromisso expirado. A chave de revogação permite que a parte injustiçada tome todo o saldo do canal para ela, punindo o trapaceiro.</p>
+</div>
+<div class="paragraph data-line-232">
+<p>A chave de revogação é composta por dois segredos, sendo cada metade gerada de forma independente por cada participante do canal. Ela é semelhante a uma multiassinatura 2-de-2, mas é construída usando-se aritmética de curva elíptica, de maneira que ambas as partes saibam a chave pública de revogação, mas que cada parte saiba apenas metade da chave secreta de revogação.</p>
+</div>
+<div class="paragraph data-line-234">
+<p>Em cada rodada, ambas as partes revelam sua metade do segredo de revogação para a outra parte, dando à outra parte (que agora tem as duas metades) os meios para reivindicar a saída de penalidade, caso essa transação revogada venha a ser transmitida.</p>
+</div>
+<div class="paragraph data-line-236">
+<p>Cada uma das transações de compromisso tem uma saída "atrasada". O script de resgate para essa saída permite que uma parte resgate-a após 1.000 blocos, <em>ou</em> que a outra parte resgate-a se ela tiver uma chave de revogação, penalizando a transmissão de um compromisso revogado.</p>
+</div>
+<div class="paragraph data-line-238">
+<p>Portanto, quando o Hitesh cria uma transação de compromisso para a Irene assinar, ele faz com que a segunda saída seja pagável a ele mesmo daqui a 1.000 blocos, ou pagável à chave pública de revogação (da qual ele conhece apenas metade do segredo). Hitesh constrói essa transação. Ele só revelará sua metade do segredo de revogação para a Irene quando ele estiver pronto para mudar para um novo estado de canal e desejar revogar esse compromisso.</p>
+</div>
+<div class="paragraph data-line-240">
+<p>O script da segunda saída fica dessa maneira:</p>
+</div>
+<div class="listingblock data-line-242">
+<div class="content">
+<pre>Saída 0 &lt;5 bitcoins&gt;:
+    &lt;Chave Pública da Irene&gt; CHECKSIG
+
+Saída 1 &lt;5 bitcoins&gt;:
+IF
+    # Saída de penalização por revogação
+    &lt;Chave Pública de Revogação&gt;
+ELSE
+    &lt;1.000 blocos&gt;
+    CHECKSEQUENCEVERIFY
+    DROP
+    &lt;Chave Pública do Hitesh&gt;
+ENDIF
+CHECKSIG</pre>
+</div>
+</div>
+<div class="paragraph data-line-259">
+<p>A Irene pode assinar essa transação com segurança, pois, se transmitida, a transação pagará imediatamente o que lhe é devido. O Hitesh segura a transação, mas sabe que se ele a transmitir em um fechamento de canal unilateral, ele terá que esperar 1.000 blocos para receber o pagamento.</p>
+</div>
+<div class="paragraph data-line-261">
+<p>Quando o canal avança para o próximo estado, o Hitesh tem que <em>revogar</em> esta transação de compromisso antes que a Irene concorde em assinar a próxima transação de compromisso. Para fazer isso, tudo o que ele precisa fazer é enviar a sua metade da <em>chave de revogação</em> para a Irene. Assim que a Irene tiver as duas metades da chave secreta de revogação desse compromisso, ela poderá assinar o próximo compromisso com tranquilidade e confiança. Ela sabe que se o Hitesh tentar trapacear publicando o compromisso anterior, ela poderá usar a chave de revogação para resgatar a saída atrasada do Hitesh. <em>Se o Hitesh trapacear, a Irene ficará com AMBAS as saídas</em>. Enquanto isso, o Hitesh tem apenas metade do segredo de revogação dessa chave pública de revogação, e ele não conseguirá resgatar a saída até que 1.000 blocos sejam minerados. Até lá, a Irene será capaz de resgatar a saída e punir o Hitesh.</p>
+</div>
+<div class="paragraph data-line-263">
+<p>O protocolo de revogação é bilateral, o que significa que, em cada rodada, à medida que o estado do canal avança, as duas partes trocam os novos compromissos, trocam os segredos de revogação dos compromissos anteriores e assinam as novas transações de compromisso uma da outra. Ao aceitar um novo estado, as duas partes fazem com que o estado anterior seja impossível de ser usado, dando uma à outra os segredos de revogação necessários para punir qualquer trapaça.</p>
+</div>
+<div class="paragraph data-line-265">
+<p>Vejamos um exemplo de como isso funciona. Um dos clientes da Irene deseja enviar 2 bitcoins para um dos clientes do Hitesh. Para transmitir 2 bitcoins pelo canal, o Hitesh e a Irene precisam avançar o estado do canal para refletir o novo saldo. Eles se comprometerão com um novo estado (estado número 2) onde os 10 bitcoins do canal são divididos, sendo 7 bitcoins para o Hitesh e 3 bitcoins para a Irene. Para avançar o estado do canal, cada um deles criará novas transações de compromisso refletindo o novo saldo do canal.</p>
+</div>
+<div class="paragraph data-line-267">
+<p>Como anteriormente, essas transações de compromisso são assimétricas, de modo que a transação de compromisso que cada parte mantém as força a esperar, caso elas resolvam resgatar a transação. Crucialmente, antes de assinar novas transações de compromisso, eles devem primeiro trocar as chaves de revogação para invalidar o compromisso anterior. Nesse caso particular, os interesses do Hitesh estão alinhados com o estado real do canal e, portanto, ele não tem motivos para transmitir um estado anterior. No entanto, para a Irene, o estado número 1 a deixa com um saldo maior do que o estado 2. Quando a Irene dá ao Hitesh a chave de revogação da transação de compromisso anterior dela (estado número 1), ela está efetivamente revogando a capacidade dela de lucrar com a regressão do canal a um anterior estado, pois, com a chave de revogação, o Hitesh pode resgatar ambas as saídas da transação de confirmação anterior sem precisar esperar. Ou seja, se a Irene transmitir o estado anterior, o Hitesh pode exercer o seu direito de obter todas as saídas.</p>
+</div>
+<div class="paragraph data-line-269">
+<p>É importante ressaltar que a revogação não ocorre automaticamente. Embora o Hitesh tenha a capacidade de punir a Irene por trapacear, para fazer isso ele precisa observar a blockchain diligentemente em busca de sinais de trapaça. Se ele enxergar que uma transação de compromisso anterior foi transmitida, ele terá 1.000 blocos para agir, usando a chave de revogação para impedir a trapaça da Irene e para puni-la, tomando para si todo o saldo de 10 bitcoins.</p>
+</div>
+<div class="paragraph data-line-271">
+<p>Os compromissos revogáveis assimétricos com timelocks relativos (CSV) são uma forma muito melhor de se implementar canais de pagamento, sendo considerados uma inovação muito significativa nesta tecnologia. Com essa construção, o canal pode permanecer aberto indefinidamente e pode ter bilhões de transações de compromisso intermediárias. Em implementações de protótipo da Lightning Network, o estado de compromisso é identificado por um índice de 48 bits, permitindo mais de 281 trilhões (2,8 x 10<sup>14</sup>) de transições de estado em um único canal!</p>
+</div>
+</div>
+<div class="sect3 data-line-273">
+<h4 id="_contratos_hash_time_lock_htlc">Contratos Hash Time Lock (HTLC)</h4>
+<div class="paragraph data-line-275">
+<p>Os canais de pagamento podem ser estendidos com um tipo especial de contrato inteligente que permite aos participantes comprometerem fundos em um segredo resgatável, com um tempo de expiração. Este recurso é chamado de <em>Contrato Hash Time Lock</em> (em inglês, <em>Hash Time Lock Contract</em> ou <em>HTLC</em>), e é usado em canais de pagamento bidirecionais e roteados.</p>
+</div>
+<div class="paragraph data-line-277">
+<p>Vamos primeiro explicar a parte do "hash" do HTLC. Para criar um contrato do tipo HTLC, o destinatário pretendido do pagamento criará primeiro um segredo R. Ele então calcula o hash deste segredo H:</p>
+</div>
+<div class="listingblock data-line-279">
+<div class="content">
+<pre>H = Hash(R)</pre>
+</div>
+</div>
+<div class="paragraph data-line-283">
+<p>Isso produz um hash H que pode ser incluído em um script de travamento de saída. Qualquer pessoa que conhecer o segredo poderá usá-lo para resgatar a saída. O segredo R também é conhecido como uma <em>pré-imagem</em> para a função de hash. A pré-imagem corresponde aos dados que são usados como entrada em uma função de hash.</p>
+</div>
+<div class="paragraph data-line-285">
+<p>A segunda parte de um HTLC é o componente "time lock". Se o segredo não for revelado, o pagador do HTLC pode obter um "reembolso" após algum tempo. Isso é obtido com um time lock absoluto usando CHECKLOCKTIMEVERIFY.</p>
+</div>
+<div class="paragraph data-line-287">
+<p>O script que implementa um HTLC pode ter a seguinte aparência:</p>
+</div>
+<div class="listingblock data-line-289">
+<div class="content">
+<pre>IF
+    # Pagar, caso você tiver o segredo R
+    HASH160 &lt;H&gt; EQUALVERIFY
+ELSE
+    # Reembolsar, após o tempo limite ser atingido
+    &lt;locktime&gt; CHECKLOCKTIMEVERIFY DROP
+    &lt;Chave Pública do Pagador&gt; CHECKSIG
+ENDIF</pre>
+</div>
+</div>
+<div class="paragraph data-line-300">
+<p>Qualquer pessoa que tiver o segredo R, que quando transformado em hash é igual a H, poderá resgatar essa saída utilizando a primeira cláusula do fluxo IF.</p>
+</div>
+<div class="paragraph data-line-302">
+<p>Se o segredo não for revelado e o HTLC reivindicado, após um determinado número de blocos o pagador poderá reivindicar o reembolso utilizando a segunda cláusula do fluxo IF.</p>
+</div>
+<div class="paragraph data-line-304">
+<p>Esta é uma implementação básica de um HTLC. Este tipo de HTLC pode ser resgatado por <em>qualquer pessoa</em> que tenha o segredo R. Um HTLC pode assumir muitas formas diferentes, com pequenas variações no script. Por exemplo, adicionar um operador CHECKSIG e uma chave pública na primeira cláusula restringe o resgate do hash a um destinatário nomeado, que também deve saber o segredo R.</p>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-307">
+<h3 id="lightning_network">Canais de Pagamento Roteados (Lightning Network)</h3>
+<div class="paragraph data-line-309">
+<p>A Lightning Network é uma proposta de rede roteada de canais de pagamento bidirecionais conectados ponta a ponta. Uma rede como essa pode permitir que qualquer participante encaminhe um pagamento de canal em canal sem precisar confiar em nenhum dos intermediários. A Lightning Network foi <a href="https://lightning.network/lightning-network-paper.pdf" data-href="https://lightning.network/lightning-network-paper.pdf">descrita pela primeira vez por Joseph Poon e Thadeus Dryja em fevereiro de 2015</a>, com base no conceito de canais de pagamento conforme proposto e elaborado por muitos outros autores.</p>
+</div>
+<div class="paragraph data-line-311">
+<p>A "Lightning Network" refere-se a um design específico para uma rede de canais de pagamento roteados, que até agora já foi implementada por pelo menos cinco equipes de código aberto diferentes. As implementações independentes são coordenadas por um conjunto de padrões de interoperabilidade descritos no <a href="https://bit.ly/2rBHeoL" data-href="https://bit.ly/2rBHeoL">artigo do <em>Basics of Lightning Technology (BOLT)</em></a>.</p>
+</div>
+<div class="paragraph data-line-313">
+<p>Implementações de protótipos da Lightning Network já foram lançadas por várias equipes.</p>
+</div>
+<div class="paragraph data-line-315">
+<p>A Lightning Network é uma das formas possíveis de se implementar canais de pagamento roteados. Existem vários outros designs que visam atingir objetivos semelhantes, como o Teechan e o Tumblebit.</p>
+</div>
+<div class="sect3 data-line-317">
+<h4 id="_exemplo_básico_da_lightning_network">Exemplo Básico da Lightning Network</h4>
+<div class="paragraph data-line-319">
+<p>Vamos ver como a Lightning Network funciona.</p>
+</div>
+<div class="paragraph data-line-321">
+<p>Neste exemplo, temos cinco participantes: Alice, Bob, Carol, Diana e Eric. Esses cinco participantes abriram canais de pagamento entre si, em pares. A Alice tem um canal de pagamento com o Bob. O Bob está conectado com a Carol, a Carol com a Diana e a Diana com o Eric. Para simplificar, vamos supor que cada canal seja financiado com 2 bitcoins por cada participante, resultando em uma capacidade total de 4 bitcoins em cada canal.</p>
+</div>
+<div class="paragraph data-line-323">
+<p>A <a href="#lightning_network_fig">Uma série de canais de pagamento bidirecionais vinculados para formar uma Lightning Network que pode encaminhar um pagamento da Alice para o Eric</a> mostra cinco participantes em uma Lightning Network, conectados através de canais de pagamento bidirecionais que podem ser vinculados para fazer um pagamento da Alice para o Eric (<a href="#lightning_network">Canais de Pagamento Roteados (Lightning Network)</a>).</p>
+</div>
+<div id="lightning_network_fig" class="imageblock data-line-327">
+<div class="content">
+<img src="images/mbc2_1206.png" alt="A series of bi-directional payment channels linked to form a Lightning Network">
+</div>
+<div class="title">Figure 6. Uma série de canais de pagamento bidirecionais vinculados para formar uma Lightning Network que pode encaminhar um pagamento da Alice para o Eric</div>
+</div>
+<div class="paragraph data-line-329">
+<p>Alice wants to pay Eric 1 bitcoin. However, Alice is not connected to Eric by a payment channel. Creating a payment channel requires a funding transaction, which must be committed to the Bitcoin blockchain. Alice does not want to open a new payment channel and commit more of her funds. Is there a way to pay Eric, indirectly?</p>
+</div>
+<div class="paragraph data-line-331">
+<p>A <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a> mostra o processo passo a passo do roteamento de um pagamento da Alice para o Eric, por meio do estabelecimento de uma série de compromissos com contratos HTLC nos canais de pagamento que conectam os participantes.</p>
+</div>
+<div id="ln_payment_process" class="imageblock data-line-335">
+<div class="content">
+<img src="images/mbc2_1207.png" alt="Step-by-step payment routing through a Lightning Network">
+</div>
+<div class="title">Figure 7. Passo-a-passo do roteamento do pagamento através da Lightning Network</div>
+</div>
+<div class="paragraph data-line-337">
+<p>A Alice está executando um nó de Lightning Network (LN) que está monitorando seu canal de pagamento com o Bob e tem a capacidade de descobrir rotas entre os canais de pagamento. O nó de LN da Alice também tem a capacidade de conectar-se através da internet ao nó de LN do Eric. O nó de LN do Eric cria um segredo R usando um gerador de número aleatório. O nó do Eric não revela esse segredo a ninguém. Em vez disso, o nó do Eric calcula um hash H do segredo R e transmite esse hash para o nó da Alice (ver a etapa 1 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>).</p>
+</div>
+<div class="paragraph data-line-339">
+<p>Agora, o nó de LN da Alice constrói uma rota entre o nó de LN da Alice e o nó de LN do Eric. O algoritmo de roteamento usado será examinado em maiores detalhes a seguir, mas, por enquanto, vamos assumir que o nó da Alice consegue encontrar uma rota eficiente.</p>
+</div>
+<div class="paragraph data-line-341">
+<p>O nó da Alice então constrói um contrato do tipo HTLC, pagável ao hash H, com um tempo limite de reembolso de 10 blocos (bloco atual + 10), para uma quantia de 1,003 bitcoin (ver a etapa 2 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). O valor extra de 0,003 bitcoin será utilizado para compensar os nós intermediários pela participação nesta rota de pagamento. A Alice oferece este contrato HTLC ao Bob, descontando 1,003 bitcoin do saldo dela no canal com o Bob e comprometendo-o no contrato HTLC. O contrato HTLC tem o seguinte significado: <em>"A Alice está comprometendo 1,003 bitcoin do saldo dela no canal para ser pago ao Bob, caso o Bob souber o segredo, ou para ser devolvido ao saldo dela, caso 10 blocos se passarem."</em> O saldo do canal entre a Alice e o Bob é agora expresso por transações de compromisso com três saídas: 2 bitcoins no saldo para o Bob, 0,997 bitcoin no saldo para a Alice e 1,003 bitcoin comprometido no contrato HTLC da Alice. O saldo da Alice é reduzido pelo valor comprometido no contrato HTLC.</p>
+</div>
+<div class="paragraph data-line-343">
+<p>O Bob agora tem um compromisso de que, se ele conseguir obter o segredo R nos próximos 10 blocos, ele poderá reivindicar o 1,003 bitcoin travado pela Alice. Com esse compromisso em mãos, o nó do Bob constrói um contrato HTLC em seu canal de pagamento com a Carol. O contrato HTLC do Bob compromete 1,002 bitcoin para o hash H por 9 blocos, que a Carol poderá resgatar se ela tiver o segredo R (ver a etapa 3 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). O Bob sabe que para a Carol poder reivindicar o contrato HTLC dele, ela precisa produzir o segredo R. Se o Bob tiver o segredo R em nove blocos, ele pode usá-lo para reivindicar o contrato HTLC da Alice com ele. Ele também ganha 0,001 bitcoin por comprometer o saldo dele no canal por nove blocos. Se a Carol não for capaz de reivindicar o contrato HTLC dele e ele não for capaz de reivindicar o contrato HTLC da Alice, os saldos anteriores dos canais serão revertidos e ninguém ficará com prejuízo. O saldo do canal entre o Bob e a Carol agora é: 2 bitcoins para a Carol, 0,998 bitcoin para o Bob e 1,002 bitcoin comprometido no contrato HTLC do Bob.</p>
+</div>
+<div class="paragraph data-line-345">
+<p>A Carol agora tem um compromisso de que, se ela conseguir obter o segredo R nos próximos nove blocos, ela poderá reivindicar o 1,002 bitcoin travado pelo Bob. Agora ela pode assumir um compromisso em um contrato HTLC em seu canal com a Diana. No contrato HTLC, ela compromete 1,001 bitcoin para o hash H por oito blocos, que a Diana poderá resgatar se ela tiver o segredo R (ver a etapa 4 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). Do ponto de vista da Carol, se isso funcionar, ela estará com 0,001 bitcoin de lucro, caso contrário, ela não perderá nada. Seu contrato HTLC com a Diana só é viável se o segredo R for revelado, momento no qual ela poderá reivindicar o contrato HTLC do Bob. O saldo do canal entre a Carol e a Diana agora é: 2 bitcoins para a Diana, 0,999 bitcoin para Carol e 1,001 bitcoin comprometido no contrato HTLC da Carol.</p>
+</div>
+<div class="paragraph data-line-347">
+<p>Finalmente, a Diana pode oferecer um contrato HTLC para o Eric, comprometendo 1 bitcoin por sete blocos para o hash H (ver a etapa 5 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). O saldo do canal entre a Diana e o Eric agora é: 2 bitcoins para o Eric, 1 bitcoin para a Diana e 1 bitcoin comprometido pela Diana no contrato HTLC.</p>
+</div>
+<div class="paragraph data-line-349">
+<p>No entanto, neste salto da rota, o Eric <em>tem</em> o segredo R. Ele pode, portanto, reivindicar o contrato HTLC oferecido pela Diana. Ele envia o segredo R para a Diana e reivindica 1 bitcoin, adicionando-o ao saldo de seu canal (ver a etapa 6 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). O saldo do canal agora é: 1 bitcoin para a Diana e 3 bitcoins para o Eric.</p>
+</div>
+<div class="paragraph data-line-351">
+<p>Agora, a Diana tem o segredo R. Portanto, agora ela pode reivindicar o contrato HTLC da Carol. A Diana transmite o segredo R para a Carol e adiciona 1,001 bitcoin ao saldo de seu canal (ver a etapa 7 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). Agora, o saldo do canal entre a Carol e a Diana é: 0,999 bitcoin para a Carol e 3,001 bitcoins para a Diana. A Diana "ganhou" 0,001 bitcoin por ter participado nessa rota de pagamento.</p>
+</div>
+<div class="paragraph data-line-353">
+<p>Voltando pela rota, o segredo R permite que cada participante reivindique os contratos HTLCs pendentes. A Carol reivindica 1,002 bitcoin do Bob, mudando o saldo do canal deles para: 0,998 bitcoin para o Bob e 3,002 bitcoins para a Carol (ver a etapa 8 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). Finalmente, o Bob reivindica o contrato HTLC da Alice (ver a etapa 9 da <a href="#ln_payment_process">Passo-a-passo do roteamento do pagamento através da Lightning Network</a>). O saldo do canal deles é atualizado como: 0,997 bitcoin para a Alice e 3,003 bitcoins para o Bob.</p>
+</div>
+<div class="paragraph data-line-355">
+<p>Neste exemplo, a Alice conseguiu pagar 1 bitcoin ao Eric sem precisar abrir um canal com ele. Nenhuma das partes intermediárias na rota de pagamento teve que confiar uma na outra. Pelo comprometimento de curto prazo de seus fundos no canal, elas podem ganhar uma pequena taxa, com o único risco de haver um pequeno atraso no reembolso, caso o canal for fechado ou o pagamento roteado falhar.</p>
+</div>
+</div>
+<div class="sect3 data-line-357">
+<h4 id="_transporte_e_roteamento_da_lightning_network">Transporte e Roteamento da Lightning Network</h4>
+<div class="paragraph data-line-359">
+<p>Todas as comunicações entre os nós de LN são criptografadas de ponta a ponta. Além disso, os nós têm uma chave pública de longo prazo que eles usam como um identificador e para se autenticarem uns com os outros.</p>
+</div>
+<div class="paragraph data-line-361">
+<p>Sempre que um node deseja enviar um pagamento para outro node, ele deve primeiro construir um <em>caminho</em> através da rede, conectando canais de pagamento com capacidade suficiente. Os nodes anunciam informações de roteamento, incluindo quais canais eles abriram, quanta capacidade cada canal tem e quais taxas eles cobram para rotear os pagamentos. As informações de roteamento podem ser compartilhadas de várias maneiras e diferentes protocolos de roteamento podem surgir à medida que a tecnologia da Lightning Network avança. Algumas implementações da Lightning Network usam o protocolo IRC como um mecanismo conveniente para os nodes anunciarem as informações de roteamento. Outra implementação de descoberta de rota usa um modelo P2P onde os nodes propagam anúncios de canal para os pares, em um modelo de "inundação", semelhante a como o bitcoin propaga as transações. Os planos futuros incluem uma proposta chamada <a href="https://bit.ly/2r5TACm" data-href="https://bit.ly/2r5TACm">Flare</a>, que é um modelo de roteamento híbrido com "vizinhanças" de nodes locais e nodes de faróis de longo alcance.</p>
+</div>
+<div class="paragraph data-line-363">
+<p>Em nosso exemplo anterior, o nó da Alice usa um desses mecanismos de descoberta de rota para encontrar um ou mais caminhos conectando o nó dela ao nó do Eric. Uma vez que o nó da Alice construiu um caminho, ela inicializará esse caminho através da rede, propagando uma série de instruções criptografadas e aninhadas para conectar cada um dos canais de pagamento adjacentes.</p>
+</div>
+<div class="paragraph data-line-365">
+<p>É importante ressaltar que esse caminho só é conhecido pelo nó da Alice. Todos os outros participantes na rota de pagamento enxergam apenas os nós adjacentes. Do ponto de vista da Carol, isso parece um pagamento do Bob para a Diana. A Carol não sabe que o Bob está na verdade retransmitindo um pagamento da Alice. Ela também não sabe que a Diana retransmitirá um pagamento ao Eric.</p>
+</div>
+<div class="paragraph data-line-367">
+<p>Esse é um recurso crucial da Lightning Network, pois ele garante a privacidade dos pagamentos e torna muito difícil a vigilância, a censura ou a criação de listas negras. Mas como a Alice estabelece esse caminho de pagamento, sem revelar nada aos nós intermediários?</p>
+</div>
+<div class="paragraph data-line-369">
+<p>A Lightning Network implementa um protocolo com roteamento em cebola baseado em um esquema chamado <a href="https://bit.ly/2q6ZDrP" data-href="https://bit.ly/2q6ZDrP">Sphinx</a>. Este protocolo de roteamento garante que um remetente de pagamento possa construir e comunicar um caminho através da Lightning Network de maneira que:</p>
+</div>
+<div class="ulist data-line-371">
+<ul>
+<li class="data-line-371">
+<p>Nós intermediários podem verificar e descriptografar sua parte das informações da rota e encontrar o próximo salto.</p>
+</li>
+<li class="data-line-373">
+<p>Com exceção do salto anterior e do salto seguinte, eles não podem descobrir nada sobre nenhum outro nó que faça parte do caminho.</p>
+</li>
+<li class="data-line-375">
+<p>Eles não podem identificar o comprimento do caminho de pagamento ou a posição deles próprios nesse caminho.</p>
+</li>
+<li class="data-line-377">
+<p>Cada parte do caminho é criptografada de forma que um invasor no nível da rede não possa associar os pacotes de diferentes partes do caminho uns com os outros.</p>
+</li>
+<li class="data-line-379">
+<p>Unlike Tor (an onion-routed anonymization protocol on the internet), there are no "exit nodes" that can be placed under surveillance. The payments do not need to be transmitted to the Bitcoin blockchain; the nodes just update channel balances.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph data-line-381">
+<p>Usando esse protocolo com roteamento em cebola, a Alice embrulha (envolve) cada elemento do caminho dentro de uma camada de encriptação, começando com o elemento final e trabalhando de trás para a frente. Ela criptografa uma mensagem para o Eric com a chave pública dele. Esta mensagem está embrulhada dentro de uma mensagem criptografada para a Diana, identificando o Eric como o próximo destinatário. A mensagem para a Diana está embrulhada dentro de uma mensagem criptografada para a chave pública da Carol, identificando a Diana como o próximo destinatário. A mensagem para a Carol está criptografada para a chave do Bob. Dessa maneira, a Alice construiu essa "cebola" criptografada composta por múltiplas camadas de mensagens. Ela envia essa "cebola" para o Bob, que só é capaz de descriptografar e desembrulhar a camada externa. Dentro dessa camada, o Bob encontra uma mensagem endereçada a Carol que ele pode encaminhar para ela, mas cujo conteúdo ele não consegue decifrar por conta própria. Percorrendo o caminho, a cada salto as mensagens são encaminhadas e a mensagem externa é descriptografada, sucessivamente, até chegarem ao Eric. Cada participante conhece apenas o nó anterior e o próximo nó em cada salto.</p>
+</div>
+<div class="paragraph data-line-383">
+<p>Cada elemento do caminho contém informações sobre o contrato HTLC que devem ser enviadas para o próximo salto, a quantidade que está sendo enviada, a taxa a ser incluída e a expiração (em blocos) do locktime do CLTV do contrato HTLC. À medida que as informações da rota se propagam, os nós fazem compromissos de HTLC para o próximo salto.</p>
+</div>
+<div class="paragraph data-line-385">
+<p>A essa altura, você deve estar se perguntando: como é possível que os nós não saibam o comprimento do caminho e a posição deles nesse caminho? Afinal, eles recebem uma mensagem e a encaminham para o próximo salto. O caminho a ser percorrido não vai ficando cada vez mais curto, permitindo que eles deduzam o comprimento do caminho e a sua posição? Para evitar isso, o caminho é sempre fixado em 20 saltos e preenchido com dados aleatórios. Cada nó enxerga apenas o próximo salto e uma mensagem criptografada de comprimento fixo para encaminhar. Apenas o destinatário final consegue enxergar que não há um próximo salto. Para todos os outros nós, sempre parece que há mais 20 saltos pela frente.</p>
+</div>
+</div>
+<div class="sect3 data-line-387">
+<h4 id="_benefícios_da_lightning_network">Benefícios da Lightning Network</h4>
+<div class="paragraph data-line-389">
+<p>A Lightning Network é uma tecnologia de roteamento de segunda camada. Ela pode ser aplicada a qualquer blockchain que ofereça suporte a alguns recursos básicos, como transações multiassinatura, timelocks e contratos inteligentes básicos.</p>
+</div>
+<div class="paragraph data-line-391">
+<p>If a Lightning Network is layered on top of the Bitcoin network, the Bitcoin network can gain a significant increase in capacity, privacy, granularity, and speed, without sacrificing the principles of trustless operation without intermediaries:</p>
+</div>
+<div class="dlist data-line-393">
+<dl>
+<dt class="hdlist1">Privacy</dt>
+<dd>
+<p>Lightning Network payments are much more private than payments on the Bitcoin blockchain, as they are not public. While participants in a route can see payments propagated across their channels, they do not know the sender or recipient.</p>
+</dd>
+<dt class="hdlist1">Fungibilidade</dt>
+<dd>
+<p>Uma Lightning Network torna muito mais difícil fazer vigilância e listas negras no bitcoin, aumentando a fungibilidade da moeda.</p>
+</dd>
+<dt class="hdlist1">Velocidade</dt>
+<dd>
+<p>As transações de bitcoin usando a Lightning Network são liquidadas em milissegundos, em vez de minutos, pois os contratos HTLCs são liquidados sem a necessidade de se incluir as transações em um bloco.</p>
+</dd>
+<dt class="hdlist1">Granularidade</dt>
+<dd>
+<p>Uma Lightning Network pode permitir pagamentos tão pequenos quanto o limite de "pó" do bitcoin, talvez até menores. Algumas propostas permitem incrementos de subsatoshis.</p>
+</dd>
+<dt class="hdlist1">Capacity</dt>
+<dd>
+<p>A Lightning Network increases the capacity of the Bitcoin system by several orders of magnitude. There is no practical upper bound to the number of payments per second that can be routed over a Lightning Network, as it depends only on the capacity and speed of each node.</p>
+</dd>
+<dt class="hdlist1">Trustless Operation</dt>
+<dd>
+<p>A Lightning Network uses bitcoin transactions between nodes that operate as peers without trusting each other. Thus, a Lightning Network preserves the principles of the Bitcoin system, while expanding its operating parameters significantly.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph data-line-405">
+<p>Obviamente, conforme mencionado anteriormente, o protocolo da Lightning Network não é a única forma de se implementar canais de pagamento roteados. Outros sistemas propostos incluem o Tumblebit e a Teechan. Neste momento, no entanto, a Lightning Network já foi implementada na testnet. Diversas equipes diferentes desenvolveram implementações concorrentes de LN e estão trabalhando em direção a um padrão de interoperabilidade comum (chamado BOLT). Provavelmente a Lightning Network será a primeira rede de canais de pagamento roteados a ser implementada em produção.</p>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-407">
+<h3 id="_conclusão">Conclusão</h3>
+<div class="paragraph data-line-409">
+<p>We have examined just a few of the emerging applications that can be built using the Bitcoin blockchain as a trust platform. These applications expand the scope of bitcoin beyond payments and beyond financial instruments, to encompass many other applications where trust is critical. By decentralizing the basis of trust, the Bitcoin blockchain is a platform that will spawn many revolutionary applications in a wide variety of industries.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-07-10 05:52:11 -0400
+</div>
+</div>
+</body>
+</html>

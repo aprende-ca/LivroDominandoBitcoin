@@ -1,0 +1,20 @@
+Junte-se à revolução tecnológica que está tomando conta do mundo financeiro. Dominando o Bitcoin é o seu guia através do mundo aparentemente complexo do bitcoin, fornecendo o conhecimento que você precisa para participar da internet do dinheiro. Esteja você criando o próximo aplicativo de sucesso, investindo em uma startup ou esteja simplesmente curioso sobre a tecnologia, esta segunda edição revisada e ampliada fornece os detalhes essenciais que você precisa para começar a se envolver com o bitcoin.
+
+O bitcoin, a primeira moeda digital descentralizada de sucesso, ainda está em seus estágios iniciais, mas já gerou uma economia global multibilionária que é aberta a qualquer pessoa que tenha conhecimento e motivação para participar. O livro Dominando o Bitcoin fornece o conhecimento. Agora basta você ter a motivação.
+
+A segunda edição inclui:
+
+* Uma ampla introdução ao bitcoin e à sua blockchain subjacente—ideal para usuários não técnicos, investidores e executivos de negócios
+* Uma explicação dos fundamentos técnicos do bitcoin e das criptomoedas para desenvolvedores, engenheiros e arquitetos de software e sistemas
+* Detalhes da rede descentralizada do bitcoin, da arquitetura par-a-par (_peer-to-peer_), do ciclo de vida da transação e dos princípios de segurança
+* Novos desenvolvimentos como a _Segregated Witness_, os Canais de Pagamento e a _Lightning Network_
+* Um mergulho profundo nas aplicações da blockchain, ensinando também como combinar os blocos fundamentais oferecidos por esta plataforma em aplicações de nível superior
+* Histórias de usuários, analogias, exemplos e fragmentos de código que ilustram os principais conceitos técnicos
+
+====
+O livro mais vendido, mais bem avaliado e mais recomendado sobre o funcionamento do Bitcoin. Usado para ensinar sobre Bitcoin e Blockchains nas melhores universidades e startups, bem como nas instituições financeiras que estão morrendo de medo do Bitcoin.
+
+"De longe, a melhor introdução técnica ao Bitcoin e às criptomoedas"
+====
+
+Este e-book é vendido e entregue em três formatos de e-book: PDF, EPUB e MOBI/Kindle, sem restrições de DRM, sob uma licença aberta CC-BY-SA.

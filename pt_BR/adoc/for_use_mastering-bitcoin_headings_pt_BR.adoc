@@ -1,0 +1,7 @@
+////
+Não traduza os :nomes das variáveis:
+Traduza o conteúdo que vem após as variáveis
+////
+:index_heading: Índice Remissivo
+:toc-title: Índice
+:table-caption: Tabela

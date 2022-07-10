@@ -1,0 +1,8 @@
+////
+Não traduza os :nomes das variáveis:
+Traduza o conteúdo que vem após as variáveis
+////
+:author: Andreas M. Antonopoulos
+:book_title: Dominando Bitcoin Segunda Edição Aberta
+:subtitle: Programando a Cadeia de Blocos Aberta
+:publisher: aantonop Books LLC

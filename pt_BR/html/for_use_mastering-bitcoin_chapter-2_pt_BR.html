@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.17">
+<title>Como Funciona o Bitcoin</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article data-line-1">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1 data-line-2">
+<h2 id="ch02_bitcoin_overview">Como Funciona o Bitcoin</h2>
+<div class="sectionbody">
+<div class="sect2 data-line-4">
+<h3 id="_transações_blocos_mineração_e_a_blockchain">Transações, Blocos, Mineração e a Blockchain</h3>
+<div class="paragraph data-line-6">
+<p>The Bitcoin system, unlike traditional banking and payment systems, is based on decentralized trust. Instead of a central trusted authority, in bitcoin, trust is achieved as an emergent property from the interactions of different participants in the Bitcoin system. In this chapter, we will examine bitcoin from a high level by tracking a single transaction through the Bitcoin system and watch as it becomes "trusted" and accepted by the bitcoin mechanism of distributed consensus and is finally recorded on the blockchain, the distributed ledger of all transactions. Subsequent chapters will delve into the technology behind transactions, the network, and mining.</p>
+</div>
+<div class="sect3 data-line-8">
+<h4 id="_visão_geral_do_bitcoin">Visão Geral do Bitcoin</h4>
+<div class="paragraph data-line-10">
+<p>In the overview diagram shown in <a href="#bitcoin-overview">Visão Geral do Bitcoin</a>, we see that the Bitcoin system consists of users with wallets containing keys, transactions that are propagated across the network, and miners who produce (through competitive computation) the consensus blockchain, which is the authoritative ledger of all transactions.</p>
+</div>
+<div class="paragraph data-line-13">
+<p>Each example in this chapter is based on an actual transaction made on the Bitcoin network, simulating the interactions between the users (Joe, Alice, Bob, and Gopesh) by sending funds from one wallet to another. While tracking a transaction through the Bitcoin network to the blockchain, we will use a <em>blockchain explorer</em> site to visualize each step. A blockchain explorer is a web application that operates as a bitcoin search engine, in that it allows you to search for addresses, transactions, and blocks and see the relationships and flows between them.</p>
+</div>
+<div id="bitcoin-overview" class="imageblock data-line-17">
+<div class="content">
+<img src="images/mbc2_0201.png" alt="Bitcoin Overview">
+</div>
+<div class="title">Figure 1. Visão Geral do Bitcoin</div>
+</div>
+<div class="paragraph data-line-19">
+<p>    Exploradores de blockchain populares incluem:</p>
+</div>
+<div class="ulist data-line-21">
+<ul>
+<li class="data-line-21">
+<p><a href="https://live.blockcypher.com" data-href="https://live.blockcypher.com">BlockCypher Explorer</a></p>
+</li>
+<li class="data-line-22">
+<p><a href="https://blockchain.com" data-href="https://blockchain.com">Blockchain.com</a></p>
+</li>
+<li class="data-line-23">
+<p><a href="https://insight.bitpay.com" data-href="https://insight.bitpay.com">BitPay Insight</a></p>
+</li>
+<li class="data-line-24">
+<p><a href="https://blockstream.info" data-href="https://blockstream.info">Blockstream Explorer</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph data-line-26">
+<p>Each of these has a search function that can take a Bitcoin address, transaction hash, block number, or block hash and retrieve corresponding information from the Bitcoin network. With each transaction or block example, we will provide a URL so you can look it up yourself and study it in detail.</p>
+</div>
+</div>
+<div class="sect3 data-line-30">
+<h4 id="cup_of_coffee">Comprando uma Xícara de Café</h4>
+<div class="paragraph data-line-32">
+<p>A Alice, apresentada no capítulo anterior, é uma nova usuária que acabou de adquirir seu primeiro bitcoin. Em <a href="#getting_first_bitcoin">[getting_first_bitcoin]</a>, Alice se encontrou com seu amigo Joe para trocar dinheiro em espécie por bitcoin. A transação criada pelo Joe transferiu 0,10 BTC para a carteira da Alice. Agora a Alice fará sua primeira transação em uma loja, comprando uma xícara de café na cafeteria do Bob em Palo Alto, na Califórnia.</p>
+</div>
+<div class="paragraph data-line-34">
+<p>A Cafeteria do Bob recentemente começou a aceitar pagamentos em bitcoin adicionando uma opção de bitcoin em seu sistema de ponto de venda. Os preços na Cafeteria do Bob são listados na moeda local (dólares americanos), mas, no caixa, os clientes têm a opção de pagar em dólares ou bitcoin. A Alice faz o pedido de uma xícara de café e o Bob o registra no caixa, como faz para todas as transações. O sistema do ponto de venda converte automaticamente o preço total de dólares americanos para bitcoin de acordo com a cotação atual no mercado e, a seguir, exibe o preço em ambas as moedas:</p>
+</div>
+<div class="listingblock data-line-36">
+<div class="content">
+<pre>Total:
+$1,50 USD
+0,015 BTC</pre>
+</div>
+</div>
+<div class="paragraph data-line-43">
+<p>Bob diz: "A conta deu 1,50 dólares, ou 15 milibits."</p>
+</div>
+<div class="paragraph data-line-45">
+<p>O sistema de ponto de venda do Bob também criará automaticamente um código QR contendo uma <em>solicitação de pagamento</em> (ver a <a href="#payment-request-QR">Código QR da solicitação de pagamento</a>).</p>
+</div>
+<div class="paragraph data-line-47">
+<p>Unlike a QR code that simply contains a destination Bitcoin address, a payment request is a QR-encoded URL that contains a destination address, a payment amount, and a generic description such as "Bob&#8217;s Cafe." This allows a bitcoin wallet application to prefill the information used to send the payment while showing a human-readable description to the user. You can scan the QR code with a bitcoin wallet application to see what Alice would see.</p>
+</div>
+<div id="payment-request-QR" class="imageblock data-line-52">
+<div class="content">
+<img src="images/mbc2_0202.png" alt="payment-request">
+</div>
+<div class="title">Figure 2. Código QR da solicitação de pagamento</div>
+</div>
+<div class="admonitionblock tip data-line-55">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-56">
+<p>Tente escanear esse código QR com a sua carteira para ver o endereço e a quantia, mas NÃO ENVIE DINHEIRO para esse endereço.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="payment-request-URL" class="listingblock data-line-60">
+<div class="title">O código QR da solicitação de pagamento codifica a seguinte URL, definida na BIP-21:</div>
+<div class="content">
+<pre>bitcoin:1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA?
+amount=0.015&amp;
+label=Bob%27s%20Cafe&amp;
+message=Purchase%20at%20Bob%27s%20Cafe
+
+Componentes da URL
+
+A Bitcoin address: "1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA"
+Valor do pagamento (amount): "0.015" (“0,015 BTC”)
+Um rótulo para o endereço do destinatário (label): "Bob's Cafe" (“Cafeteria do Bob”)
+Uma descrição para o pagamento (message): "Purchase at Bob's Cafe" (“Compra na Cafeteria do Bob”)</pre>
+</div>
+</div>
+<div class="paragraph data-line-74">
+<p>A Alice então usa o smartphone dela para escanear o código de barras sendo exibido na tela do Bob. Seu smartphone mostra um pagamento de 0,0150 BTC para a Cafeteria do Bob e ela toca no botão Enviar para autorizar o pagamento. Após alguns segundos (aproximadamente o mesmo tempo necessário para uma autorização de cartão de crédito), Bob vê a transação no caixa, completando a transação.</p>
+</div>
+<div class="paragraph data-line-76">
+<p>Nas seções a seguir, examinaremos essa transação em maiores detalhes. Veremos como a carteira da Alice a construiu, como ela foi propagada pela rede, como foi verificada e, finalmente, como o Bob pode gastar essa quantia recebida em transações futuras.</p>
+</div>
+<div class="admonitionblock note data-line-79">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-80">
+<p>The Bitcoin network can transact in fractional values, e.g., from millibitcoin (1/1000th of a bitcoin) down to 1/100,000,000th of a bitcoin, which is known as a satoshi.  Throughout this book, we’ll use the term “bitcoin” to refer to any quantity of bitcoin currency, from the smallest unit (1 satoshi) to the total number (21,000,000) of all bitcoin that will ever be mined.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-83">
+<p>Você pode examinar a transação da Alice para o Cafeteria do Bob na blockchain usando um site explorador de blocos (ver <a href="#view_alice_transaction">Veja a transação de Alice em https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5f thirtya57286c345c2f2[blockchain.com]</a>):</p>
+</div>
+<div id="view_alice_transaction" class="exampleblock data-line-87">
+<div class="title">Example 1. Veja a transação de Alice em <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5f" class="undefined" data-href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5f">https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5f</a> thirtya57286c345c2f2[blockchain.com]</div>
+<div class="content">
+<div class="listingblock data-line-88">
+<div class="content">
+<pre>https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-93">
+<h3 id="_transações_de_bitcoin">Transações de Bitcoin</h3>
+<div class="paragraph data-line-95">
+<p>Em termos simples, uma transação informa para a rede que o dono de uma quantidade de bitcoins autorizou a transferência de alguns destes bitcoins para outro dono. O novo dono agora pode gastar esses bitcoins ao criar uma nova transação que autoriza a transferência para um outro dono, e assim por diante, em uma cadeia de posse de bitcoins.</p>
+</div>
+<div class="sect3 data-line-97">
+<h4 id="_entradas_e_saídas_de_transação">Entradas e Saídas de Transação</h4>
+<div class="paragraph data-line-99">
+<p>As transações são como linhas em um livro de contabilidade de dupla entrada. Cada transação contém uma ou mais "entradas" (em inglês, <em>inputs</em>), que são como débitos em uma conta de bitcoin. Do outro lado da transação, há uma ou mais "saídas" (em inglês, <em>outputs</em>), que são como créditos adicionados a uma conta de bitcoin. As entradas e as saídas (os débitos e os créditos) não necessariamente somam o mesmo valor. Na verdade, as saídas somam um pouco menos do que as entradas, e essa diferença representa uma <em>taxa de transação</em> implícita, que é um pequeno pagamento cobrado pelo minerador que inclui a transação no registro contábil do bitcoin. Uma transação de bitcoin é mostrada como uma entrada em um livro de contabilidade em <a href="#transaction-double-entry">Transação como uma contabilidade de dupla entrada</a>.</p>
+</div>
+<div class="paragraph data-line-101">
+<p>The transaction also contains proof of ownership for each amount of bitcoin (inputs) whose value is being spent, in the form of a digital signature from the owner, which can be independently validated by anyone. In bitcoin terms, "spending" is signing a transaction that transfers value from a previous transaction over to a new owner identified by a Bitcoin address.</p>
+</div>
+<div id="transaction-double-entry" class="imageblock data-line-105">
+<div class="content">
+<img src="images/mbc2_0203.png" alt="Transaction Double-Entry">
+</div>
+<div class="title">Figure 3. Transação como uma contabilidade de dupla entrada</div>
+</div>
+</div>
+<div class="sect3 data-line-107">
+<h4 id="_cadeias_de_transações">Cadeias de Transações</h4>
+<div class="paragraph data-line-109">
+<p>Alice&#8217;s payment to Bob&#8217;s Cafe uses a previous transaction&#8217;s output as its input. In the previous chapter, Alice received bitcoin from her friend Joe in return for cash. That transaction created a bitcoin value locked by Alice&#8217;s key. Her new transaction to Bob&#8217;s Cafe references the previous transaction as an input and creates new outputs to pay for the cup of coffee and receive change. The transactions form a chain, where the inputs from the latest transaction correspond to outputs from previous transactions. Alice&#8217;s key provides the signature that unlocks those previous transaction outputs, thereby proving to the Bitcoin network that she owns the funds. She attaches the payment for coffee to Bob&#8217;s address, thereby "encumbering" that output with the requirement that Bob produces a signature in order to spend that amount. This represents a transfer of value between Alice and Bob. This chain of transactions, from Joe to Alice to Bob, is illustrated in <a href="#blockchain-mnemonic">Uma cadeia de transações, onde a saída de uma transação é a entrada da próxima transação</a>.</p>
+</div>
+<div id="blockchain-mnemonic" class="imageblock data-line-113">
+<div class="content">
+<img src="images/mbc2_0204.png" alt="Transaction chain">
+</div>
+<div class="title">Figure 4. Uma cadeia de transações, onde a saída de uma transação é a entrada da próxima transação</div>
+</div>
+</div>
+<div class="sect3 data-line-115">
+<h4 id="_criando_o_troco">Criando o Troco</h4>
+<div class="paragraph data-line-117">
+<p>Muitas transações de bitcoin incluirão saídas que fazem referência a um endereço do novo proprietário (quem recebe) e um endereço do proprietário atual (quem paga), chamado de endereço de <em>troco</em>. Isso ocorre porque as entradas de transação, assim como cédulas de uma moeda, não podem ser divididas. Se você compra um item de $5 dólares em uma loja, mas paga com uma nota de $20 dólares, você espera receber $15 dólares em troco. O mesmo conceito se aplica às entradas das transações do bitcoin. Se você comprasse um item que custa 5 bitcoins, mas só tivesse uma entrada de 20 bitcoins para usar, a sua carteira criaria uma transação única que enviaria duas saídas, uma saída de 5 bitcoins para o dono da loja e uma saída de 15 bitcoins de volta para você mesmo como troco (menos a taxa da transação). É importante ressaltar que o endereço de troco não precisa ser o mesmo endereço da entrada e, por motivos de privacidade, costuma ser um novo endereço da carteira do proprietário.</p>
+</div>
+<div class="paragraph data-line-119">
+<p>Carteiras diferentes podem usar estratégias diferentes ao agregar entradas para fazer um pagamento solicitado pelo usuário. Elas podem usar diversas entradas pequenas juntas ou usar uma única entrada que seja maior ou igual ao valor de pagamento desejado. A menos que a carteira consiga agregar algumas entradas de forma que a soma delas corresponda exatamente ao valor de pagamento desejado somado à taxa da transação, a carteira precisará gerar um troco. Isso é muito semelhante ao modo como as pessoas lidam com o dinheiro em espécie. Se você sempre usar a nota de maior valor na sua carteira, a sua carteira ficará sempre cheia de moedas. Se você usar apenas as moedas que recebeu como troco, a sua carteira terá apenas notas de maior valor. As pessoas inconscientemente encontram um equilíbrio entre esses dois extremos, e os desenvolvedores de carteiras de bitcoin se esforçam para programar esse equilíbrio.</p>
+</div>
+<div class="paragraph data-line-121">
+<p>In summary, <em>transactions</em> move value from <em>transaction inputs</em> to <em>transaction outputs</em>. An input is a reference to a previous transaction&#8217;s output, showing where the value is coming from. A transaction usually includes an output that directs a specific value to a new owner&#8217;s Bitcoin address and a change output back to the original owner. Outputs from one transaction can be used as inputs in a new transaction, thus creating a chain of ownership as the value is moved from owner to owner (see <a href="#blockchain-mnemonic">Uma cadeia de transações, onde a saída de uma transação é a entrada da próxima transação</a>).</p>
+</div>
+</div>
+<div class="sect3 data-line-123">
+<h4 id="_formas_comuns_de_transação">Formas Comuns de Transação</h4>
+<div class="paragraph data-line-125">
+<p>A forma mais comum de transação é um pagamento simples de um endereço para outro, que geralmente inclui algum "troco" devolvido ao proprietário original. Este tipo de transação tem uma entrada e duas saídas, e é mostrado na <a href="#transaction-common">A forma mais comum de transação</a>.</p>
+</div>
+<div id="transaction-common" class="imageblock data-line-129">
+<div class="content">
+<img src="images/mbc2_0205.png" alt="Common Transaction">
+</div>
+<div class="title">Figure 5. A forma mais comum de transação</div>
+</div>
+<div class="paragraph data-line-131">
+<p>Outra forma comum de transação é uma que agrega múltiplas entradas em uma única saída (ver <a href="#transaction-aggregating">Transação agregadora de fundos</a>). Isso seria o equivalente, na vida real, a trocar uma pilha de moedas e notas por uma nota de valor maior. As transações deste tipo às vezes são geradas pelos aplicativos de carteira com o objetivo de limpar vários valores pequenos que foram recebidos como troco em pagamentos anteriores.</p>
+</div>
+<div id="transaction-aggregating" class="imageblock data-line-135">
+<div class="content">
+<img src="images/mbc2_0206.png" alt="Aggregating Transaction">
+</div>
+<div class="title">Figure 6. Transação agregadora de fundos</div>
+</div>
+<div class="paragraph data-line-137">
+<p>Finalmente, outra forma de transação frequentemente observada no livro-razão do bitcoin é uma transação em lote, que distribui uma única entrada para várias saídas, que representam vários destinatários, uma técnica conhecida como "agrupamento de transações", em inglês, "<em>transaction batching</em>" (ver <a href="#transaction-distributing">Transação distribuidora de fundos</a>). Como este tipo de transação é útil para economizar com taxas de transação, ele é comumente usado por entidades comerciais para distribuir fundos, como, por exemplo, quando uma empresa processa as folhas de pagamento para múltiplos funcionários, ou quando uma exchange de bitcoin processa os saques de múltiplos clientes em uma única transação.</p>
+</div>
+<div id="transaction-distributing" class="imageblock data-line-141">
+<div class="content">
+<img src="images/mbc2_0207.png" alt="Distributing Transaction">
+</div>
+<div class="title">Figure 7. Transação distribuidora de fundos</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-143">
+<h3 id="_construindo_uma_transação">Construindo uma Transação</h3>
+<div class="paragraph data-line-145">
+<p>Alice&#8217;s wallet application contains all the logic for selecting appropriate inputs and outputs to build a transaction to Alice&#8217;s specification. Alice only needs to specify a destination and an amount, and the rest happens in the wallet application without her seeing the details. Importantly, a wallet application can construct transactions even if it is completely offline. Like writing a check at home and later sending it to the bank in an envelope, the transaction does not need to be constructed and signed while connected to the Bitcoin network.</p>
+</div>
+<div class="sect3 data-line-147">
+<h4 id="_obtendo_as_entradas_certas">Obtendo as Entradas Certas</h4>
+<div class="paragraph data-line-149">
+<p>O aplicativo de carteira da Alice terá primeiro que encontrar entradas que somem um valor suficiente para pagar a quantia que ela deseja enviar ao Bob. A maioria das carteiras mantém um registro de todas as saídas disponíveis pertencentes aos endereços na carteira. Portanto, a carteira da Alice contém uma cópia da saída da transação do Joe, que foi criada em troca pelo dinheiro em espécie (ver "&lt;getting_first_bitcoin&gt;"). Um aplicativo de carteira de bitcoin que é executado como um cliente de nó completo contém uma cópia de todas as saídas não gastas de todas as transações registradas na blockchain. Isso permite que uma carteira construa entradas de transação, bem como verifique rapidamente as transações que ela recebe, verificando se elas têm entradas corretas. No entanto, como um cliente de nó completo ocupa muito espaço em disco, a maioria das carteiras de usuários executa clientes "leves", que mantêm um registro apenas das saídas não gastas do próprio usuário.</p>
+</div>
+<div class="paragraph data-line-151">
+<p>If the wallet application does not maintain a copy of unspent transaction outputs, it can query the Bitcoin network to retrieve this information using a variety of APIs available by different providers or by asking a full-node using an application programming interface (API) call. <a href="#example_2-2">Look up all the unspent outputs for Alice&#8217;s Bitcoin address</a> shows an API request, constructed as an HTTP GET command to a specific URL. This URL will return all the unspent transaction outputs for an address, giving any application the information it needs to construct transaction inputs for spending. We use the simple command-line HTTP client <em>cURL</em> to retrieve the response.</p>
+</div>
+<div id="example_2-2" class="exampleblock data-line-155">
+<div class="title">Example 2. Look up all the unspent outputs for Alice&#8217;s Bitcoin address</div>
+<div class="content">
+<div class="listingblock data-line-157">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ curl https://blockchain.info/unspent?active=1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="listingblock data-line-163">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+
+	"unspent_outputs":[
+
+		{
+			"tx_hash":"186f9f998a5...2836dd734d2804fe65fa35779",
+			"tx_index":104810202,
+			"tx_output_n": 0,
+			"script":"76a9147f9b1a7fb68d60c536c2fd8aeaa53a8f3cc025a888ac",
+			"value": 10000000,
+			"value_hex": "00989680",
+			"confirmations":0
+		}
+
+	]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph data-line-183">
+<p>A resposta no <a href="#example_2-2">Look up all the unspent outputs for Alice&#8217;s Bitcoin address</a> mostra uma saída não gasta (uma que ainda não foi resgatada) sob a posse do endereço 1Cdid9KFAaatwczBwBttQcwXYCpvK8h7FK da Alice. A resposta inclui uma referência à transação na qual esse valor não gasto está contido (o pagamento do Joe) e seu valor em satoshis, 10 milhões, equivalente a 0,10 bitcoin. Com essa informação, o aplicativo de carteira da Alice pode construir uma transação para transferir esse valor para endereços de novos proprietários.</p>
+</div>
+<div class="admonitionblock tip data-line-186">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-187">
+<p>Veja a <a href="https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18" data-href="https://www.blockchain.com/btc/tx/7957a35fe64f80d234d76d83a2a8f1a0d8149a41d81de548f0a65a8a999f6f18">transação do Joe para a Alice</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-190">
+<p>Como você pode ver, a carteira da Alice contém em uma única saída não gasta uma quantidade de bitcoins suficiente para pagar a xícara de café. Caso não contivesse, o aplicativo de carteira da Alice teria que "vasculhar" várias outras saídas não gastas de menor valor, como se estivesse procurando moedas em uma carteira até encontrar a quantia suficiente para pagar o café. Em ambos os casos, quando o aplicativo de carteira cria as saídas da transação (os pagamentos), pode haver a necessidade de se receber algum troco de volta, conforme veremos na próxima sessão.</p>
+</div>
+</div>
+<div class="sect3 data-line-193">
+<h4 id="_criando_as_saídas">Criando as Saídas</h4>
+<div class="paragraph data-line-195">
+<p>Uma saída de transação é criada na forma de um script que coloca uma trava no valor, o qual só pode ser resgatado se uma solução for apresentada ao script. Em termos mais simples, a saída da transação da Alice conterá um script que diz algo como: "Esta saída é resgatável por qualquer pessoa que puder apresentar uma assinatura que tenha sido gerada a partir da chave correspondente ao endereço do Bob". Como apenas o Bob possui a carteira com as chaves correspondentes a esse endereço, apenas a carteira do Bob será capaz de apresentar a assinatura que é necessária para resgatar essa saída. Portanto, ao exigir uma assinatura do Bob, a Alice está "travando" o valor da saída para que ele só possa ser gasto pelo Bob.</p>
+</div>
+<div class="paragraph data-line-197">
+<p>Essa transação também incluirá uma segunda saída, pois os fundos da Alice estão contidos em uma única saída de 0,10 BTC, que é dinheiro demais para uma simples xícara de café de 0,015 BTC. A Alice precisará de 0,085 BTC de troco. Para receber o troco, a carteira da Alice cria uma saída de troco na mesma transação que fará o pagamento para o Bob. Essencialmente, a carteira da Alice divide seus fundos em dois pagamentos: um para o Bob e outro de volta para ela mesma. Dessa maneira a Alice pode então usar (gastar) a saída do troco em uma transação no futuro.</p>
+</div>
+<div class="paragraph data-line-199">
+<p>Finalmente, para que a transação seja processada pela rede em tempo hábil, o aplicativo de carteira da Alice adicionará uma pequena taxa. Esta taxa não está explícita na transação, ela está implícita na diferença de valor existente entre as entradas e as saídas. Se, ao invés de criar uma saída de troco de 0,085 BTC, a Alice criar uma saída com apenas 0,0845 BTC, sobrará 0,0005 BTC (meio milibitcoin). A entrada de 0,10 BTC não será totalmente gasta pelas duas saídas, pois elas somam menos de 0,10 BTC. A diferença resultante é a <em>taxa da transação</em>, que é coletada pelo minerador como um pagamento por validar e incluir a transação em um bloco a ser registrado na blockchain.</p>
+</div>
+<div class="paragraph data-line-201">
+<p>A transação resultante pode ser vista usando um aplicativo web explorador de blockchain, como visto na <a href="#transaction-alice">Transação da Alice para a Cafeteria do Bob</a>.</p>
+</div>
+<div id="transaction-alice" class="imageblock smallerseventyfive data-line-206">
+<div class="content">
+<img src="images/mbc2_0208.png" alt="Alice Coffee Transaction">
+</div>
+<div class="title">Figure 8. Transação da Alice para a Cafeteria do Bob</div>
+</div>
+<div id="transaction-alice-url" class="admonitionblock tip data-line-210">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-211">
+<p>Veja a <a href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2" data-href="https://www.blockchain.com/btc/tx/0627052b6f28912f2703066a912ea577f2ce4da4caa5a5fbd8a57286c345c2f2">transação da Alice para a Cafeteria do Bob</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3 data-line-214">
+<h4 id="_adicionando_uma_transação_ao_registro">Adicionando uma Transação ao Registro</h4>
+<div class="paragraph data-line-216">
+<p>The transaction created by Alice&#8217;s wallet application is 258 bytes long and contains everything necessary to confirm ownership of the funds and assign new owners. Now, the transaction must be transmitted to the Bitcoin network where it will become part of the blockchain. In the next section we will see how a transaction becomes part of a new block and how the block is "mined." Finally, we will see how the new block, once added to the blockchain, is increasingly trusted by the network as more blocks are added.</p>
+</div>
+<div class="sect4 data-line-218">
+<h5 id="_transmitindo_a_transação">Transmitindo a transação</h5>
+<div class="paragraph data-line-220">
+<p>Because the transaction contains all the information necessary to process, it does not matter how or where it is transmitted to the Bitcoin network. The Bitcoin network is a peer-to-peer network, with each Bitcoin client participating by connecting to several other Bitcoin clients. The purpose of the Bitcoin network is to propagate transactions and blocks to all participants.</p>
+</div>
+</div>
+<div class="sect4 data-line-222">
+<h5 id="_como_ela_se_propaga">Como ela se propaga</h5>
+<div class="paragraph data-line-224">
+<p>Any system, such as a server, desktop application, or wallet, that participates in the Bitcoin network by "speaking" the Bitcoin protocol is called a <em>Bitcoin node</em>. Alice&#8217;s wallet application can send the new transaction to any Bitcoin node it is connected to over any type of connection: wired, WiFi, mobile, etc.  Her bitcoin wallet does not have to be connected to Bob&#8217;s bitcoin wallet directly and she does not have to use the internet connection offered by the cafe, though both those options are possible, too. Any Bitcoin node that receives a valid transaction it has not seen before will immediately forward it to all other nodes to which it is connected, a propagation technique known as <em>flooding</em>. Thus, the transaction rapidly propagates out across the peer-to-peer network, reaching a large percentage of the nodes within a few seconds.</p>
+</div>
+</div>
+<div class="sect4 data-line-226">
+<h5 id="_a_visão_do_bob">A visão do Bob</h5>
+<div class="paragraph data-line-228">
+<p>Se o aplicativo de carteira do Bob estiver diretamente conectado ao aplicativo de carteira da Alice, ele pode ser o primeiro nó a receber a transação. Entretanto, mesmo que a carteira da Alice envie a transação através de outros nós, a transação chegará à carteira do Bob dentro de pouco segundos. A carteira do Bob identificará imediatamente a transação da Alice como um pagamento, pois ela contém saídas que são resgatáveis pelas chaves do Bob. A carteira do Bob também pode verificar independentemente que a transação é bem formada, utiliza saídas que ainda não foram gastas e contém uma taxa de transação suficiente para ser incluída no próximo bloco. Neste momento o Bob pode presumir, com um alto grau de probabilidade, que a transação em breve será incluída em um bloco (será confirmada).</p>
+</div>
+<div class="admonitionblock tip data-line-231">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-232">
+<p>Uma ideia erroneamente difundida é a de que para serem "confirmadas", as transações de bitcoin exigem uma espera de 10 minutos por um novo bloco, ou de até 60 minutos por seis confirmações. Embora essas confirmações realmente sejam uma garantia de que a transação foi aceita por toda a rede, não é necessário esperar todo esse tempo para transações envolvendo itens de pequeno valor, como uma xícara de café. Um comerciante pode aceitar uma transação de pequeno valor ainda sem confirmações, correndo um risco semelhante ao que correria ao receber um pagamento com cartão de crédito sem assinatura ou identificação do cliente, algo que é rotineiramente feito pelos comerciantes hoje em dia.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 data-line-235">
+<h3 id="_mineração_do_bitcoin">Mineração do Bitcoin</h3>
+<div class="paragraph data-line-237">
+<p>Alice&#8217;s transaction is now propagated on the Bitcoin network. It does not become part of the <em>blockchain</em> until it is verified and included in a block by a process called <em>mining</em>. See <a href="#mining">[mining]</a> for a detailed explanation.</p>
+</div>
+<div class="paragraph data-line-239">
+<p>The Bitcoin system of trust is based on computation. Transactions are bundled into <em>blocks</em>, which require an enormous amount of computation to prove, but only a small amount of computation to verify as proven. The mining process serves two purposes in bitcoin:</p>
+</div>
+<div class="ulist data-line-241">
+<ul>
+<li class="data-line-241">
+<p>Os nós de mineração validam todas as transações de acordo com as <em>regras de consenso</em> do bitcoin. Portanto, ao rejeitar transações inválidas ou malformadas, a mineração fornece segurança para as transações do bitcoin.</p>
+</li>
+<li class="data-line-242">
+<p>A mineração cria novos bitcoins em cada bloco, quase como se fosse um banco central imprimindo dinheiro novo. A quantidade de bitcoins criados por bloco é limitada e diminui com o tempo, seguindo um cronograma de emissão fixo.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph data-line-245">
+<p>A mineração atinge um equilíbrio preciso entre o custo e a recompensa. A mineração usa a eletricidade para resolver um problema matemático. Um minerador bem-sucedido receberá uma <em>recompensa</em> na forma de novos bitcoins e taxas de transação. No entanto, a recompensa só será recolhida se o minerador tiver validado corretamente todas as transações, de acordo com as regras do <em>consenso</em>. Este delicado equilíbrio fornece segurança para o bitcoin, dispensando a necessidade de uma autoridade central.</p>
+</div>
+<div class="paragraph data-line-247">
+<p>Uma boa maneira de descrever a mineração é como um jogo de sudoku gigantesco e competitivo, que reinicia cada vez que alguém encontra uma solução e cuja dificuldade se ajusta automaticamente, de maneira que leve cerca de 10 minutos para que uma solução seja encontrada. Imagine um sudoku gigantesco, com milhares de colunas e linhas. Se eu mostrar para você um sudoku completamente preenchido, você pode verificar rapidamente que ele está corretamente preenchido. No entanto, se o sudoku tiver apenas alguns quadrados preenchidos e o resto estiver vazio, isso exigirá muito trabalho para resolvê-lo! A dificuldade do sudoku pode ser ajustada ao mudar o seu tamanho (mais ou menos linhas ou colunas), mas o sudoku ainda pode ser verificado de maneira rápida, mesmo que ele seja muito grande. O "quebra-cabeças" usado no bitcoin é baseado em um hash criptográfico, que exibe características semelhantes: ele é assimetricamente difícil de resolver, mas fácil de verificar, e sua dificuldade pode ser ajustada.</p>
+</div>
+<div class="paragraph data-line-249">
+<p>In <a href="#user-stories">[user-stories]</a>, we introduced Jing, an entrepreneur in Shanghai. Jing runs a <em>mining farm</em>, which is a business that runs thousands of specialized mining computers, competing for the reward. Every 10 minutes or so, Jing&#8217;s mining computers compete against thousands of similar systems in a global race to find a solution to a block of transactions. Finding such a solution, the so-called <em>Proof-of-Work</em> (PoW), requires quadrillions of hashing operations per second across the entire Bitcoin network. The algorithm for Proof-of-Work involves repeatedly hashing the header of the block and a random number with the SHA256 cryptographic algorithm until a solution matching a predetermined pattern emerges. The first miner to find such a solution wins the round of competition and publishes that block into the blockchain.</p>
+</div>
+<div class="paragraph data-line-251">
+<p>Jing started mining in 2010 using a very fast desktop computer to find a suitable Proof-of-Work for new blocks. As more miners started joining the Bitcoin network, the difficulty of the problem increased rapidly. Soon, Jing and other miners upgraded to more specialized hardware, with high-end dedicated graphical processing units (GPUs), often used in gaming desktops or consoles. At the time of this writing, the difficulty is so high that it is profitable only to mine with application-specific integrated circuits (ASIC), essentially hundreds of mining algorithms printed in hardware, running in parallel on a single silicon chip. Jing&#8217;s company also participates in a <em>mining pool</em>, which much like a lottery pool allows several participants to share their efforts and rewards. Jing&#8217;s company now runs a warehouse containing thousands of  ASIC miners to mine for bitcoin 24 hours a day. The company pays its electricity costs by selling the bitcoin it is able to generate from mining, creating some income from the profits.</p>
+</div>
+</div>
+<div class="sect2 data-line-253">
+<h3 id="_minerando_transações_em_blocos">Minerando Transações em Blocos</h3>
+<div class="paragraph data-line-255">
+<p>New transactions are constantly flowing into the network from user wallets and other applications. As these are seen by the Bitcoin network nodes, they get added to a temporary pool of unverified transactions maintained by each node. As miners construct a new block, they add unverified transactions from this pool to the new block and then attempt to prove the validity of that new block, with the mining algorithm (Proof-of-Work). The process of mining is explained in detail in <a href="#mining">[mining]</a>.</p>
+</div>
+<div class="paragraph data-line-257">
+<p>Transactions are added to the new block, prioritized by the highest-fee transactions first and a few other criteria. Each miner starts the process of mining a new block of transactions as soon as they receive the previous block from the network, knowing they have lost that previous round of competition. They immediately create a new block, fill it with transactions and the fingerprint of the previous block, and start calculating the Proof-of-Work for the new block. Each miner includes a special transaction in their block, one that pays their own Bitcoin address the block reward (currently 6.25 newly created bitcoin) plus the sum of transaction fees from all the transactions included in the block. If they find a solution that makes that block valid, they "win" this reward because their successful block is added to the global blockchain and the reward transaction they included becomes spendable. Jing, who participates in a mining pool, has set up his software to create new blocks that assign the reward to a pool address. From there, a share of the reward is distributed to Jing and other miners in proportion to the amount of work they contributed in the last round.</p>
+</div>
+<div class="paragraph data-line-259">
+<p>A transação da Alice foi captada pela rede e incluída na <em>pool</em> de transações não verificadas. Depois de validada pelo software de mineração, ela foi incluída em um novo bloco, denominado <em>bloco candidato</em>, gerado pela <em>pool</em> de mineração do Jing. Todos os mineradores que participam dessa <em>pool</em> de mineração começam imediatamente a calcular a Prova-de-Trabalho para o bloco candidato. Aproximadamente cinco minutos depois que a transação foi transmitida pela primeira vez pela carteira da Alice, um dos equipamentos de mineração ASIC do Jing encontrou uma solução para o bloco candidato e a anunciou para a rede. Assim que outros mineradores validaram o bloco vencedor, eles começaram a corrida para gerar o próximo bloco.</p>
+</div>
+<div class="paragraph data-line-261">
+<p>O bloco vencedor do Jing tornou-se parte da <em>blockchain</em> como bloco nº277316, contendo 419 transações, incluindo a transação da Alice. O bloco que contém a transação da Alice é contado como sendo uma "confirmação" dessa transação.</p>
+</div>
+<div class="admonitionblock tip data-line-264">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Tip</div>
+</td>
+<td class="content">
+<div class="paragraph data-line-265">
+<p>Você pode ver o bloco que inclui <a href="https://www.blockchain.com/btc/block/277316" data-href="https://www.blockchain.com/btc/block/277316">Alice&#39;s transaction</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph data-line-268">
+<p>Aproximadamente 20 minutos mais tarde, um novo bloco, nº277317, é minerado por outro minerador. Como esse novo bloco foi construído sobre o bloco nº277316 que continha a transação da Alice, ele adicionou ainda mais computação à blockchain, fortalecendo assim a confiança nessas transações. Cada bloco minerado acima do bloco contendo a transação da Alice conta como uma confirmação adicional para a transação da Alice. À medida que os blocos se empilham uns sobre os outros, torna-se exponencialmente mais difícil de se reverter a transação, tornando-a cada vez mais confiável para a rede.</p>
+</div>
+<div class="paragraph data-line-270">
+<p>No diagrama da <a href="#block-alice1">Transação da Alice incluída no bloco nº277316</a>, podemos ver o bloco nº277316, que contém a transação da Alice. Abaixo dele estão 277.316 blocos (incluindo o bloco nº0), ligados uns aos outros em uma cadeia de blocos (<em>blockchain</em>) até chegar ao bloco nº0, também conhecido como <em>bloco gênese</em>. Ao longo do tempo, à medida que a "altura" da pilha de blocos aumenta, também aumenta a dificuldade computacional de cada bloco e da cadeia como um todo. Os blocos minerados após aquele que contém a transação da Alice atuam como garantia adicional, pois acumulam mais computação em uma cadeia cada vez mais longa. Por convenção, qualquer bloco com mais de seis confirmações é considerado irrevogável, pois seria necessária uma quantidade imensa de computação para recalcular seis blocos, e, com isso, invalidá-los. No <a href="#mining">[mining]</a>, examinaremos em maiores detalhes o processo de mineração e a maneira como ele constrói confiança.</p>
+</div>
+<div id="block-alice1" class="imageblock data-line-274">
+<div class="content">
+<img src="images/mbc2_0209.png" alt="Alice&#8217;s transaction included in a block">
+</div>
+<div class="title">Figure 9. Transação da Alice incluída no bloco nº277316</div>
+</div>
+</div>
+<div class="sect2 data-line-276">
+<h3 id="_gastando_a_transação">Gastando a Transação</h3>
+<div class="paragraph data-line-278">
+<p>Now that Alice&#8217;s transaction has been embedded in the blockchain as part of a block, it is part of the distributed ledger of bitcoin and visible to all bitcoin applications. Each Bitcoin client can independently verify the transaction as valid and spendable. Full-node clients can track the source of the funds from the moment the bitcoin were first generated in a block, incrementally from transaction to transaction, until they reach Bob&#8217;s address. Lightweight clients can do what is called a simplified payment verification (see <a href="#spv_nodes">[spv_nodes]</a>) by confirming that the transaction is in the blockchain and has several blocks mined after it, thus providing assurance that the miners accepted it as valid.</p>
+</div>
+<div class="paragraph data-line-280">
+<p>Agora o Bob pode gastar a saída dessa e de outras transações. Por exemplo, o Bob pode pagar um contratante ou fornecedor transferindo o valor do pagamento da xícara de café da Alice. Mais provavelmente, o software de bitcoin do Bob agregará vários pequenos pagamentos em um pagamento maior, talvez concentrando em uma única transação todos os pagamentos em bitcoin que a loja recebeu em um dia. Isso agregaria os vários pagamentos em uma única saída (e um único endereço). Na <a href="#transaction-aggregating">Transação agregadora de fundos</a>, você pode ver um diagrama de uma transação de agregação.</p>
+</div>
+<div class="paragraph data-line-282">
+<p>À medida que o Bob gasta os pagamentos que recebeu da Alice e de outros clientes, ele estende a cadeia de transações. Vamos supor que o Bob tenha feito um pagamento para que seu webdesigner Gopesh em Bangalore desenvolva um novo site. Agora, a cadeia de transações ficará parecida com a exibida na <a href="#block-alice2">A transação da Alice como parte de uma cadeia de transações partindo do Joe até chegar ao Gopesh, onde a saída de uma transação é gasta como a entrada da próxima transação</a>.</p>
+</div>
+<div id="block-alice2" class="imageblock data-line-286">
+<div class="content">
+<img src="images/mbc2_0210.png" alt="Alice&#8217;s transaction as part of a transaction chain">
+</div>
+<div class="title">Figure 10. A transação da Alice como parte de uma cadeia de transações partindo do Joe até chegar ao Gopesh, onde a saída de uma transação é gasta como a entrada da próxima transação</div>
+</div>
+<div class="paragraph data-line-288">
+<p>In this chapter, we saw how transactions build a chain that moves value from owner to owner. We also tracked Alice&#8217;s transaction, from the moment it was created in her wallet, through the Bitcoin network and to the miners who recorded it on the blockchain. In the rest of this book, we will examine the specific technologies behind wallets, addresses, signatures, transactions, the network, and finally mining. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-07-10 05:52:20 -0400
+</div>
+</div>
+</body>
+</html>
